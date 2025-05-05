@@ -17,5 +17,6 @@ require("lazy").setup({
   require('plugins.gruvbox'),
   require('plugins.lualine'),
   require('plugins.telescope'),
+  require('plugins.lspconfig'),
 })
 
