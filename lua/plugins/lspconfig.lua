@@ -13,6 +13,7 @@ return {
     local cmp = require('cmp')
     local luasnip = require('luasnip')
 
+
     -- Configuration de Mason
     require('mason').setup()
     require('mason-lspconfig').setup({
