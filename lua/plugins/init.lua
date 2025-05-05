@@ -18,6 +18,7 @@ require("lazy").setup({
   require('plugins.lualine'),
   require('plugins.telescope'),
   require('plugins.lspconfig'),
+  require('plugins.copilot'),
 --  require('plugins.null-ls'),
 })
 
