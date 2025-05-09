@@ -21,3 +21,19 @@ vim.opt.relativenumber = true
 -- Touche leader
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
+-- Désactiver le son de la touche "backspace"
+vim.opt.backspace = 'indent,eol,start'
+
+-- Activer le mode "wrap" pour le texte long
+vim.opt.wrap = true
+
+-- Yank to clipboard
+vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>Y", '"+Y')
+
+-- Paste from clipboard
+vim.keymap.set("n", "<leader>p", '"+p')
+vim.keymap.set("v", "<leader>p", '"+p')
+
