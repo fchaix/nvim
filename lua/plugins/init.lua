@@ -19,6 +19,8 @@ require("lazy").setup({
   require('plugins.telescope'),
   require('plugins.lspconfig'),
   require('plugins.copilot'),
+  require('plugins.oil'),
+  require('plugins.toggleterm'),
 --  require('plugins.null-ls'),
 })
 

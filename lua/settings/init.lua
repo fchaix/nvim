@@ -1,3 +1,4 @@
+
 -- Activer la coloration syntaxique
 vim.cmd('syntax enable')
 
@@ -36,4 +37,5 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 -- Paste from clipboard
 vim.keymap.set("n", "<leader>p", '"+p')
 vim.keymap.set("v", "<leader>p", '"+p')
+
 
