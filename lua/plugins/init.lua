@@ -21,6 +21,6 @@ require("lazy").setup({
   require('plugins.copilot'),
   require('plugins.oil'),
   require('plugins.toggleterm'),
---  require('plugins.null-ls'),
+  require('plugins.rainbow-delimiters'),
+  require('plugins.treesitter'),
 })
-
