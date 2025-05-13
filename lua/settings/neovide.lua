@@ -6,7 +6,7 @@ end
 vim.opt.guifont = "Agave Nerd Font:h12" -- Set your preferred font and size
 
 -- Zooming in and out
-vim.api.nvim_set_keymap("n", "<C-+>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<C-=>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<C-0>", ":lua vim.g.neovide_scale_factor = 1<CR>", { silent = true })
 
@@ -16,7 +16,7 @@ vim.g.neovide_cursor_animation_length = 0.08
 vim.g.neovide_cursor_trail_length = 0.1
 
 -- Transparency
-vim.g.neovide_transparency = 0.9
+vim.g.neovide_transparency = 1
 vim.g.transparency = 0.8 -- if you use it for custom themes
 
 -- Scroll animation
