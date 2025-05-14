@@ -23,4 +23,5 @@ require("lazy").setup({
   require('plugins.toggleterm'),
   require('plugins.rainbow-delimiters'),
   require('plugins.treesitter'),
+  require('plugins.firenvim'),
 })
