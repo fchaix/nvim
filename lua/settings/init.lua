@@ -1,3 +1,4 @@
+require('settings.neovide')
 
 -- Activer la coloration syntaxique
 vim.cmd('syntax enable')
@@ -47,3 +48,17 @@ vim.cmd [[
   highlight RainbowDelimiterViolet guifg=#bd93f9
   highlight RainbowDelimiterCyan guifg=#8be9fd
 ]]
+
+
+-- Fonction pour recentrer le curseur sauf si on est proche du début du fichier
+vim.api.nvim_create_autocmd("CursorMoved", {
+
+  callback = function()
+    local line = vim.fn.line(".")
+    if line > 10 then  -- ne recentre pas si on est dans les 10 premières lignes
+      vim.cmd("normal! zz")
+
+    end
+  end,
+})
+

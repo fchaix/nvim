@@ -16,7 +16,7 @@ vim.g.neovide_cursor_animation_length = 0.08
 vim.g.neovide_cursor_trail_length = 0.1
 
 -- Transparency
-vim.g.neovide_transparency = 1
+vim.g.neovide_opacity= 1
 vim.g.transparency = 0.8 -- if you use it for custom themes
 
 -- Scroll animation
