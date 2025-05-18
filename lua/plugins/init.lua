@@ -27,4 +27,5 @@ require("lazy").setup({
   require('plugins.yazi'),
   require('plugins.flash'),
   require('plugins.colorizer'),
+  require('plugins.alpha'),
 })
