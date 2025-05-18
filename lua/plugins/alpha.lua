@@ -5,14 +5,18 @@ return {
     local alpha = require("alpha")
     local dashboard = require("alpha.themes.dashboard")
 
-    -- ASCII Art (tu peux le personnaliser)
+    -- ASCII Art (source https://github.com/MaximilianLloyd/ascii.nvim/blob/master/lua/ascii/text/neovim.lua) 
     dashboard.section.header.val = {
-       -- https://www.patorjk.com/software/taag/#p=display&f=Ogre&t=Text
-[[ _____          _  ]], 
-[[/__   \_____  _| |_ ]],
-[[  / /\/ _ \ \/ / __|]],
-[[ / / |  __/>  <| |_ ]],
-[[ \/   \___/_/\_\\__|]],
+	[[                                                                       ]],
+	[[  ██████   █████                   █████   █████  ███                  ]],
+	[[ ░░██████ ░░███                   ░░███   ░░███  ░░░                   ]],
+	[[  ░███░███ ░███   ██████   ██████  ░███    ░███  ████  █████████████   ]],
+	[[  ░███░░███░███  ███░░███ ███░░███ ░███    ░███ ░░███ ░░███░░███░░███  ]],
+	[[  ░███ ░░██████ ░███████ ░███ ░███ ░░███   ███   ░███  ░███ ░███ ░███  ]],
+	[[  ░███  ░░█████ ░███░░░  ░███ ░███  ░░░█████░    ░███  ░███ ░███ ░███  ]],
+	[[  █████  ░░█████░░██████ ░░██████     ░░███      █████ █████░███ █████ ]],
+	[[ ░░░░░    ░░░░░  ░░░░░░   ░░░░░░       ░░░      ░░░░░ ░░░░░ ░░░ ░░░░░  ]],
+	[[                                                                       ]],           
     }
 
     -- Boutons personnalisés
@@ -24,8 +28,12 @@ return {
     }
 
     -- Message en bas
-    dashboard.section.footer.val = "Bienvenue sur Neovim ( ͡• ͜ʖ ͡•)"
-
+    -- source : https://www.patorjk.com/software/taag/#p=display&f=Tmplr
+    dashboard.section.footer.val = {
+[[┏ ┳┓┏┳┓┓ ┏ ┓]],
+[[┃ ┣┫ ┃ ┃┃┃ ┃]],
+[[┗ ┻┛ ┻ ┗┻┛ ┛]],
+}
     alpha.setup(dashboard.opts)
   end,
 }
