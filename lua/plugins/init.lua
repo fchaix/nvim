@@ -25,4 +25,6 @@ require("lazy").setup({
   require('plugins.treesitter'),
   require('plugins.firenvim'),
   require('plugins.yazi'),
+  require('plugins.flash'),
+  require('plugins.colorizer'),
 })
