@@ -13,10 +13,23 @@ return {
             ["<esc>"] = actions.close
           },
         },
+        layout_config = {
+          horizontal = {
+            width = 0.90,
+            height = 0.85,
+            preview_width = 0.7,
+          },
+          vertical = {
+            width = 0.95,
+            height = 0.75,
+            preview_height = 0.9,
+          },
+        },
       },
+
       pickers = {
         find_files = {
-          theme = "ivy",
+          theme = "dropdown",
         }
       },
       extensions = {

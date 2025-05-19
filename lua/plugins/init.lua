@@ -30,4 +30,5 @@ require("lazy").setup({
   require('plugins.alpha'),
   require('plugins.harpoon'),
   require('plugins.dadbod'),
+  require('plugins.ufo'),
 })
