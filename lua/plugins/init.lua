@@ -28,4 +28,5 @@ require("lazy").setup({
   require('plugins.flash'),
   require('plugins.colorizer'),
   require('plugins.alpha'),
+  require('plugins.harpoon'),
 })
