@@ -62,3 +62,9 @@ vim.api.nvim_create_autocmd("CursorMoved", {
   end,
 })
 
+-- Floaterminal 
+vim.keymap.set('n', '<leader>tt', function()
+  require('settings/floating_terminal').toggle()
+end, { noremap = true, silent = true, desc = "Toggle Floating Terminal" })
+
+
