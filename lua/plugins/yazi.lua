@@ -1,6 +1,9 @@
----@type LazySpec
 return {
   "mikavilpas/yazi.nvim",
+  enabled = function()
+    local user = vim.loop.os_getenv("USER") or vim.loop.os_getenv("USERNAME")
+    return user ~= "u0_a231"
+  end,
   event = "VeryLazy",
   dependencies = {
     -- check the installation instructions at
@@ -42,3 +45,4 @@ return {
     vim.g.loaded_netrwPlugin = 1
   end,
 }
+
