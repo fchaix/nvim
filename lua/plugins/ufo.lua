@@ -2,31 +2,39 @@ return {
   "kevinhwang91/nvim-ufo",
   dependencies = { "kevinhwang91/promise-async" },
 
-  event = "BufReadPost", -- Lazy load après ouverture d’un buffer
-
+  event = "BufReadPost",
   config = function()
-
-    -- Réglages globaux
-    vim.o.foldcolumn = "1"       -- Colonne des folds (peut être "0", "1", "2", etc.)
-    vim.o.foldlevel = 99         -- Tout déplié au départ
+    -- Options Vim natives pour activer le folding
+    vim.o.foldcolumn = "1"
+    vim.o.foldlevel = 99
     vim.o.foldlevelstart = 99
 
-    vim.o.foldenable = true      -- Active les folds
+    vim.o.foldenable = true
 
-    -- Setup du plugin
+    vim.opt.fillchars = { eob = " ", fold = " ", foldopen = "", foldclose = "", foldsep = " " }
+    
+
+    -- Configuration de nvim-ufo
     require("ufo").setup({
       provider_selector = function(bufnr, filetype, buftype)
-        -- Treesitter si possible, sinon LSP, sinon indentation
         return { "treesitter", "indent" }
       end,
 
+
       open_fold_hl_timeout = 400,
 
-      close_fold_kinds = { "imports", "comment" },
+      close_fold_kinds_for_ft = {
+        -- Fermer automatiquement les "imports" et "comment" dans ces filetypes
+        lua = { "imports", "comment" },
+        python = { "imports" },
+        csharp = { "comment", "using" }, -- J'ai l'impression que ça ne fait rien :/
+      },
+
       preview = {
         win_config = {
           border = { "", "─", "", "", "", "─", "", "" },
           winhighlight = "Normal:Folded",
+
           winblend = 0,
         },
         mappings = {
@@ -37,6 +45,6 @@ return {
         },
       },
     })
-  end
+  end,
 }
 

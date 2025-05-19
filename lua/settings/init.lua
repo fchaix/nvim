@@ -67,8 +67,22 @@ vim.keymap.set('n', '<leader>tt', function()
   require('settings/floating_terminal').toggle()
 end, { noremap = true, silent = true, desc = "Toggle Floating Terminal" })
 
--- Folding shit
-vim.opt.foldmethod = 'indent' -- Use indentation for folding
-vim.opt.foldlevel = 99 -- Start with all folds open
-vim.opt.foldenable = true -- Enable folding by default
-vim.opt.foldcolumn = '0' -- Show fold column
+-- Folding shit (disabled, using UFO)
+--vim.opt.foldmethod = 'indent' -- Use indentation for folding
+--vim.opt.foldlevel = 99 -- Start with all folds open
+--vim.opt.foldenable = true -- Enable folding by default
+--vim.opt.foldcolumn = '0' -- Show fold column
+
+-- Utilisation de treesitter pour fold/unfold des blocs
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
+-- ouvrir les messages d'erreur dans un buffer
+vim.api.nvim_create_user_command('MessagesToBuffer', function()
+  vim.cmd('redir @a')
+  vim.cmd('silent messages')
+  vim.cmd('redir END')
+  vim.cmd('new')
+  vim.cmd('put a')
+end, {})
+
