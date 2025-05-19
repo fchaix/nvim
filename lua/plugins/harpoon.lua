@@ -1,45 +1,19 @@
 return {
   "ThePrimeagen/harpoon",
-  branch = "harpoon2",  -- recommander v2 si tu es à jour
+  branch = "harpoon2", -- harpoon 2.x (plus moderne)
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
     local harpoon = require("harpoon")
 
+    harpoon:setup()
 
-    harpoon:setup({
-      settings = {
 
-        save_on_toggle = true,
-        sync_on_ui_close = true,
-
-      },
-
-    })
-
-    -- Keymaps
-    vim.keymap.set("n", "<leader>hp", function()
-      harpoon.ui:toggle_quick_menu(harpoon:list())
-    end, { desc = "Afficher les projets favoris (Harpoon)" })
-
-    vim.keymap.set("n", "<leader>ha", function()
-
-      local cwd = vim.fn.getcwd()
-      harpoon:list():append({ value = cwd, context = { cwd = cwd } })
-      print("Ajouté : " .. cwd)
-    end, { desc = "Ajouter le répertoire courant à Harpoon" })
-
-    -- Naviguer entre les projets
-    for i = 1, 5 do
-      vim.keymap.set("n", "<leader>" .. i, function()
-        local entry = harpoon:list():get(i)
-        if entry then
-          vim.cmd("cd " .. entry.value)
-          print("Répertoire changé : " .. entry.value)
-          vim.cmd("Telescope find_files")
-
-        end
-      end, { desc = "Changer de projet vers #" .. i })
-    end
+    -- Keymaps basiques
+    vim.keymap.set("n", "<leader>ha", function() harpoon:list():add() end, { desc = "Harpoon add file" })
+    vim.keymap.set("n", "<leader>hm", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon menu" })
+    vim.keymap.set("n", "<leader>&", function() harpoon:list():select(1) end, { desc = "Harpoon go to 1" })
+    vim.keymap.set("n", "<leader>é", function() harpoon:list():select(2) end, { desc = "Harpoon go to 2" })
+    vim.keymap.set("n", "<leader>\"", function() harpoon:list():select(3) end, { desc = "Harpoon go to 3" })
+    vim.keymap.set("n", "<leader>'", function() harpoon:list():select(4) end, { desc = "Harpoon go to 4" })
   end,
 }
-
