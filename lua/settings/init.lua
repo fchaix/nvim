@@ -15,7 +15,9 @@ vim.opt.cursorline = true
 -- Définir l'indentation sur 4 espaces
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.opt.expandtab = true -- Convertir les tabulations en espaces
+-- indentation en 2 espaces pour html
+vim.cmd [[ autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab ]]
 
 -- Activer le mode relatif des numéros de ligne
 vim.opt.relativenumber = true
