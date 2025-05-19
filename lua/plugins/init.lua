@@ -29,4 +29,5 @@ require("lazy").setup({
   require('plugins.colorizer'),
   require('plugins.alpha'),
   require('plugins.harpoon'),
+  require('plugins.dadbod'),
 })
