@@ -39,8 +39,8 @@ return {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
       }, {
-        { name = 'buffer' },
-      })
+          { name = 'buffer' },
+        })
 
     })
 
@@ -50,8 +50,8 @@ return {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
       }, {
-        { name = 'buffer' },
-      })
+          { name = 'buffer' },
+        })
     })
 
     -- Configuration de LSP pour C# -->  Déjà configuré dans csharp.lua

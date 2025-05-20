@@ -16,10 +16,10 @@ return {
       end)
     else
       require("csharp").setup({
-            lsp = {
-                omnisharp_cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
-                }
-            })
+        lsp = {
+          omnisharp_cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
+        }
+      })
     end
   end
 }

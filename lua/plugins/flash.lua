@@ -3,11 +3,11 @@ return {
   event = "VeryLazy",
   ---@type Flash.Config
   opts = {
-        highlight = {
-            backdrop = true,
-            matches = true
-        },
+    highlight = {
+      backdrop = true,
+      matches = true
     },
+  },
   config = function()
     vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#282828", bg = "#98971A", bold = true })
     vim.api.nvim_set_hl(0, "FlashBackdrop", { fg = "#555555" })

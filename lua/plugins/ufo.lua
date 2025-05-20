@@ -12,7 +12,7 @@ return {
     vim.o.foldenable = true
 
     vim.opt.fillchars = { eob = " ", fold = " ", foldopen = "", foldclose = "", foldsep = " " }
-    
+
 
     -- Configuration de nvim-ufo
     require("ufo").setup({
