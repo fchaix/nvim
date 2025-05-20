@@ -88,3 +88,16 @@ vim.api.nvim_create_user_command('MessagesToBuffer', function()
   vim.cmd('put a')
 end, {})
 
+-- Trucs qui s'exécutent uniquement quand je lance nvim sous windows
+local uname = vim.loop.os_uname()
+local user = os.getenv("USERNAME") or os.getenv("USER") -- Windows utilise USERNAME
+
+if uname.sysname == "Windows_NT" and user == "fhc" then
+  -- Forcer l'utilisation de cmd.exe comme shell sous Windows
+  -- vim.opt.shell = "cmd.exe"
+
+  vim.opt.shell = "powershell.exe"
+  vim.opt.shellcmdflag = "-NoLogo -NoProfile -Command"
+  vim.opt.shellquote = ""
+  vim.opt.shellxquote = ""
+end

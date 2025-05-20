@@ -31,4 +31,6 @@ require("lazy").setup({
   require('plugins.harpoon'),
   require('plugins.dadbod'),
   require('plugins.ufo'),
+  require('plugins.csharp'),
+  require('plugins.comment'),
 })
