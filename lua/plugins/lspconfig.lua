@@ -54,6 +54,7 @@ return {
         })
     })
 
+
     -- Configuration de LSP pour C# -->  Déjà configuré dans csharp.lua
     -- lspconfig.omnisharp.setup{
     --   cmd = { "omnisharp", "--languageserver" , "--hostPID", tostring(vim.fn.getpid()) },

@@ -2,14 +2,21 @@ return {
   'stevearc/oil.nvim',
   ---@module 'oil'
   ---@type oil.SetupOpts
-  opts = {},
-  -- Optional dependencies
-  dependencies = { { "echasnovski/mini.icons", opts = {} } },
-  -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-  -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+  opts = {
+    float = {
+      padding = 2, -- optionnel : ajoute du padding autour de la fenêtre
+      max_width = 80,
+      max_height = 50,
+      border = "solid", -- ou "single", "double", "solid", etc.
+      win_options = {
+        winblend = 0,
+      },
+    },
+  },
+  dependencies = {
+    { "echasnovski/mini.icons", opts = {} }
+  },
   lazy = false,
-
-  -- shortcut for opening oil in the current buffer
   keys = {
     { "<leader>e", function() require("oil").open_float() end, desc = "Open oil" },
   },
