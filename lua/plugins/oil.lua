@@ -9,7 +9,7 @@ return {
       max_height = 50,
       border = "solid", -- ou "single", "double", "solid", etc.
       win_options = {
-        winblend = 0,
+        winblend = 10,
       },
     },
   },
