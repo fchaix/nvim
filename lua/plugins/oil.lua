@@ -18,6 +18,6 @@ return {
   },
   lazy = false,
   keys = {
-    { "<leader>e", function() require("oil").open_float() end, desc = "Open oil" },
+    { "<leader>o", function() require("oil").open_float() end, desc = "Open oil" },
   },
 }

@@ -101,3 +101,7 @@ if uname.sysname == "Windows_NT" and user == "fhc" then
   vim.opt.shellquote = ""
   vim.opt.shellxquote = ""
 end
+
+-- Raccourcis pour les LSP
+-- diagnistics
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostics" })
