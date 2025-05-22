@@ -8,6 +8,8 @@ return {
 
     telescope.setup{
       defaults = {
+        prompt_prefix = '🔍 ',
+        winblend = 10,
         mappings = {
           i = {
             ["<esc>"] = actions.close
