@@ -33,4 +33,5 @@ require("lazy").setup({
   require('plugins.ufo'),
   require('plugins.csharp'),
   require('plugins.comment'),
+  require('plugins.autopairs'),
 })
