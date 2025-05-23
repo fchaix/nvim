@@ -53,16 +53,16 @@ vim.cmd [[
 
 
 -- Fonction pour recentrer le curseur sauf si on est proche du début du fichier
-vim.api.nvim_create_autocmd("CursorMoved", {
-
-  callback = function()
-    local line = vim.fn.line(".")
-    if line > 10 then  -- ne recentre pas si on est dans les 10 premières lignes
-      vim.cmd("normal! zz")
-
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd("CursorMoved", {
+--
+--   callback = function()
+--     local line = vim.fn.line(".")
+--     if line > 10 then  -- ne recentre pas si on est dans les 10 premières lignes
+--       vim.cmd("normal! zz")
+--
+--     end
+--   end,
+-- })
 
 -- Floaterminal 
 vim.keymap.set('n', '<leader>tt', function()
