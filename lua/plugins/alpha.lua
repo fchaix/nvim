@@ -29,12 +29,33 @@ return {
 
   -- Message en bas
     -- source : https://www.patorjk.com/software/taag/#p=display&f=Tmplr
-    dashboard.section.footer.val = {
-      [[┏ ┳┓┏┳┓┓ ┏ ┓]],
-      [[┃ ┣┫ ┃ ┃┃┃ ┃]],
-      [[┗ ┻┛ ┻ ┗┻┛ ┛]],
+    -- randomly chose between two messages
+    math.randomseed(os.time())
+    local messages = {
+      {
+[[┳┓                        •                   ]], 
+[[┃┃┏┓┓┏┏┓┏┓  ┏┓┏┓┏┓┏┓┏┓  ┏┓┓┓┏┏┓  ┓┏┏┓┓┏  ┓┏┏┓ ]], 
+[[┛┗┗ ┗┛┗ ┛   ┗┫┗┛┛┗┛┗┗┻  ┗┫┗┗┛┗   ┗┫┗┛┗┻  ┗┻┣┛ ]], 
+[[┳┓           ┛          ┓┛        ┛    ┓   ┛  ]], 
+[[┃┃┏┓┓┏┏┓┏┓  ┏┓┏┓┏┓┏┓┏┓  ┃┏┓╋  ┓┏┏┓┓┏  ┏┫┏┓┓┏┏┏┓]],
+[[┛┗┗ ┗┛┗ ┛   ┗┫┗┛┛┗┛┗┗┻  ┗┗ ┗  ┗┫┗┛┗┻  ┗┻┗┛┗┻┛┛┗]],
+[[             ┛                 ┛               ]],
+      },
+      {
+        [[┏ ┳┓┏┳┓┓ ┏ ┓]],
+        [[┃ ┣┫ ┃ ┃┃┃ ┃]],
+        [[┗ ┻┛ ┻ ┗┻┛ ┛]],
+      }
     }
-  alpha.setup(dashboard.opts)
-    end,
+
+      local random_message = messages[math.random(#messages)]
+
+      dashboard.section.footer.val = random_message
+      dashboard.section.footer.opts = {
+        position = "center",
+        hl = "Type",
+      }
+    alpha.setup(dashboard.opts)
+  end,
 }
 
