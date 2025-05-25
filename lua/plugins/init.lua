@@ -34,4 +34,5 @@ require("lazy").setup({
   require('plugins.csharp'),
   require('plugins.comment'),
   require('plugins.autopairs'),
+  require('plugins.gitsigns'),
 })
