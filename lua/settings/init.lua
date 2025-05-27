@@ -105,3 +105,14 @@ end
 -- Raccourcis pour les LSP
 -- diagnistics
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostics" })
+
+
+-- Fonction pour exécuter ctags
+local function run_ctags()
+    vim.cmd("!ctags -R .")
+end
+
+-- Exécuter ctags à chaque sauvegarde
+vim.api.nvim_create_autocmd("BufWritePost", {
+    callback = run_ctags,
+})
