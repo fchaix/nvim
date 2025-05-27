@@ -109,7 +109,10 @@ vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagn
 
 -- Fonction pour exécuter ctags
 local function run_ctags()
-    vim.cmd("!ctags -R .")
+    local result = vim.fn.system("ctags -R . 2>&1")
+    if vim.v.shell_error ~= 0 then
+        print("Erreur lors de l'exécution de ctags: " .. result)
+    end
 end
 
 -- Exécuter ctags à chaque sauvegarde
