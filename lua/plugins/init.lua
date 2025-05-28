@@ -37,4 +37,5 @@ require("lazy").setup({
   require('plugins.gitsigns'),
   require('plugins.trouble'),
   require('plugins.quelleclé'),
+  require('plugins.surrounds'),
 })
