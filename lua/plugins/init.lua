@@ -36,4 +36,5 @@ require("lazy").setup({
   require('plugins.autopairs'),
   require('plugins.gitsigns'),
   require('plugins.trouble'),
+  require('plugins.quelleclé'),
 })
