@@ -116,3 +116,14 @@ end
 vim.api.nvim_create_autocmd("BufWritePost", {
     callback = run_ctags,
 })
+
+-- afficher les caractères invisibles
+vim.opt.list = true
+vim.opt.listchars = {
+    tab = '▸ ',
+    trail = '•',
+    extends = '>',
+    precedes = '<',
+    nbsp = '␣',
+    eol = '↲',
+}
