@@ -126,4 +126,10 @@ vim.opt.listchars = {
     precedes = '<',
     nbsp = '␣',
     eol = '↲',
+    space = '⸱',
 }
+
+-- Ignore case on search
+vim.opt.ignorecase = true
+-- Smart case for search
+vim.opt.smartcase = true
