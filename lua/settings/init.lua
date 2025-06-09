@@ -133,3 +133,13 @@ vim.opt.listchars = {
 vim.opt.ignorecase = true
 -- Smart case for search
 vim.opt.smartcase = true
+
+-- Write as root
+vim.api.nvim_create_user_command('WriteAsRoot', function()
+  local file = vim.fn.expand('%:p')
+  if file == '' then
+    print('No file to write')
+    return
+  end
+  vim.cmd('w !sudo tee ' .. file .. ' > /dev/null')
+end, { desc = 'Write current file as root' })
