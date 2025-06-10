@@ -143,3 +143,11 @@ vim.api.nvim_create_user_command('WriteAsRoot', function()
   end
   vim.cmd('w !sudo tee ' .. file .. ' > /dev/null')
 end, { desc = 'Write current file as root' })
+
+-- racourcis de navigation entre les tabs
+vim.keymap.set('n', '<leader>to', ':tabnew<CR>', { noremap = true, silent = true, desc = 'Open new tab' })
+vim.keymap.set('n', '<leader>tO', ':tabonly<CR>', { noremap = true, silent = true, desc = 'Close other tabs' })
+vim.keymap.set('n', '<leader>tc', ':tabclose<CR>', { noremap = true, silent = true, desc = 'Close current tab' })
+vim.keymap.set('n', '<leader>tl', ':tabnext<CR>', { noremap = true, silent = true, desc = 'Next tab' })
+vim.keymap.set('n', '<leader>th', ':tabprevious<CR>', { noremap = true, silent = true, desc = 'Previous tab' })
+
