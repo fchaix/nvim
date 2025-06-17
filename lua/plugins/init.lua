@@ -39,4 +39,5 @@ require("lazy").setup({
   require('plugins.quelleclé'),
   require('plugins.surrounds'),
   require('plugins.marks'),
+  require('plugins.floaterm'),
 })
