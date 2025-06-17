@@ -38,4 +38,5 @@ require("lazy").setup({
   require('plugins.trouble'),
   require('plugins.quelleclé'),
   require('plugins.surrounds'),
+  require('plugins.marks'),
 })

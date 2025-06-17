@@ -108,14 +108,14 @@ vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagn
 
 
 -- Fonction pour exécuter ctags
-local function run_ctags()
+local function ct()
     vim.cmd("!ctags -R .")
 end
 
 -- Exécuter ctags à chaque sauvegarde
-vim.api.nvim_create_autocmd("BufWritePost", {
-    callback = run_ctags,
-})
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--     callback = run_ctags,
+-- })
 
 -- afficher les caractères invisibles
 vim.opt.list = true
