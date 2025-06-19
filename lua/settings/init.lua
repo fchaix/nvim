@@ -69,6 +69,10 @@ vim.keymap.set('n', '<leader>tt', function()
   require('settings/floating_terminal').toggle()
 end, { noremap = true, silent = true, desc = "Toggle Floating Terminal" })
 
+vim.keymap.set("n", "<leader>ft", ":FloatermToggle<CR>", { desc = "Toggle Floaterm" })
+-- key pour toggle Floaterm quand on est en terminal mode
+vim.keymap.set("t", "<leader>ft", "<C-\\><C-n>:FloatermToggle<CR>", { desc = "Toggle Floaterm in Terminal Mode" })
+
 -- Folding shit (disabled, using UFO)
 --vim.opt.foldmethod = 'indent' -- Use indentation for folding
 --vim.opt.foldlevel = 99 -- Start with all folds open
