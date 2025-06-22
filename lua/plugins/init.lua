@@ -76,3 +76,19 @@ if vim.g.started_by_firenvim then
     }
   }
 end
+
+-- specifcs for copilot
+function _G.copilot_previous()
+  return vim.fn['copilot#Previous']()
+end
+
+function _G.copilot_next()
+  return vim.fn['copilot#Next']()
+end
+
+function _G.copilot_dismiss()
+  return vim.fn['copilot#Dismiss']()
+end
+function _G.toggle_copilot()
+
+end
