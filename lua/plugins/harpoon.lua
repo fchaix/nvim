@@ -15,5 +15,7 @@ return {
     vim.keymap.set("n", "<leader>é", function() harpoon:list():select(2) end, { desc = "Harpoon go to 2" })
     vim.keymap.set("n", "<leader>\"", function() harpoon:list():select(3) end, { desc = "Harpoon go to 3" })
     vim.keymap.set("n", "<leader>'", function() harpoon:list():select(4) end, { desc = "Harpoon go to 4" })
+    vim.keymap.set("n", "<leader>(", function() harpoon:list():select(5) end, { desc = "Harpoon go to 5" })
+    vim.keymap.set("n", "<leader>-", function() harpoon:list():select(6) end, { desc = "Harpoon go to 6" })
   end,
 }
