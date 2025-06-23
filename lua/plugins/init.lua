@@ -18,7 +18,7 @@ require("lazy").setup({
   require('plugins.lualine'),
   require('plugins.telescope'),
   require('plugins.lspconfig'),
-  require('plugins.copilot'),
+  -- require('plugins.copilot'),
   require('plugins.oil'),
   require('plugins.toggleterm'),
   require('plugins.rainbow-delimiters'),
@@ -40,4 +40,5 @@ require("lazy").setup({
   require('plugins.surrounds'),
   require('plugins.marks'),
   require('plugins.floaterm'),
+  require('plugins.windsurf'),
 })
