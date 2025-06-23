@@ -1,5 +1,16 @@
 require('settings.neovide')
 
+-- cosmétique
+vim.opt.title = true -- Afficher le titre de la fenêtre
+
+vim.opt.mouse = 'a' -- Activer la souris dans tous les modes
+vim.opt.ignorecase = true -- Ignorer la casse dans les recherches
+vim.opt.smartcase = true -- Activer la recherche intelligente (ignore la casse si pas de majuscule)
+
+vim.opt.incsearch = true -- Recherche incrémentale
+
+vim.opt.clipboard = 'unnamedplus' -- Utiliser le presse-papiers système
+
 -- Activer la coloration syntaxique
 vim.cmd('syntax enable')
 
@@ -51,19 +62,6 @@ vim.cmd [[
   highlight RainbowDelimiterCyan guifg=#8be9fd
 ]]
 
-
--- Fonction pour recentrer le curseur sauf si on est proche du début du fichier
--- vim.api.nvim_create_autocmd("CursorMoved", {
---
---   callback = function()
---     local line = vim.fn.line(".")
---     if line > 10 then  -- ne recentre pas si on est dans les 10 premières lignes
---       vim.cmd("normal! zz")
---
---     end
---   end,
--- })
-
 -- Floaterminal 
 vim.keymap.set('n', '<leader>tt', function()
   require('settings/floating_terminal').toggle()
@@ -78,6 +76,15 @@ vim.keymap.set("t", "<leader>ft", "<C-\\><C-n>:FloatermToggle<CR>", { desc = "To
 --vim.opt.foldlevel = 99 -- Start with all folds open
 --vim.opt.foldenable = true -- Enable folding by default
 --vim.opt.foldcolumn = '0' -- Show fold column
+
+-- Tout est unfold à l'ouverture d'un fichier
+
+vim.api.nvim_create_autocmd("BufReadPost", {
+    pattern = "*",
+    callback = function()
+        vim.cmd("normal zR")
+    end,
+})
 
 -- Utilisation de treesitter pour fold/unfold des blocs
 vim.opt.foldmethod = "expr"
