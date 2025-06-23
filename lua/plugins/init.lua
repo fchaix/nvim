@@ -80,3 +80,23 @@ function _G.toggle_copilot()
 
 end
 
+-- specifics for firenvim
+if vim.g.started_by_firenvim then
+  vim.o.guifont = "JetBrainsMono Nerd Font:h9" -- Optionnel : police utilisable dans le navigateur
+
+  -- Ajuster les dimensions de l'iframe
+  vim.g.firenvim_config = {
+    localSettings = {
+      [".*"] = {
+        takeover = "always", -- Toujours prendre la main quand un champ est focus
+        cmdline = "neovim", -- Ou "firenvim" si tu veux la commande par défaut
+        content = "text",
+        priority = 0,
+        selector = "textarea, div[contenteditable=true]", -- éléments ciblés
+        -- ⚠️ ici viennent les options de taille
+        width = 0.9, -- en pourcentage de la largeur de la fenêtre du navigateur
+        height = 1, -- en pourcentage de la hauteur
+      },
+    }
+  }
+end
