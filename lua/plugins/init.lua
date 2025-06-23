@@ -100,3 +100,4 @@ if vim.g.started_by_firenvim then
     }
   }
 end
+
