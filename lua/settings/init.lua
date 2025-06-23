@@ -38,8 +38,8 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Contrôles les splits
-map('n', '<leader>sv', ':vsplit<CR>', { noremap = true, silent = true, desc = 'Vertical split' })
-map('n', '<leader>sh', ':split<CR>', { noremap = true, silent = true, desc = 'Horizontal split' })
+vim.keymap.set('n', '<leader>sv', ':vsplit<CR>', { noremap = true, silent = true, desc = 'Vertical split' })
+vim.keymap.set('n', '<leader>sh', ':split<CR>', { noremap = true, silent = true, desc = 'Horizontal split' })
 
 -- Désactiver le son de la touche "backspace"
 vim.opt.backspace = 'indent,eol,start'
