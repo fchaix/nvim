@@ -8,6 +8,5 @@ return {
     vim.api.nvim_set_keymap('i', '<C-K>', 'v:lua.copilot_previous()', { expr = true, silent = true })
     vim.api.nvim_set_keymap('i', '<C-L>', 'v:lua.copilot_next()', { expr = true, silent = true })
     vim.api.nvim_set_keymap('i', '<C-E>', 'v:lua.copilot_dismiss()', { expr = true, silent = true })
-
-    end
+end
 }
