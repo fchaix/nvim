@@ -40,6 +40,7 @@ vim.g.maplocalleader = ' '
 -- Contrôles les splits
 vim.keymap.set('n', '<leader>sv', ':vsplit<CR>', { noremap = true, silent = true, desc = 'Vertical split' })
 vim.keymap.set('n', '<leader>sh', ':split<CR>', { noremap = true, silent = true, desc = 'Horizontal split' })
+vim.keymap.set('n', '<leader>sc', ':close<CR>', { noremap = true, silent = true, desc = 'Close split' })
 
 -- Désactiver le son de la touche "backspace"
 vim.opt.backspace = 'indent,eol,start'
@@ -55,6 +56,11 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 -- Paste from clipboard
 vim.keymap.set("n", "<leader>p", '"+p')
 vim.keymap.set("v", "<leader>p", '"+p')
+
+-- buffer navigation
+vim.keymap.set('n', '<Tab>', ':bnext<CR>', { noremap = true, silent = true, desc = 'Next buffer' })
+vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', { noremap = true, silent = true, desc = 'Previous buffer' })
+vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { noremap = true, silent = true, desc = 'Delete buffer' })
 
 vim.cmd [[
   highlight RainbowDelimiterRed guifg=#ff5555
