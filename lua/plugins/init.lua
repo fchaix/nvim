@@ -1,4 +1,4 @@
--- Configuration de lazy.nvim
+- Configuration de lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -41,3 +41,17 @@ require("lazy").setup({
   require('plugins.marks'),
   require('plugins.floaterm'),
 })
+
+-- Conf de copilot
+function _G.copilot_previous()
+  return vim.fn['copilot#Previous']()
+end
+
+function _G.copilot_next()
+  return vim.fn['copilot#Next']()
+end
+
+function _G.copilot_dismiss()
+  return vim.fn['copilot#Dismiss']()
+end
+
