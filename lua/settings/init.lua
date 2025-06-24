@@ -115,7 +115,11 @@ if uname.sysname == "Windows_NT" and user == "fhc" then
   vim.opt.shellcmdflag = "-NoLogo -NoProfile -Command"
   vim.opt.shellquote = ""
   vim.opt.shellxquote = ""
+
 end
+
+-- reload config
+vim.keymap.set("n", "<leader>r", ":source $MYVIMRC<CR>", { desc = "Reload config" })
 
 -- Raccourcis pour les LSP
 -- diagnistics
