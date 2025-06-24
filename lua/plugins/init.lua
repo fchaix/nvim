@@ -43,19 +43,6 @@ require("lazy").setup({
   -- require('plugins.windsurf'),
 })
 
--- Conf de copilot
-function _G.copilot_previous()
-  return vim.fn['copilot#Previous']()
-end
-
-function _G.copilot_next()
-  return vim.fn['copilot#Next']()
-end
-
-function _G.copilot_dismiss()
-  return vim.fn['copilot#Dismiss']()
-end
-
 -- specifics for firenvim
 if vim.g.started_by_firenvim then
   vim.o.guifont = "JetBrainsMono Nerd Font:h9" -- Optionnel : police utilisable dans le navigateur
