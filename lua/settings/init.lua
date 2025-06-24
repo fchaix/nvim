@@ -41,6 +41,7 @@ vim.g.maplocalleader = ' '
 vim.keymap.set('n', '<leader>sv', ':vsplit<CR>', { noremap = true, silent = true, desc = 'Vertical split' })
 vim.keymap.set('n', '<leader>sh', ':split<CR>', { noremap = true, silent = true, desc = 'Horizontal split' })
 vim.keymap.set('n', '<leader>sc', ':close<CR>', { noremap = true, silent = true, desc = 'Close split' })
+vim.keymap.set('n', '<leader>so', ':only<CR>', { noremap = true, silent = true, desc = 'Close other splits' })
 
 -- Désactiver le son de la touche "backspace"
 vim.opt.backspace = 'indent,eol,start'
