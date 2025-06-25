@@ -25,6 +25,8 @@ return {
         "python", 
         "c_sharp",
         "javascript", 
+        "markdown",
+        "markdown_inline",
         "html" },
       sync_install = false,
       highlight = { enable = true },
