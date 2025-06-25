@@ -48,6 +48,15 @@ return {
           },
         },
       },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<D-Space>",
+          node_incremental = "<D-Space>",
+          scope_incremental = "<TAB>",
+          node_decremental = "<D-TAB>",
+        },
+      },
 
     })
   end
