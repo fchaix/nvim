@@ -40,12 +40,79 @@ return {
           keymaps = {
             ["af"] = "@function.outer",
             ["if"] = "@function.inner",
+            -- properties
+            ["a:"] = "@property.outer",
+            ["i:"] = "@property.inner",
+            --class
             ["ac"] = "@class.outer",
             ["ic"] = "@class.inner",
+            -- statements
             ["as"] = "@statement.outer",
             ["is"] = "@statement.inner",
+            -- parameters
             ["ap"] = "@parameter.outer",
             ["ip"] = "@parameter.inner",
+            -- loops
+            ["al"] = "@loop.outer",
+            ["il"] = "@loop.inner",
+            -- conditionals
+            ["a!"] = "@conditional.outer",
+            ["i!"] = "@conditional.inner",
+          },
+        },
+        move = {
+          enable = true,
+          set_jumps = true, -- whether to set jumps in the jumplist
+          goto_next_start = {
+            ["]f"] = "@function.outer",
+            ["]c"] = "@class.outer",
+            ["]s"] = "@statement.outer",
+            ["]p"] = "@parameter.outer",
+            ["]l"] = "@loop.outer",
+            ["]c"] = "@conditional.outer",
+          },
+          goto_next_end = {
+            ["]F"] = "@function.outer",
+            ["]c"] = "@class.outer",
+            ["]S"] = "@statement.outer",
+            ["]P"] = "@parameter.outer",
+            ["]L"] = "@loop.outer",
+            ["]C"] = "@conditional.outer",
+          },
+          goto_previous_start = {
+            ["[f"] = "@function.outer",
+            ["[c"] = "@class.outer",
+            ["[s"] = "@statement.outer",
+            ["[p"] = "@parameter.outer",
+            ["[l"] = "@loop.outer",
+            ["[c"] = "@conditional.outer",
+          },
+          goto_previous_end = {
+            ["[F"] = "@function.outer",
+            ["[C"] = "@class.outer",
+            ["[S"] = "@statement.outer",
+            ["[P"] = "@parameter.outer",
+            ["[L"] = "@loop.outer",
+            ["[C"] = "@conditional.outer",
+          },
+        },
+        swap = {
+          enable = true,
+          swap_next = {
+            ["<leader>dp"] = "@parameter.inner",
+            ["<leader>dc"] = "@class.inner",
+            ["<leader>df"] = "@function.inner",
+            ["<leader>ds"] = "@statement.inner",
+            ["<leader>dl"] = "@loop.inner",
+            ["<leader>d!"] = "@conditional.inner",
+          },
+          swap_previous = {
+            ["<leader>dP"] = "@parameter.inner",
+            ["<leader>dC"] = "@class.inner",
+            ["<leader>dF"] = "@function.inner",
+            ["<leader>dS"] = "@statement.inner",
+            ["<leader>dL"] = "@loop.inner",
+            ["<leader>d§"] = "@conditional.inner",
           },
         },
       },
