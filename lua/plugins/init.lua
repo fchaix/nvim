@@ -40,6 +40,7 @@ require("lazy").setup({
   require('plugins.surrounds'),
   require('plugins.marks'),
   require('plugins.floaterm'),
+  require('plugins.bufferlist'),
   -- require('plugins.windsurf'),
 })
 
@@ -100,4 +101,5 @@ if vim.g.started_by_firenvim then
     }
   }
 end
+
 

@@ -177,3 +177,6 @@ vim.keymap.set('n', '<leader>tc', ':tabclose<CR>', { noremap = true, silent = tr
 vim.keymap.set('n', '<leader>tl', ':tabnext<CR>', { noremap = true, silent = true, desc = 'Next tab' })
 vim.keymap.set('n', '<leader>th', ':tabprevious<CR>', { noremap = true, silent = true, desc = 'Previous tab' })
 
+
+-- BufferList
+vim.keymap.set('n', '<leader>bb', ':BufferListOpen<CR>', { noremap = true, silent = true, desc = 'List and edit buffers' })
