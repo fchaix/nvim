@@ -41,6 +41,7 @@ require("lazy").setup({
   require('plugins.marks'),
   require('plugins.floaterm'),
   require('plugins.bufferlist'),
+  require('plugins.luasnip'),
   -- require('plugins.windsurf'),
 })
 
