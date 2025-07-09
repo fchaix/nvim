@@ -65,6 +65,7 @@ return {
           set_jumps = true, -- whether to set jumps in the jumplist
           goto_next_start = {
             ["]f"] = "@function.outer",
+            ["]m"] = "@method.outer",
             ["]c"] = "@class.outer",
             ["]s"] = "@statement.outer",
             ["]p"] = "@parameter.outer",

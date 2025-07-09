@@ -119,8 +119,12 @@ return {
             sqls = {
               connections = {
                 {
-                  driver = 'postgresql', -- ou 'mysql', 'sqlite', etc.
-                  dataSourceName = 'host=localhost port=5432 user=postgres password=postgres dbname=test sslmode=disable',
+                  -- Exemple de la config
+                  -- driver = 'postgresql', -- ou 'mysql', 'sqlite', etc.
+                  -- dataSourceName = 'host=localhost port=5432 user=postgres password=postgres dbname=test sslmode=disable',
+                  -- Configuration pour MS SQQL Server, utiliser odbc, server=ITGASQLLIMSVALID, database = LIMSVALID, utiliser trusted connextion
+                  driver = 'odbc',
+                  dataSourceName = 'Driver={ODBC Driver 17 for SQL Server};Server=ITGASQLLIMSVALID;Database=LIMSVALID;Trusted_Connection=yes;',
                 },
               },
             },

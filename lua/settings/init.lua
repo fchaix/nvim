@@ -177,6 +177,35 @@ vim.keymap.set('n', '<leader>tc', ':tabclose<CR>', { noremap = true, silent = tr
 vim.keymap.set('n', '<leader>tl', ':tabnext<CR>', { noremap = true, silent = true, desc = 'Next tab' })
 vim.keymap.set('n', '<leader>th', ':tabprevious<CR>', { noremap = true, silent = true, desc = 'Previous tab' })
 
-
 -- BufferList
 vim.keymap.set('n', '<leader>bb', ':BufferListOpen<CR>', { noremap = true, silent = true, desc = 'List and edit buffers' })
+
+-- switch tabs rapidos
+
+local function goto_or_create_tab(n)
+    -- Vérifie si l'onglet n existe
+    if n <= vim.fn.tabpagenr('$') then
+        vim.cmd(n .. 'tabnext')
+    else
+        vim.cmd('tabnew')
+    end
+end
+
+local azerty_tab_mappings = {
+    ['&'] = 1,
+    ['é'] = 2,
+    ['"'] = 3,
+    ["'"] = 4,
+    ['('] = 5,
+    ['-'] = 6,
+    ['è'] = 7,
+    ['_'] = 8,
+    ['ç'] = 9,
+    ['à'] = 0,
+}
+
+for key, tab_n in pairs(azerty_tab_mappings) do
+    vim.keymap.set('n', '<Leader>' .. key, function()
+        goto_or_create_tab(tab_n)
+    end, { noremap = true, silent = true, desc = 'Aller à l\'onglet ' .. tab_n })
+end
