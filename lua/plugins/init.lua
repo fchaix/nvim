@@ -30,7 +30,7 @@ require("lazy").setup({
   require('plugins.alpha'),
   -- require('plugins.harpoon'),
   require('plugins.dadbod'),
-  require('plugins.ufo'),
+  -- require('plugins.ufo'),
   require('plugins.csharp'),
   require('plugins.comment'),
   require('plugins.autopairs'),
@@ -39,10 +39,11 @@ require("lazy").setup({
   require('plugins.quelleclé'),
   require('plugins.surrounds'),
   require('plugins.marks'),
-  require('plugins.floaterm'),
+  -- require('plugins.floaterm'),
   require('plugins.bufferlist'),
   require('plugins.luasnip'),
   require('plugins.biscuits'),
+  require('plugins.blink'),
   -- require('plugins.windsurf'),
 })
 

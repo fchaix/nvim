@@ -1,41 +1,84 @@
 require('settings.neovide')
 
--- cosmétique
-vim.opt.title = true -- Afficher le titre de la fenêtre
-
-vim.opt.mouse = 'a' -- Activer la souris dans tous les modes
-vim.opt.ignorecase = true -- Ignorer la casse dans les recherches
-vim.opt.smartcase = true -- Activer la recherche intelligente (ignore la casse si pas de majuscule)
-
-vim.opt.incsearch = true -- Recherche incrémentale
-
-vim.opt.clipboard = 'unnamedplus' -- Utiliser le presse-papiers système
-
--- Activer la coloration syntaxique
-vim.cmd('syntax enable')
-
--- Activer les numéros de ligne
-vim.opt.number = true
-
--- Activer l'indentation automatique
-vim.opt.autoindent = true
-
--- Activer la mise en évidence de la ligne courante
-vim.opt.cursorline = true
-
--- Définir l'indentation sur 4 espaces
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true -- Convertir les tabulations en espaces
--- indentation en 2 espaces pour html
-vim.cmd [[ autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab ]]
-
--- Activer le mode relatif des numéros de ligne
-vim.opt.relativenumber = true
 
 -- Touche leader
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
+
+----------------------------
+-------- Visuel -------- 
+----------------------------
+vim.opt.termguicolors = true
+vim.opt.signcolumn = "yes"                         -- Always show sign column
+vim.opt.colorcolumn = "100"                        -- Show column at 100 characters
+vim.opt.cmdheight = 1                              -- Command line height
+vim.opt.signcolumn = "yes"                         -- Always show sign column
+vim.opt.colorcolumn = "100"                        -- Show column at 100 characters
+vim.opt.completeopt = "menuone,noinsert,noselect"  -- Completion options 
+vim.opt.title = true -- Afficher le titre de la fenêtre
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" }) -- Transparence
+vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" }) -- Transparence
+vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" }) -- Transparence
+-- Activer la coloration syntaxique
+vim.cmd('syntax enable')
+-- Activer les numéros de ligne
+vim.opt.number = true
+-- Activer la mise en évidence de la ligne courante
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
+-- Cursor settings
+vim.opt.guicursor = "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+
+-- OS integration
+vim.opt.mouse = 'a' -- Activer la souris dans tous les modes
+vim.opt.clipboard = 'unnamedplus' -- Utiliser le presse-papiers système
+vim.opt.hidden = true
+vim.opt.autochdir = false
+-- vim.opt.iskeyword:append("-")                      -- Treat dash as part of word
+vim.opt.path:append("**")                          -- include subdirectories in search
+vim.opt.selection = "exclusive"                    -- Selection behavior
+vim.opt.encoding = "UTF-8" 
+
+vim.opt.swapfile = false -- parce que c'est relou
+
+-- Créer un répertoire d'undo dans le répertoire de configuration
+local undodir
+
+if vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1 then
+    -- Configuration pour Windows
+    undodir = vim.fn.expand('~/AppData/Local/nvim/undodir')
+else
+    -- Configuration pour Linux
+    undodir = vim.fn.expand('~/.config/nvim/undodir')
+end
+
+-- Activer les fichiers d'undo
+vim.opt.undofile = true
+vim.opt.undodir = undodir
+
+-- Créer le répertoire d'undo s'il n'existe pas
+vim.fn.mkdir(undodir, "p")
+
+-- Recherche
+vim.opt.ignorecase = true -- Ignorer la casse dans les recherches
+vim.opt.smartcase = true -- Activer la recherche intelligente (ignore la casse si pas de majuscule)
+vim.opt.incsearch = true -- Recherche incrémentale
+
+
+--- Indentation -----------------
+-- Activer l'indentation automatique
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+-- Définir l'indentation sur 2 espaces
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true -- Convertir les tabulations en espaces
+-- indentation en 2 espaces pour html
+vim.cmd [[ autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab ]]
+-- Activer le mode relatif des numéros de ligne
+vim.opt.relativenumber = true
+
 
 -- Contrôles les splits
 vim.keymap.set('n', '<leader>sv', ':vsplit<CR>', { noremap = true, silent = true, desc = 'Vertical split' })
@@ -50,13 +93,13 @@ vim.opt.backspace = 'indent,eol,start'
 vim.opt.wrap = true
 
 -- Yank to clipboard
-vim.keymap.set("v", "<leader>y", '"+y')
-vim.keymap.set("n", "<leader>y", '"+y')
-vim.keymap.set("n", "<leader>Y", '"+Y')
+-- vim.keymap.set("v", "<leader>y", '"+y')
+-- vim.keymap.set("n", "<leader>y", '"+y')
+-- vim.keymap.set("n", "<leader>Y", '"+Y')
 
--- Paste from clipboard
-vim.keymap.set("n", "<leader>p", '"+p')
-vim.keymap.set("v", "<leader>p", '"+p')
+-- -- Paste from clipboard
+-- vim.keymap.set("n", "<leader>p", '"+p')
+-- vim.keymap.set("v", "<leader>p", '"+p')
 
 -- buffer navigation
 vim.keymap.set('n', '<Tab>', ':bnext<CR>', { noremap = true, silent = true, desc = 'Next buffer' })
@@ -73,29 +116,18 @@ vim.cmd [[
   highlight RainbowDelimiterCyan guifg=#8be9fd
 ]]
 
+vim.opt.showmatch = true -- Highlight matching brackets
+
 -- Floaterminal 
 vim.keymap.set('n', '<leader>tt', function()
   require('settings/floating_terminal').toggle()
 end, { noremap = true, silent = true, desc = "Toggle Floating Terminal" })
 
-vim.keymap.set("n", "<leader>ft", ":FloatermToggle<CR>", { desc = "Toggle Floaterm" })
--- key pour toggle Floaterm quand on est en terminal mode
-vim.keymap.set("t", "<leader>ft", "<C-\\><C-n>:FloatermToggle<CR>", { desc = "Toggle Floaterm in Terminal Mode" })
-
 -- Folding shit (disabled, using UFO)
---vim.opt.foldmethod = 'indent' -- Use indentation for folding
---vim.opt.foldlevel = 99 -- Start with all folds open
---vim.opt.foldenable = true -- Enable folding by default
---vim.opt.foldcolumn = '0' -- Show fold column
-
--- Tout est unfold à l'ouverture d'un fichier
-
-vim.api.nvim_create_autocmd("BufReadPost", {
-    pattern = "*",
-    callback = function()
-        vim.cmd("normal zR")
-    end,
-})
+vim.opt.foldmethod = 'indent' -- Use indentation for folding
+vim.opt.foldlevel = 99 -- Start with all folds open
+vim.opt.foldenable = true -- Enable folding by default
+vim.opt.foldcolumn = '0' -- Show fold column
 
 -- Utilisation de treesitter pour fold/unfold des blocs
 vim.opt.foldmethod = "expr"
