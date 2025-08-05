@@ -42,7 +42,8 @@ require("lazy").setup({
   require('plugins.floaterm'),
   require('plugins.bufferlist'),
   require('plugins.luasnip'),
-  require('plugins.biscuits'),
+  -- require('plugins.biscuits'),
+  require('plugins.twilight'),
   -- require('plugins.windsurf'),
 })
 

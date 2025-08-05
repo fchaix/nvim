@@ -7,9 +7,10 @@ return {
   config = function()
     require('nvim-biscuits').setup({
       default_config = {
-        max_length = 12,
+        max_length = 35,
         min_distance = 5,
         prefix_string = " 📎 "
+        -- prefix_string = " 🌳 "
       },
     })
   end,
