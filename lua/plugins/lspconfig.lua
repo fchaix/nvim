@@ -3,10 +3,10 @@ return {
   dependencies = {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
-    'hrsh7th/nvim-cmp',
-    'hrsh7th/cmp-nvim-lsp',
+    -- 'hrsh7th/nvim-cmp',
+    -- 'hrsh7th/cmp-nvim-lsp',
     'L3MON4D3/LuaSnip',
-    'saadparwaiz1/cmp_luasnip',
+    -- 'saadparwaiz1/cmp_luasnip',
   },
   config = function()
     local lspconfig = require('lspconfig')
@@ -19,37 +19,37 @@ return {
       ensure_installed = { 'omnisharp', 'sqls' }  -- Ajout de sqls ici
     })
 
-    -- Configuration de nvim-cmp
-    cmp.setup({
-      snippet = {
-        expand = function(args)
-          luasnip.lsp_expand(args.body)
-        end,
-      },
-      mapping = cmp.mapping.preset.insert({
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
-      }),
-      sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
-      }, {
-          { name = 'buffer' },
-        })
-    })
-
-    -- Configuration de cmp pour les snippets
-    cmp.setup.filetype('lua', {
-      sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
-      }, {
-          { name = 'buffer' },
-        })
-    })
+    -- -- Configuration de nvim-cmp
+    -- cmp.setup({
+    --   snippet = {
+    --     expand = function(args)
+    --       luasnip.lsp_expand(args.body)
+    --     end,
+    --   },
+    --   mapping = cmp.mapping.preset.insert({
+    --     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    --     ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    --     ['<C-Space>'] = cmp.mapping.complete(),
+    --     ['<C-e>'] = cmp.mapping.abort(),
+    --     ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    --   }),
+    --   sources = cmp.config.sources({
+    --     { name = 'nvim_lsp' },
+    --     { name = 'luasnip' },
+    --   }, {
+    --       { name = 'buffer' },
+    --     })
+    -- })
+    --
+    -- -- Configuration de cmp pour les snippets
+    -- cmp.setup.filetype('lua', {
+    --   sources = cmp.config.sources({
+    --     { name = 'nvim_lsp' },
+    --     { name = 'luasnip' },
+    --   }, {
+    --       { name = 'buffer' },
+    --     })
+    -- })
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
