@@ -13,7 +13,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  require('plugins.nvim-tree'),
+  git = {
+    url_format = "git@github.com:%s.git",  -- Format SSH par défaut
+  },
+  -- require('plugins.nvim-tree'),
   require('plugins.gruvbox'),
   require('plugins.lualine'),
   require('plugins.telescope'),
@@ -23,28 +26,30 @@ require("lazy").setup({
   require('plugins.toggleterm'),
   require('plugins.rainbow-delimiters'),
   require('plugins.treesitter'),
-  require('plugins.firenvim'),
+  -- require('plugins.firenvim'),
   -- require('plugins.yazi'),
   require('plugins.flash'),
-  require('plugins.colorizer'),
-  require('plugins.alpha'),
+  require('plugins.colorizer'), -- colorize les codes couleurs
+  -- require('plugins.alpha'),
   -- require('plugins.harpoon'),
-  require('plugins.dadbod'),
-  -- require('plugins.ufo'),
+  require('plugins.dadbod'), -- gestion des bases de données
+  -- require('plugins.ufo'), -- pliage de code avancé
   require('plugins.csharp'),
-  require('plugins.comment'),
-  require('plugins.autopairs'),
-  require('plugins.gitsigns'),
-  require('plugins.trouble'),
+  require('plugins.comment'), -- gestion des commentaires
+  require('plugins.autopairs'), -- gestion des paires de parenthèses, crochets, etc.
+  require('plugins.gitsigns'), -- gestion des signes git dans la marge
+  require('plugins.trouble'), -- gestion des erreurs et warnings (vérifier si ça marche bien)
   require('plugins.quelleclé'),
-  require('plugins.surrounds'),
-  require('plugins.marks'),
+  require('plugins.surrounds'), -- gestion des surrounds (parenthèses, guillemets, etc.)
+  require('plugins.marks'), -- gestion des marques
   -- require('plugins.floaterm'),
   require('plugins.bufferlist'),
   require('plugins.luasnip'),
   require('plugins.twilight'),
   require('plugins.biscuits'),
   require('plugins.blink'),
+  require('plugins.zen-mode'),
+  require('plugins.gemini'),
   -- require('plugins.windsurf'),
 })
 
