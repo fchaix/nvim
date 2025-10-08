@@ -45,6 +45,8 @@ require("lazy").setup({
   require('plugins.twilight'),
   require('plugins.biscuits'),
   require('plugins.blink'),
+  require('plugins.git-conflict'),
+  require('plugins.ibl'), -- Indent Blankline https://github.com/lukas-reineke/indent-blankline.nvim
   -- require('plugins.windsurf'),
 })
 
