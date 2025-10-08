@@ -45,12 +45,11 @@ require("lazy").setup({
   -- require('plugins.floaterm'),
   require('plugins.bufferlist'),
   require('plugins.luasnip'),
-  require('plugins.twilight'),
-  require('plugins.biscuits'),
-  require('plugins.blink'),
-  require('plugins.git-conflict'),
+  require('plugins.biscuits'),  -- annotations à la fin des blocs (fermeture de parenth_ses, accolades, etc.)
+  require('plugins.blink'), -- Performant, batteries-included completion plugin for Neovim
   require('plugins.ibl'), -- Indent Blankline https://github.com/lukas-reineke/indent-blankline.nvim
   require('plugins.zen-mode'),
+  require('plugins.twilight'),
   -- require('plugins.windsurf'),
 })
 
