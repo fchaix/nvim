@@ -247,4 +247,4 @@ end
 
 
 -- petit raccourci pour ajouter une ligne vide avant et après la ligne courante, avec leader + a
-vim.keymap.set('n', '<leader>a', '<Esc>o<Esc>kO<Esc>j', { noremap = true, silent = true, desc = 'Add empty line above and below' })
+vim.keymap.set('n', '<leader>z', '<Esc>o<Esc>kO<Esc>j', { noremap = true, silent = true, desc = 'Add empty line above and below' })
