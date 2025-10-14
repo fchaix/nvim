@@ -244,3 +244,7 @@ for key, tab_n in pairs(azerty_tab_mappings) do
         goto_or_create_tab(tab_n)
     end, { noremap = true, silent = true, desc = 'Aller à l\'onglet ' .. tab_n })
 end
+
+
+-- petit raccourci pour ajouter une ligne vide avant et après la ligne courante, avec leader + a
+vim.keymap.set('n', '<leader>a', '<Esc>o<Esc>kO<Esc>j', { noremap = true, silent = true, desc = 'Add empty line above and below' })
