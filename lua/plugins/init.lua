@@ -29,9 +29,10 @@ require("lazy").setup({
   require('plugins.biscuits'),  -- annotations à la fin des blocs (fermeture de parenth_ses, accolades, etc.)
   require('plugins.blink'), -- Performant, batteries-included completion plugin for Neovim
   require('plugins.bufferlist'),
+  require('plugins.cmp'),
   require('plugins.colorizer'), -- colorize les codes couleurs
   require('plugins.comment'), -- gestion des commentaires
-  require('plugins.copilot'),
+  -- require('plugins.copilot'),
   require('plugins.csharp'),
   require('plugins.dadbod'), -- gestion des bases de données
   require('plugins.flash'),
