@@ -26,4 +26,10 @@ return {
       -- "omnisharp",
     },
   },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    opts = {
+      automatic_installation = true,
+    },
+  },
 }
