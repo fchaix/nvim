@@ -17,40 +17,43 @@ require("lazy").setup({
     url_format = "git@github.com:%s.git",  -- Format SSH par défaut
   },
   -- require('plugins.nvim-tree'),
-  require('plugins.gruvbox'),
-  require('plugins.lualine'),
-  require('plugins.telescope'),
-  require('plugins.lspconfig'),
-  require('plugins.copilot'),
-  require('plugins.oil'),
-  require('plugins.toggleterm'),
-  require('plugins.rainbow-delimiters'),
-  require('plugins.treesitter'),
-  -- require('plugins.firenvim'),
-  -- require('plugins.yazi'),
-  require('plugins.flash'),
-  require('plugins.colorizer'), -- colorize les codes couleurs
   -- require('plugins.alpha'),
-  -- require('plugins.harpoon'),
-  require('plugins.dadbod'), -- gestion des bases de données
-  -- require('plugins.ufo'), -- pliage de code avancé
-  require('plugins.csharp'),
-  require('plugins.comment'), -- gestion des commentaires
-  require('plugins.autopairs'), -- gestion des paires de parenthèses, crochets, etc.
-  require('plugins.gitsigns'), -- gestion des signes git dans la marge
-  require('plugins.trouble'), -- gestion des erreurs et warnings (vérifier si ça marche bien)
-  require('plugins.quelleclé'),
-  require('plugins.surrounds'), -- gestion des surrounds (parenthèses, guillemets, etc.)
-  require('plugins.marks'), -- gestion des marques
+  -- require('plugins.firenvim'),
   -- require('plugins.floaterm'),
-  require('plugins.bufferlist'),
-  require('plugins.luasnip'),
+  -- require('plugins.harpoon'),
+  -- require('plugins.lspconfig'),
+  -- require('plugins.ufo'), -- pliage de code avancé
+  -- require('plugins.windsurf'),
+  -- require('plugins.yazi'),
+  require('plugins.autopairs'), -- gestion des paires de parenthèses, crochets, etc.
   require('plugins.biscuits'),  -- annotations à la fin des blocs (fermeture de parenth_ses, accolades, etc.)
   require('plugins.blink'), -- Performant, batteries-included completion plugin for Neovim
+  require('plugins.bufferlist'),
+  require('plugins.colorizer'), -- colorize les codes couleurs
+  require('plugins.comment'), -- gestion des commentaires
+  require('plugins.copilot'),
+  require('plugins.csharp'),
+  require('plugins.dadbod'), -- gestion des bases de données
+  require('plugins.flash'),
+  require('plugins.gitsigns'), -- gestion des signes git dans la marge
+  require('plugins.gruvbox'),
   require('plugins.ibl'), -- Indent Blankline https://github.com/lukas-reineke/indent-blankline.nvim
-  require('plugins.zen-mode'),
+  require('plugins.lsp'), -- Indent Blankline https://github.com/lukas-reineke/indent-blankline.nvim
+  require('plugins.lualine'),
+  require('plugins.luasnip'),
+  require('plugins.marks'), -- gestion des marques
+  require('plugins.mason'), -- gestion des marques
+  require('plugins.oil'),
+  require('plugins.quelleclé'),
+  require('plugins.rainbow-delimiters'),
+  require('plugins.roslyn'), -- gestion des surrounds (parenthèses, guillemets, etc.)
+  require('plugins.surrounds'), -- gestion des surrounds (parenthèses, guillemets, etc.)
+  require('plugins.telescope'),
+  require('plugins.toggleterm'),
+  require('plugins.treesitter'),
+  require('plugins.trouble'), -- gestion des erreurs et warnings (vérifier si ça marche bien)
   require('plugins.twilight'),
-  -- require('plugins.windsurf'),
+  require('plugins.zen-mode'),
 })
 
 -- specifics for firenvim
