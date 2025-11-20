@@ -25,9 +25,10 @@ require("lazy").setup({
   -- require('plugins.ufo'), -- pliage de code avancé
   -- require('plugins.windsurf'),
   -- require('plugins.yazi'),
+  require('plugins.mason'), -- gestion des marques
   require('plugins.autopairs'), -- gestion des paires de parenthèses, crochets, etc.
   require('plugins.biscuits'),  -- annotations à la fin des blocs (fermeture de parenth_ses, accolades, etc.)
-  require('plugins.blink'), -- Performant, batteries-included completion plugin for Neovim
+  -- require('plugins.blink'), -- Performant, batteries-included completion plugin for Neovim
   require('plugins.bufferlist'),
   require('plugins.cmp'),
   require('plugins.colorizer'), -- colorize les codes couleurs
@@ -43,7 +44,6 @@ require("lazy").setup({
   require('plugins.lualine'),
   require('plugins.luasnip'),
   require('plugins.marks'), -- gestion des marques
-  require('plugins.mason'), -- gestion des marques
   require('plugins.oil'),
   require('plugins.quelleclé'),
   require('plugins.rainbow-delimiters'),
