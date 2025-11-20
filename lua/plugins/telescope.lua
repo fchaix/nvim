@@ -85,11 +85,28 @@ return {
       '<leader>fc',
       '<cmd>Telescope git_commits<cr>',
       { noremap = true, silent = true }
+    vim.api.nvim_set_keymap(
+      'n',
+      '<leader>fC',
+      '<cmd>Telescope git_bcommits<cr>',
+      { noremap = true, silent = true }
     )
     vim.api.nvim_set_keymap(
       'n',
       '<leader>fb',
       '<cmd>Telescope git_branches<cr>',
+      { noremap = true, silent = true }
+    )
+    vim.api.nvim_set_keymap(
+      'n',
+      '<leader>fo',
+      '<cmd>Telescope oldfiles<cr>',
+      { noremap = true, silent = true }
+    )
+    vim.api.nvim_set_keymap(
+      'n',
+      '<leader>ft',
+      '<cmd>Telescope treesitter<cr>',
       { noremap = true, silent = true }
     )
   end
