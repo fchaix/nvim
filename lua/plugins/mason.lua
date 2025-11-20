@@ -16,7 +16,8 @@ return {
         "css-lsp",
         "json-lsp",
         "pyright",
-        "roslyn-unstable",
+        "ruff", -- python linter
+        "roslyn",
       },
     },
   },

@@ -21,6 +21,8 @@ return {
         { border = "rounded" }
       )
 
+
+
       -- Raccourcis claviers LSP
       local opts = { noremap = true, silent = true }
       local keymap = vim.keymap.set

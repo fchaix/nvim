@@ -85,6 +85,7 @@ return {
       '<leader>fc',
       '<cmd>Telescope git_commits<cr>',
       { noremap = true, silent = true }
+    )
     vim.api.nvim_set_keymap(
       'n',
       '<leader>fC',
