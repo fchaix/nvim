@@ -46,7 +46,8 @@ return {
     vim.api.nvim_set_keymap(
       'n',
       '<leader>ff',
-      '<cmd>Telescope find_files<cr>',
+      -- '<cmd>Telescope find_files<cr>',
+      '<cmd>Telescope fd<cr>',
       { noremap = true, silent = true }
     )
     vim.api.nvim_set_keymap(
@@ -65,6 +66,30 @@ return {
       'n',
       '<leader>fh',
       '<cmd>Telescope help_tags<cr>',
+      { noremap = true, silent = true }
+    )
+    vim.api.nvim_set_keymap(
+      'n',
+      '<leader>/',
+      '<cmd>Telescope current_buffer_fuzzy_find<cr>',
+      { noremap = true, silent = true }
+    )
+    vim.api.nvim_set_keymap(
+      'n',
+      '<leader>fd',
+      '<cmd>Telescope diagnostics<cr>',
+      { noremap = true, silent = true }
+    )
+    vim.api.nvim_set_keymap(
+      'n',
+      '<leader>fc',
+      '<cmd>Telescope git_commits<cr>',
+      { noremap = true, silent = true }
+    )
+    vim.api.nvim_set_keymap(
+      'n',
+      '<leader>fb',
+      '<cmd>Telescope git_branches<cr>',
       { noremap = true, silent = true }
     )
   end
