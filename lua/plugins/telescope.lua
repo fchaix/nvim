@@ -1,7 +1,10 @@
 return {
   'nvim-telescope/telescope.nvim',
-  tag = '0.1.8', -- ou la dernière version stable
-  dependencies = { 'nvim-lua/plenary.nvim' },
+  tag = '0.1.9', -- ou la dernière version stable
+  dependencies = { 
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope-file-browser.nvim',
+  },
   config = function()
     local telescope = require('telescope')
     local actions = require('telescope.actions')
@@ -40,12 +43,14 @@ return {
         }
       },
       extensions = {
-        -- Ajoute ici les extensions de Telescope si nécessaire
+        file_browser = {
+          theme = "ivy",
+        },
       },
     }
 
     -- Charger les extensions de Telescope ici
-    -- telescope.load_extension('extension_name')
+    telescope.load_extension('file_browser')
 
     -- Mappage des raccourcis clavier
     vim.api.nvim_set_keymap(
