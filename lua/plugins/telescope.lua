@@ -12,7 +12,12 @@ return {
         winblend = 10,
         mappings = {
           i = {
-            ["<esc>"] = actions.close
+            ["<esc>"] = actions.close,
+            ["<c-d>"] = actions.delete_buffer,
+          },
+          n = {
+            ["<c-d>"] = actions.delete_buffer,
+            ["dd"] = actions.delete_buffer,
           },
         },
         layout_config = {
@@ -94,7 +99,7 @@ return {
     )
     vim.api.nvim_set_keymap(
       'n',
-      '<leader>fb',
+      '<leader>fB',
       '<cmd>Telescope git_branches<cr>',
       { noremap = true, silent = true }
     )
