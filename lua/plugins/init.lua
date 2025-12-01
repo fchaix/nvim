@@ -1,4 +1,4 @@
--- Configuration de lazy.nvim
+-- Configuration de lazy.nvim ------------------------------
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -6,60 +6,120 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    "--branch=stable", -- dernière version stable
     lazypath,
   })
 end
 vim.opt.rtp:prepend(lazypath)
 
+---------------------------------------------------------------------
+-- Chargement des plugins via lazy.nvim
+---------------------------------------------------------------------
 require("lazy").setup({
-  git = {
-    url_format = "git@github.com:%s.git",  -- Format SSH par défaut
-  },
-  -- require('plugins.nvim-tree'),
-  -- require('plugins.alpha'),
-  -- require('plugins.firenvim'),
-  -- require('plugins.floaterm'),
-  -- require('plugins.harpoon'),
-  -- require('plugins.lspconfig'),
-  -- require('plugins.ufo'), -- pliage de code avancé
-  -- require('plugins.windsurf'),
-  -- require('plugins.yazi'),
-  require('plugins.mason'), -- gestion des marques
-  require('plugins.autopairs'), -- gestion des paires de parenthèses, crochets, etc.
-  -- require('plugins.biscuits'),  -- annotations à la fin des blocs (fermeture de parenth_ses, accolades, etc.)
-  -- require('plugins.blink'), -- Performant, batteries-included completion plugin for Neovim
-  require('plugins.bufferlist'),
-  require('plugins.cmp'),
-  require('plugins.colorizer'), -- colorize les codes couleurs
-  require('plugins.comment'), -- gestion des commentaires
-  require('plugins.compline'),
-  -- require('plugins.copilot'),
-  require('plugins.csharp'),
-  require('plugins.dadbod'), -- gestion des bases de données
-  require('plugins.flash'),
-  require('plugins.eink'),
-  require('plugins.gitsigns'), -- gestion des signes git dans la marge
-  require('plugins.gruvbox'),
-  require('plugins.ibl'), -- Indent Blankline https://github.com/lukas-reineke/indent-blankline.nvim
-  require('plugins.lsp'),
-  require('plugins.lualine'),
-  require('plugins.luasnip'),
-  require('plugins.marks'), -- gestion des marques
-  require('plugins.oil'),
-  require('plugins.quelleclé'),
-  -- require('plugins.rainbow-delimiters'),
-  require('plugins.roslyn'), -- gestion des surrounds (parenthèses, guillemets, etc.)
-  require('plugins.surrounds'), -- gestion des surrounds (parenthèses, guillemets, etc.)
-  require('plugins.telescope'),
-  require('plugins.toggleterm'),
-  require('plugins.treesitter'),
-  require('plugins.trouble'), -- gestion des erreurs et warnings (vérifier si ça marche bien)
-  require('plugins.twilight'),
-  require('plugins.vesper'),
-  require('plugins.zen-mode'),
-})
 
+  ------------------------------------------------------------
+  -- ⚙️ Configuration interne de Lazy (ex: protocole git)
+  ------------------------------------------------------------
+  git = {
+    url_format = "git@github.com:%s.git", -- Utilisation par défaut du SSH
+  },
+
+  ------------------------------------------------------------
+  -- 🎨 Thèmes / Apparence
+  ------------------------------------------------------------
+  require('plugins.gruvbox'),
+  require('plugins.vesper'),
+  require('plugins.eink'),
+  require('plugins.lualine'),  -- Barre de statut
+  require('plugins.colorizer'), -- Colorisation des codes couleurs
+  require('plugins.compline'),    -- tentative d'adaptation du colorsheme de Joshua Blais
+
+  ------------------------------------------------------------
+  -- 🧠 LSP / Auto-complétion / Snippets
+  ------------------------------------------------------------
+  require('plugins.lsp'),
+  require('plugins.roslyn'),      -- LSP C#
+  require('plugins.csharp'),      -- Améliorations C#
+  require('plugins.cmp'),         -- Completions
+  require('plugins.luasnip'),     -- Snippets
+  require('plugins.mason'),       -- Gestion des outils LSP/DAP/Linters
+
+  ------------------------------------------------------------
+  -- 🔧 Édition / Navigation / Productivité
+  ------------------------------------------------------------
+  require('plugins.autopairs'),    -- Parenthèses automatiques
+  require('plugins.surrounds'),    -- gs... pour gérer les surrounds
+  require('plugins.bufferlist'),   -- Gestion de buffers
+  require('plugins.telescope'),    -- Fuzzy finder
+  require('plugins.oil'),          -- Explorateur de fichiers façon "oil"
+  require('plugins.toggleterm'),   -- Terminal intégré
+  require('plugins.flash'),        -- Navigation rapide dans le buffer
+  require('plugins.comment'),      -- Commentaires faciles
+  require('plugins.marks'),        -- Gestion améliorée des marks
+  require('plugins.twilight'),     -- Focus du code
+  require('plugins.zen-mode'),     -- Mode zen (écriture)
+  require('plugins.quelleclé'),    -- Which-key amélioré
+
+  ------------------------------------------------------------
+  -- 🔍 Analyse du code / Navigation syntaxique
+  ------------------------------------------------------------
+  require('plugins.treesitter'),
+  require('plugins.trouble'),      -- Liste d’erreurs / warnings / diagnostics
+
+  ------------------------------------------------------------
+  -- 🧩 Git
+  ------------------------------------------------------------
+  require('plugins.gitsigns'),
+
+  ------------------------------------------------------------
+  -- 🗄️ Bases de données
+  ------------------------------------------------------------
+  require('plugins.dadbod'),
+
+  ------------------------------------------------------------
+  -- 🚫 Plugins désactivés mais conservés
+  -- (classés pour consultation facile)
+  ------------------------------------------------------------
+
+  -- Explorateur de fichiers :
+  -- require('plugins.nvim-tree'),
+
+  -- Interface d’accueil :
+  -- require('plugins.alpha'),
+
+  -- Intégration navigateur :
+  -- require('plugins.firenvim'),
+
+  -- Terminal flottant :
+  -- require('plugins.floaterm'),
+
+  -- Navigation rapide entre fichiers :
+  -- require('plugins.harpoon'),
+
+  -- Folding avancé :
+  -- require('plugins.ufo'),
+
+  -- Gestionnaire de fichiers alternatif :
+  -- require('plugins.windsurf'),
+
+  -- TUI pour yazi :
+  -- require('plugins.yazi'),
+
+  -- Annotations des structures syntaxiques :
+  -- require('plugins.biscuits'),
+
+  -- Complétion alternative :
+  -- require('plugins.blink'),
+
+  -- Indentation avancée :
+  -- require('plugins.ibl'),
+
+  -- Copilot :
+  -- require('plugins.copilot'),
+
+  -- Coloration par niveaux de parenthèses :
+  -- require('plugins.rainbow-delimiters'),
+})
 -- specifics for firenvim
 if vim.g.started_by_firenvim then
   vim.o.guifont = "JetBrainsMono Nerd Font:h9" -- Optionnel : police utilisable dans le navigateur
