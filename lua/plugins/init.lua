@@ -27,26 +27,28 @@ require("lazy").setup({
   -- require('plugins.yazi'),
   require('plugins.mason'), -- gestion des marques
   require('plugins.autopairs'), -- gestion des paires de parenthèses, crochets, etc.
-  require('plugins.biscuits'),  -- annotations à la fin des blocs (fermeture de parenth_ses, accolades, etc.)
+  -- require('plugins.biscuits'),  -- annotations à la fin des blocs (fermeture de parenth_ses, accolades, etc.)
   -- require('plugins.blink'), -- Performant, batteries-included completion plugin for Neovim
   require('plugins.bufferlist'),
   require('plugins.cmp'),
   require('plugins.colorizer'), -- colorize les codes couleurs
   require('plugins.comment'), -- gestion des commentaires
+  require('plugins.compline'),
   -- require('plugins.copilot'),
   require('plugins.csharp'),
   require('plugins.dadbod'), -- gestion des bases de données
   require('plugins.flash'),
+  require('plugins.eink'),
   require('plugins.gitsigns'), -- gestion des signes git dans la marge
   require('plugins.gruvbox'),
   require('plugins.ibl'), -- Indent Blankline https://github.com/lukas-reineke/indent-blankline.nvim
-  require('plugins.lsp'), -- Indent Blankline https://github.com/lukas-reineke/indent-blankline.nvim
+  require('plugins.lsp'),
   require('plugins.lualine'),
   require('plugins.luasnip'),
   require('plugins.marks'), -- gestion des marques
   require('plugins.oil'),
   require('plugins.quelleclé'),
-  require('plugins.rainbow-delimiters'),
+  -- require('plugins.rainbow-delimiters'),
   require('plugins.roslyn'), -- gestion des surrounds (parenthèses, guillemets, etc.)
   require('plugins.surrounds'), -- gestion des surrounds (parenthèses, guillemets, etc.)
   require('plugins.telescope'),
@@ -54,6 +56,7 @@ require("lazy").setup({
   require('plugins.treesitter'),
   require('plugins.trouble'), -- gestion des erreurs et warnings (vérifier si ça marche bien)
   require('plugins.twilight'),
+  require('plugins.vesper'),
   require('plugins.zen-mode'),
 })
 

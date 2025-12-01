@@ -39,6 +39,7 @@ return {
 
     -- Définit (ou redéfinit) les groupes de highlight à chaque changement de colorscheme.
     -- (La README recommande de le faire via HIGHLIGHT_SETUP.) :contentReference[oaicite:1]{index=1}
+
     hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
       -- utiliser les mêmes noms que dans hl_list ; je fournis les couleurs par défaut
       vim.api.nvim_set_hl(0, "RainbowDelimiterRed",    { fg = "#E06C75" })
