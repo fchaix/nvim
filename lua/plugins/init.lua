@@ -28,7 +28,9 @@ require("lazy").setup({
   -- 🎨 Thèmes / Apparence
   ------------------------------------------------------------
   require('plugins.gruvbox'),
+  require('plugins.kanagawa-paper'),
   require('plugins.vesper'),
+  require('plugins.lackluster'),
   require('plugins.eink'),
   require('plugins.lualine'),  -- Barre de statut
   require('plugins.colorizer'), -- Colorisation des codes couleurs
