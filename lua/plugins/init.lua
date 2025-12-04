@@ -28,6 +28,7 @@ require("lazy").setup({
   -- 🎨 Thèmes / Apparence
   ------------------------------------------------------------
   require('plugins.gruvbox'),
+  require('plugins.mellifluous'),
   require('plugins.kanagawa-paper'),
   require('plugins.vesper'),
   require('plugins.lackluster'),

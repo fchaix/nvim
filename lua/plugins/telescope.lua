@@ -68,6 +68,12 @@ return {
     )
     vim.api.nvim_set_keymap(
       'n',
+      '<leader>fj',
+      '<cmd>Telescope jumplist<cr>',
+      { noremap = true, silent = true }
+    )
+    vim.api.nvim_set_keymap(
+      'n',
       '<leader>fb',
       '<cmd>Telescope buffers<cr>',
       { noremap = true, silent = true }
