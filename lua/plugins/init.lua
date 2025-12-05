@@ -68,6 +68,7 @@ require("lazy").setup({
   ------------------------------------------------------------
   require('plugins.treesitter'),
   require('plugins.trouble'),      -- Liste d’erreurs / warnings / diagnostics
+  require('plugins.ctags'),
 
   ------------------------------------------------------------
   -- 🧩 Git
