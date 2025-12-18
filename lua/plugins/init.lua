@@ -42,6 +42,7 @@ require("lazy").setup({
   ------------------------------------------------------------
   require('plugins.lsp'),
   require('plugins.roslyn'),      -- LSP C#
+  require('plugins.tiny-inline-diagnostics'), -- Diagnostics inline légers
   require('plugins.csharp'),      -- Améliorations C#
   require('plugins.cmp'),         -- Completions
   require('plugins.luasnip'),     -- Snippets
