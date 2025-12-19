@@ -249,6 +249,16 @@ end
 -- petit raccourci pour ajouter une ligne vide avant et après la ligne courante, avec leader + a
 vim.keymap.set('n', '<leader>z', '<Esc>o<Esc>kO<Esc>j', { noremap = true, silent = true, desc = 'Add empty line above and below' })
 
+-- <leader>q pour entrer/sortir de la fenêtre quickfix (:copen :cclose)
+vim.keymap.set('n', '<leader>q', function()
+  if vim.fn.getqflist({ size = 0 }).size > 0 then
+    if vim.fn.win_gettype() == 'quickfix' then
+      vim.cmd('cclose')
+    else
+      vim.cmd('copen')
+    end
+  end
+end, { noremap = true, silent = true, desc = 'Toggle Quickfix List' })
 
 -- Customisaiton des messages de diagnostic
 vim.g.dotnet_errors_only = true
