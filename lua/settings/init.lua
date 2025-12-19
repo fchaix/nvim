@@ -1,4 +1,5 @@
 require('settings.neovide')
+require('settings.msbuild_win')
 
 
 -- Touche leader
@@ -263,3 +264,12 @@ end, { noremap = true, silent = true, desc = 'Toggle Quickfix List' })
 -- Customisaiton des messages de diagnostic
 vim.g.dotnet_errors_only = true
 vim.g.dotnet_show_project_file = false
+
+-- compilateur custom pour les projets uniquement compilables avec MSBuild.exe (WinFormm, etc.)
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--   callback = function()
+--     if vim.fn.filereadable(".nvim-msbuild-win") == 1 then
+--       vim.cmd("compiler msbuild_win")
+--     end
+--   end,
+-- })
