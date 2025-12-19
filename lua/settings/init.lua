@@ -248,3 +248,8 @@ end
 
 -- petit raccourci pour ajouter une ligne vide avant et après la ligne courante, avec leader + a
 vim.keymap.set('n', '<leader>z', '<Esc>o<Esc>kO<Esc>j', { noremap = true, silent = true, desc = 'Add empty line above and below' })
+
+
+-- Customisaiton des messages de diagnostic
+vim.g.dotnet_errors_only = true
+vim.g.dotnet_show_project_file = false
