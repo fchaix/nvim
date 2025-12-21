@@ -4,15 +4,12 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope-file-browser.nvim',
-    {
-      'nvim-telescope/telescope-fzf-native.nvim',
-      build = 'make',
-    },
   },
 
   config = function()
     local telescope = require('telescope')
     local actions = require('telescope.actions')
+    local sorters = require('telescope.sorters')
 
     telescope.setup{
       defaults = {
@@ -47,28 +44,20 @@ return {
           theme = "dropdown",
         },
         tags = {
-          -- sorter = require('telescope.sorters').get_generic_fuzzy_sorter(),
-          -- fname_width = 60,
-          sorter = require('telescope').extensions.fzf.native_fzf_sorter(),
+          sorter = require('telescope.sorters').get_generic_fuzzy_sorter(),
+          -- fname_width = 60, -- Limite la largeur du nom de fichier à 60 caractères
         },
       },
 
       extensions = {
         file_browser = { theme = "ivy" },
 
-        fzf = {
-          fuzzy = true,
-          override_generic_sorter = true,
-          override_file_sorter = true,
-          case_mode = "smart_case",
-        },
       },
 
     }
 
     -- Charger les extensions de Telescope ici
     telescope.load_extension('file_browser')
-    telescope.load_extension('fzf')
 
     -- Mappage des raccourcis clavier
     vim.api.nvim_set_keymap(
