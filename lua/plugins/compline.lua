@@ -3,6 +3,6 @@ return {
   priority = 1000,
   config = function()
     vim.o.background = "dark" -- ou "light"
-    vim.cmd([[colorscheme compline]])
+    -- vim.cmd([[colorscheme compline]])
   end
 }

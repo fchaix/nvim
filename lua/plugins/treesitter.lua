@@ -7,7 +7,7 @@ return {
     -- "JoosepAlviste/nvim-ts-context-commentstring",
     -- "windwp/nvim-ts-autotag",
     -- "p00f/nvim-ts-rainbow",
-    -- "HiRoFaRuTo/firenvim",
+    "glacambre/firenvim",
   },
   config = function () 
     local configs = require("nvim-treesitter.configs")

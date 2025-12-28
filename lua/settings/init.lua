@@ -1,5 +1,5 @@
 require('settings.neovide')
-require('settings.msbuild_win')
+-- require('settings.msbuild_win')
 
 
 -- Touche leader
@@ -10,7 +10,7 @@ vim.g.maplocalleader = ' '
 ----------------------------
 -------- Visuel -------- 
 ----------------------------
-vim.opt.termguicolors = true
+vim.opt.termguicolors = false                     -- Si true, neovim ignore la palette du terminal
 vim.opt.signcolumn = "yes"                         -- Always show sign column
 vim.opt.colorcolumn = "100"                        -- Show column at 100 characters
 vim.opt.cmdheight = 1                              -- Command line height

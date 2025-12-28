@@ -35,7 +35,7 @@ require("lazy").setup({
   require('plugins.eink'),
   require('plugins.lualine'),  -- Barre de statut
   require('plugins.colorizer'), -- Colorisation des codes couleurs
-  require('plugins.compline'),    -- tentative d'adaptation du colorsheme de Joshua Blais
+  -- require('plugins.compline'),    -- tentative d'adaptation du colorsheme de Joshua Blais
 
   ------------------------------------------------------------
   -- 🧠 LSP / Auto-complétion / Snippets
@@ -64,6 +64,9 @@ require("lazy").setup({
   require('plugins.twilight'),     -- Focus du code
   require('plugins.zen-mode'),     -- Mode zen (écriture)
   require('plugins.quelleclé'),    -- Which-key amélioré
+  -- Intégration navigateur :
+  require('plugins.firenvim'),
+
 
   ------------------------------------------------------------
   -- 🔍 Analyse du code / Navigation syntaxique
@@ -92,9 +95,6 @@ require("lazy").setup({
 
   -- Interface d’accueil :
   -- require('plugins.alpha'),
-
-  -- Intégration navigateur :
-  -- require('plugins.firenvim'),
 
   -- Terminal flottant :
   -- require('plugins.floaterm'),
@@ -135,7 +135,7 @@ if vim.g.started_by_firenvim then
     localSettings = {
       [".*"] = {
         takeover = "always", -- Toujours prendre la main quand un champ est focus
-        cmdline = "neovim", -- Ou "firenvim" si tu veux la commande par défaut
+        cmdline = "firenvim", -- Ou "firenvim" si tu veux la commande par défaut
         content = "text",
         priority = 0,
         selector = "textarea, div[contenteditable=true]", -- éléments ciblés
