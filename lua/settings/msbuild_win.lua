@@ -1,5 +1,5 @@
 -- =============================================================================
--- MSBuild Windows depuis Neovim WSL – version corrigée et fonctionnelle
+-- MSBuild Windows depuis Neovim WSL
 -- =============================================================================
 
 local M = {}
