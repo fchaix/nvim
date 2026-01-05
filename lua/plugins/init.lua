@@ -27,15 +27,17 @@ require("lazy").setup({
   ------------------------------------------------------------
   -- 🎨 Thèmes / Apparence
   ------------------------------------------------------------
-  require('plugins.gruvbox'),
   require('plugins.mellifluous'),
   require('plugins.kanagawa-paper'),
   require('plugins.vesper'),
   require('plugins.lackluster'),
-  require('plugins.eink'),
-  require('plugins.lualine'),  -- Barre de statut
+  -- require('plugins.eink'),
+  -- require('plugins.lualine'),  -- Barre de statut
   require('plugins.colorizer'), -- Colorisation des codes couleurs
   -- require('plugins.compline'),    -- tentative d'adaptation du colorsheme de Joshua Blais
+  require('plugins.gruvbox'),
+  -- { 'shaunsingh/solarized.nvim' },
+  require('plugins.solarized'),
 
   ------------------------------------------------------------
   -- 🧠 LSP / Auto-complétion / Snippets
@@ -129,6 +131,8 @@ require("lazy").setup({
 -- specifics for firenvim
 if vim.g.started_by_firenvim then
   vim.o.guifont = "JetBrainsMono Nerd Font:h9" -- Optionnel : police utilisable dans le navigateur
+  -- set Copilot disabled in firenvim
+  vim.g.copilot_enabled = false
 
   -- Ajuster les dimensions de l'iframe
   vim.g.firenvim_config = {
@@ -140,8 +144,8 @@ if vim.g.started_by_firenvim then
         priority = 0,
         selector = "textarea, div[contenteditable=true]", -- éléments ciblés
         -- ⚠️ ici viennent les options de taille
-        width = 0.9, -- en pourcentage de la largeur de la fenêtre du navigateur
-        height = 1, -- en pourcentage de la hauteur
+        -- width = 0.9, -- en pourcentage de la largeur de la fenêtre du navigateur
+        -- height = 1, -- en pourcentage de la hauteur
       },
     }
   }
@@ -162,3 +166,4 @@ end
 function _G.toggle_copilot()
 
 end
+

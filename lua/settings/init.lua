@@ -12,10 +12,9 @@ vim.g.maplocalleader = ' '
 ----------------------------
 vim.opt.termguicolors = false                     -- Si true, neovim ignore la palette du terminal
 vim.opt.signcolumn = "yes"                         -- Always show sign column
-vim.opt.colorcolumn = "100"                        -- Show column at 100 characters
+-- vim.opt.colorcolumn = "100"                        -- Show column at 100 characters
 vim.opt.cmdheight = 1                              -- Command line height
 vim.opt.signcolumn = "yes"                         -- Always show sign column
-vim.opt.colorcolumn = "100"                        -- Show column at 100 characters
 vim.opt.completeopt = "menuone,noinsert,noselect"  -- Completion options 
 vim.opt.title = true -- Afficher le titre de la fenêtre
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" }) -- Transparence
@@ -27,12 +26,12 @@ vim.cmd('syntax enable')
 vim.opt.number = true
 -- Activer la mise en évidence de la ligne courante
 vim.opt.cursorline = true
-vim.opt.cursorcolumn = true
+-- vim.opt.cursorcolumn = true
 -- Cursor settings
 vim.opt.guicursor = "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
 -- virtual edit
-vim.opt.virtualedit = "all"
+vim.opt.virtualedit = "onemore"
 
 -- OS integration
 vim.opt.mouse = 'a' -- Activer la souris dans tous les modes
