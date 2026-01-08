@@ -249,6 +249,10 @@ end
 -- petit raccourci pour ajouter une ligne vide avant et après la ligne courante, avec leader + a
 vim.keymap.set('n', '<leader>z', '<Esc>o<Esc>kO<Esc>j', { noremap = true, silent = true, desc = 'Add empty line above and below' })
 
+-- Racourci spécifique pour nettoyer les copier-coller sous windows
+vim.keymap.set('n', '<leader>ww', ':%s/\\r//g<CR>', { desc = 'Supprimer les retours chariot \\r' })
+vim.keymap.set('v', '<leader>ww', ':s/\\r//g<CR>', { desc = 'Supprimer \\r dans la sélection' })
+
 -- <leader>q pour entrer/sortir de la fenêtre quickfix (:copen :cclose)
 vim.keymap.set('n', '<leader>q', function()
   if vim.fn.getqflist({ size = 0 }).size > 0 then
