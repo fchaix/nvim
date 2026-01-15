@@ -40,12 +40,34 @@ end, { desc = "Toggle fullscreen in Neovide" })
 
 -- Copy paste and stuff
 if vim.g.neovide then
-  vim.keymap.set('n', '<D-s>', ':w<CR>') -- Save
-  vim.keymap.set('v', '<D-c>', '"+y') -- Copy
-  vim.keymap.set('n', '<D-v>', '"+P') -- Paste normal mode
-  vim.keymap.set('v', '<D-v>', '"+P') -- Paste visual mode
-  vim.keymap.set('c', '<D-v>', '<C-R>+') -- Paste command mode
-  vim.keymap.set('i', '<D-v>', '<ESC>l"+Pli') -- Paste insert mode
+  -- Sauvegarde avec Ctrl+S (standard Windows)
+  vim.keymap.set('n', '<C-s>', ':w<CR>')
+
+  -- Copier avec Ctrl+Shift+C (comme dans Alacritty)
+  vim.keymap.set('v', '<C-S-c>', '"+y')
+
+  -- Copier avec Ctrl+C en mode visuel (aussi standard)
+  vim.keymap.set('v', '<C-c>', '"+y')
+
+  -- Coller avec Ctrl+Shift+V
+  vim.keymap.set('n', '<C-S-v>', '"+P')
+  vim.keymap.set('v', '<C-S-v>', '"+P')
+
+  -- Coller avec Ctrl+V (aussi standard)
+  vim.keymap.set('n', '<C-v>', '"+P')
+  vim.keymap.set('v', '<C-v>', '"+P')
+
+  -- Coller en mode commande
+  vim.keymap.set('c', '<C-S-v>', '<C-R>+')
+  vim.keymap.set('c', '<C-v>', '<C-R>+')
+
+  -- Coller en mode insertion
+  vim.keymap.set('i', '<C-S-v>', '<ESC>l"+Pli')
+  vim.keymap.set('i', '<C-v>', '<ESC>l"+Pli')
+
+  -- Copier/coller en mode terminal
+  vim.keymap.set('t', '<C-S-c>', '<C-\\><C-N>"+y')
+  vim.keymap.set('t', '<C-S-v>', '<C-\\><C-N>"+Pli')
 end
 
 -- Allow clipboard copy paste in neovim
