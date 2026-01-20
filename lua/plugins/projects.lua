@@ -5,6 +5,7 @@ return {
       "C:/Users/fhc/lims/Applications/Itga.Lims.ImportEnrobes",
       "C:/Users/fhc/source/repos/pdb-backoffice",
       "C:/Users/fhc/source/repos/pdb-backoffice_POC_GenRapports",
+      "C:/Users/fhc/source/repos/rapports.webapi",
       "C:/Users/fhc/AppData/Local/nvim",
       "//wsl.localhost/Ubuntu/home/fhc/eeznuts"
     },
