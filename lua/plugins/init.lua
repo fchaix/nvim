@@ -66,6 +66,7 @@ require("lazy").setup({
   require('plugins.twilight'),     -- Focus du code
   require('plugins.zen-mode'),     -- Mode zen (écriture)
   require('plugins.quelleclé'),    -- Which-key amélioré
+  require('plugins.projects'),
   -- Intégration navigateur :
   require('plugins.firenvim'),
 
@@ -86,6 +87,11 @@ require("lazy").setup({
   -- 🗄️ Bases de données
   ------------------------------------------------------------
   require('plugins.dadbod'),
+
+  ------------------------------------------------------------
+  -- Tests (API, etc)
+  ------------------------------------------------------------
+  require('plugins.rest'),
 
   ------------------------------------------------------------
   -- 🚫 Plugins désactivés mais conservés
