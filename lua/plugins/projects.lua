@@ -7,7 +7,7 @@ return {
       "C:/Users/fhc/source/repos/pdb-backoffice_POC_GenRapports",
       "C:/Users/fhc/source/repos/rapports.webapi",
       "C:/Users/fhc/AppData/Local/nvim",
-      "C:/Users/fhc/kanata",
+      "C:/Users/fhc/kanataAppData/Local/nvim",
       "//wsl.localhost/Ubuntu/home/fhc/eeznuts"
     },
     patterns = { ".git", "package.json", "*.sln", "Makefile" }, -- détection auto
