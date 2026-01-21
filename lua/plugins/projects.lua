@@ -6,6 +6,7 @@ return {
       "C:/Users/fhc/source/repos/pdb-backoffice",
       "C:/Users/fhc/source/repos/pdb-backoffice_POC_GenRapports",
       "C:/Users/fhc/source/repos/rapports.webapi",
+      "C:/Users/fhc/source/visuvalid",
       "C:/Users/fhc/AppData/Local/nvim",
       "C:/Users/fhc/kanata",
       "//wsl.localhost/Ubuntu/home/fhc/eeznuts"
