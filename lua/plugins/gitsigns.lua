@@ -29,7 +29,7 @@ return {
         delay = 1000,
         ignore_whitespace = false,
       },
-      current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
+      current_line_blame_formatter = ' <author>, <author_time:%Y-%m-%d> - <summary>',
       sign_priority = 6,
       update_debounce = 100,
       status_formatter = nil, -- Utilise le format par défaut
@@ -45,5 +45,8 @@ return {
     --     enable = false
     --   },
     }
+
+    vim.api.nvim_set_keymap('n', '<leader>bb', ':Gitsigns blame<CR>', { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('n', '<leader>bl', ':Gitsigns toggle_current_line_blame<CR>', { noremap = true, silent = true })
   end
 }
