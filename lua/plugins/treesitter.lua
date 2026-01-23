@@ -4,31 +4,29 @@ return {
   event = { "BufReadPost", "BufNewFile" },
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    -- "JoosepAlviste/nvim-ts-context-commentstring",
-    -- "windwp/nvim-ts-autotag",
-    -- "p00f/nvim-ts-rainbow",
     "glacambre/firenvim",
   },
-  config = function () 
+  config = function() 
     local configs = require("nvim-treesitter.configs")
 
     configs.setup({
-      ensure_installed = { 
+      ensure_installed = {
         "c",
-        "lua", 
-        "vim", 
-        "vimdoc", 
-        "query", 
+        "lua",
+        "vim",
+        "vimdoc",
+        "query",
         "bash",
         "css",
         "sql",
         "powershell",
-        "python", 
+        "python",
         "c_sharp",
-        "javascript", 
+        "javascript",
         "markdown",
         "markdown_inline",
-        "html" },
+        "html"
+      },
       sync_install = false,
       highlight = { enable = true },
       indent = { enable = true },  
@@ -37,6 +35,14 @@ return {
         select = {
           enable = true,
           lookahead = true,
+
+          -- Spécifiquement pour C#
+          selection_modes = {
+            ['@function.outer'] = 'V',  -- Mode ligne pour les fonctions
+            ['@class.outer'] = 'V',     -- Mode ligne pour les classes
+            ['@method.outer'] = 'V',    -- Ajoutez ceci aussi
+          },
+
           keymaps = {
             ["af"] = "@function.outer",
             ["if"] = "@function.inner",
@@ -62,7 +68,7 @@ return {
         },
         move = {
           enable = true,
-          set_jumps = true, -- whether to set jumps in the jumplist
+          set_jumps = true,
           goto_next_start = {
             ["]f"] = "@function.outer",
             ["]m"] = "@method.outer",
@@ -70,15 +76,16 @@ return {
             ["]s"] = "@statement.outer",
             ["]p"] = "@parameter.outer",
             ["]l"] = "@loop.outer",
-            ["]c"] = "@conditional.outer",
+            -- Note: ["]c"] est en double, utilisez une autre touche pour conditional
+            ["]!"] = "@conditional.outer",  -- Changé de "]c"
           },
           goto_next_end = {
             ["]F"] = "@function.outer",
-            ["]c"] = "@class.outer",
+            ["]C"] = "@class.outer",        -- Changé de "]c"
             ["]S"] = "@statement.outer",
             ["]P"] = "@parameter.outer",
             ["]L"] = "@loop.outer",
-            ["]C"] = "@conditional.outer",
+            ["]!"] = "@conditional.outer",  -- Pour la fin aussi
           },
           goto_previous_start = {
             ["[f"] = "@function.outer",
@@ -86,36 +93,17 @@ return {
             ["[s"] = "@statement.outer",
             ["[p"] = "@parameter.outer",
             ["[l"] = "@loop.outer",
-            ["[c"] = "@conditional.outer",
+            ["[!"] = "@conditional.outer",  -- Changé de "[c"
           },
           goto_previous_end = {
             ["[F"] = "@function.outer",
-            ["[C"] = "@class.outer",
+            ["[C"] = "@class.outer",        -- Changé de "[C"
             ["[S"] = "@statement.outer",
             ["[P"] = "@parameter.outer",
             ["[L"] = "@loop.outer",
-            ["[C"] = "@conditional.outer",
+            ["[!"] = "@conditional.outer",  -- Pour la fin aussi
           },
         },
-        -- swap = {
-        --   enable = true,
-        --   swap_next = {
-        --     ["<leader>dp"] = "@parameter.inner",
-        --     ["<leader>dc"] = "@class.inner",
-        --     ["<leader>df"] = "@function.inner",
-        --     ["<leader>ds"] = "@statement.inner",
-        --     ["<leader>dl"] = "@loop.inner",
-        --     ["<leader>d!"] = "@conditional.inner",
-        --   },
-        --   swap_previous = {
-        --     ["<leader>dP"] = "@parameter.inner",
-        --     ["<leader>dC"] = "@class.inner",
-        --     ["<leader>dF"] = "@function.inner",
-        --     ["<leader>dS"] = "@statement.inner",
-        --     ["<leader>dL"] = "@loop.inner",
-        --     ["<leader>d§"] = "@conditional.inner",
-        --   },
-        -- },
       },
       incremental_selection = {
         enable = true,
@@ -126,7 +114,6 @@ return {
           node_decremental = "<D-TAB>",
         },
       },
-
     })
   end
 }
