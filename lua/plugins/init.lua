@@ -82,6 +82,7 @@ require("lazy").setup({
   -- 🧩 Git
   ------------------------------------------------------------
   require('plugins.gitsigns'),
+  require('plugins.fugitive'),
 
   ------------------------------------------------------------
   -- 🗄️ Bases de données
