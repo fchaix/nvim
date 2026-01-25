@@ -136,7 +136,7 @@ require("lazy").setup({
   -- require('plugins.copilot'),
 
   -- Coloration par niveaux de parenthèses :
-  -- require('plugins.rainbow-delimiters'),
+  require('plugins.rainbow-delimiters'),
 })
 -- specifics for firenvim
 if vim.g.started_by_firenvim then
