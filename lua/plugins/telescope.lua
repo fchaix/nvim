@@ -42,10 +42,21 @@ return {
       pickers = {
         find_files = {
           theme = "dropdown",
+          path_display = { "filename_first" },
+        },
+        fd = {
+          path_display = { "filename_first" },
+        },
+        buffers = {
+          sort_mru = true,
+          path_display = { "filename_first" },
         },
         tags = {
           sorter = require('telescope.sorters').get_generic_fuzzy_sorter(),
           -- fname_width = 60, -- Limite la largeur du nom de fichier à 60 caractères
+        },
+        oldfiles = {
+          path_display = { "filename_first" },
         },
       },
 
