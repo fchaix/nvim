@@ -48,14 +48,17 @@ return {
           path_display = { "filename_first" },
         },
         buffers = {
-          sort_mru = true,
-          path_display = { "filename_first" },
+          sort_mru = true, -- Trier par ordre d'utilisation récente
+          path_display = { "tail" },
         },
         tags = {
           sorter = require('telescope.sorters').get_generic_fuzzy_sorter(),
           -- fname_width = 60, -- Limite la largeur du nom de fichier à 60 caractères
         },
         oldfiles = {
+          path_display = { "filename_first" },
+        },
+        live_grep = {
           path_display = { "filename_first" },
         },
       },
