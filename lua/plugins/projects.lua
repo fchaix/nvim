@@ -8,6 +8,8 @@ return {
       "C:/Users/fhc/source/repos/rapports.webapi",
       "C:/Users/fhc/source/visuvalid",
       "C:/Users/fhc/source/repos/image.webapi",
+      "C:/Users/fhc/source/repos/tools",
+      "C:/Users/fhc/source/repos/timetrack",
       "C:/Users/fhc/AppData/Local/nvim",
       "C:/Users/fhc/kanata",
       "//wsl.localhost/Ubuntu/home/fhc/eeznuts"
