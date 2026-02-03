@@ -38,6 +38,10 @@ require("lazy").setup({
   require('plugins.gruvbox'),
   -- { 'shaunsingh/solarized.nvim' },
   require('plugins.solarized'),
+  -- Interface d’accueil :
+  require('plugins.alpha'),
+
+  require('plugins.fidgets'),    -- Indicateur d’état LSP
 
   ------------------------------------------------------------
   -- 🧠 LSP / Auto-complétion / Snippets
@@ -92,7 +96,8 @@ require("lazy").setup({
   ------------------------------------------------------------
   -- Tests (API, etc)
   ------------------------------------------------------------
-  require('plugins.rest'),
+  -- require('plugins.rest'),
+  require('plugins.http-client'),
 
   ------------------------------------------------------------
   -- 🚫 Plugins désactivés mais conservés
@@ -102,8 +107,6 @@ require("lazy").setup({
   -- Explorateur de fichiers :
   -- require('plugins.nvim-tree'),
 
-  -- Interface d’accueil :
-  -- require('plugins.alpha'),
 
   -- Terminal flottant :
   -- require('plugins.floaterm'),
