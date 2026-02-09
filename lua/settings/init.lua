@@ -275,4 +275,10 @@ vim.g.dotnet_show_project_file = false
 --       vim.cmd("compiler msbuild_win")
 --     end
 --   end,
--- })
+-- }) TODO: test
+
+vim.api.nvim_create_user_command('Todolist', function()
+  vim.cmd("vimgrep /TODO/ **/*")
+  vim.cmd("copen")
+end,
+{nargs = 0, desc = 'Search for TODO comments in the project' })
