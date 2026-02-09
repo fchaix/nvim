@@ -12,7 +12,11 @@ return {
       "C:/Users/fhc/source/repos/timetrack",
       "C:/Users/fhc/AppData/Local/nvim",
       "C:/Users/fhc/kanata",
-      "//wsl.localhost/Ubuntu/home/fhc/eeznuts"
+      "//wsl.localhost/Ubuntu/home/fhc/eeznuts",
+
+      -- Projects on perso linux machines
+      "~/.config/nixos-config",
+      "~/.config/nvim"
     },
     patterns = { ".git", "package.json", "*.sln", "Makefile" }, -- détection auto
     project_dir = "~/neovim_projects", -- où sauvegarder les sessions
