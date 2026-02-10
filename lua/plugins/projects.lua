@@ -13,7 +13,16 @@ return {
       "C:/Users/fhc/AppData/Local/nvim",
       "C:/Users/fhc/kanata",
       "//wsl.localhost/Ubuntu/home/fhc/eeznuts",
+<<<<<<< HEAD
       "//wsl.localhost/Ubuntu/home/fhc/comp/offpunk"
+||||||| 4aa655b
+      "//wsl.localhost/Ubuntu/home/fhc/eeznuts"
+=======
+
+      -- Projects on perso linux machines
+      "~/.config/nixos-config",
+      "~/.config/nvim"
+>>>>>>> 4eb1dc4bb3425d3f0d47e33397bb29a2548160ab
     },
     patterns = { ".git", "package.json", "*.sln", "Makefile" }, -- détection auto
     project_dir = "~/neovim_projects", -- où sauvegarder les sessions
