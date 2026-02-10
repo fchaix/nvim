@@ -7,17 +7,18 @@ return {
         "github:Crashdummyy/mason-registry",
       },
       ensure_installed = {
-        "lua-language-server",
-        "xmlformatter",
         "csharpier",
-        "prettier",
-        "stylua",
-        "html-lsp",
         "css-lsp",
+        "html-lsp",
         "json-lsp",
+        "lua-language-server",
+        "prettier",
         "pyright",
-        "ruff", -- python linter
         "roslyn",
+        "ruff", -- python linter
+        "sqls",
+        "stylua",
+        "xmlformatter",
       },
     },
   },
@@ -25,6 +26,14 @@ return {
     "williamboman/mason-lspconfig.nvim",
     opts = {
       automatic_installation = true,
+      ensure_installed = {
+        "css-lsp",
+        "html-lsp",
+        "json-lsp",
+        "lua-language-server",
+        "pyright",
+        -- "sqls", -- configuré dans son plugin à côté
     },
   },
+}
 }

@@ -92,6 +92,7 @@ require("lazy").setup({
   -- 🗄️ Bases de données
   ------------------------------------------------------------
   require('plugins.dadbod'),
+  require('plugins.sqls'),
 
   ------------------------------------------------------------
   -- Tests (API, etc)

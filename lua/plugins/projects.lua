@@ -12,7 +12,7 @@ return {
       "C:/Users/fhc/source/repos/timetrack",
       "C:/Users/fhc/AppData/Local/nvim",
       "C:/Users/fhc/kanata",
-      "//wsl.localhost/Ubuntu/home/fhc/eeznuts"
+      "//wsl.localhost/Ubuntu/home/fhc/eeznuts",
       "//wsl.localhost/Ubuntu/home/fhc/comp/offpunk"
     },
     patterns = { ".git", "package.json", "*.sln", "Makefile" }, -- détection auto
