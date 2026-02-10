@@ -19,7 +19,7 @@ return {
         hide_numbers = false, -- hide the number column in toggleterm buffers
         direction = 'float',
         float_opts = {
-          border = 'shadow',
+          border = 'curved',
           winblend = 15,
           highlights = {
             border = 'Normal', 
