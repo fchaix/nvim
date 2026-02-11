@@ -11,7 +11,6 @@ return {
         "css-lsp",
         "html-lsp",
         "json-lsp",
-        "lua-language-server",
         "prettier",
         "pyright",
         "roslyn",
