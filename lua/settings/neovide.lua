@@ -53,10 +53,6 @@ if vim.g.neovide then
   vim.keymap.set('n', '<C-S-v>', '"+P')
   vim.keymap.set('v', '<C-S-v>', '"+P')
 
-  -- Coller avec Ctrl+V (aussi standard)
-  vim.keymap.set('n', '<C-v>', '"+P')
-  vim.keymap.set('v', '<C-v>', '"+P')
-
   -- Coller en mode commande
   vim.keymap.set('c', '<C-S-v>', '<C-R>+')
   vim.keymap.set('c', '<C-v>', '<C-R>+')
