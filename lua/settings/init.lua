@@ -282,3 +282,15 @@ vim.api.nvim_create_user_command('Todolist', function()
   vim.cmd("copen")
 end,
 {nargs = 0, desc = 'Search for TODO comments in the project' })
+
+
+-- Racourci pour ouvrir l'agenda
+-- vim.api.nvim_set_keymap('n', '<leader>aa', ':tabedit //wsl.localhost/Ubuntu/home/fhc/eeznuts/calendar.txt<CR>', { noremap = true, silent = true })
+local function get_calendar_path()
+    if vim.fn.has("win32") == 1 then
+        return "//wsl.localhost/Ubuntu/home/fhc/eeznuts/calendar.txt"
+    else
+        return "~/eeznuts/calendar.txt"
+    end
+end
+vim.api.nvim_set_keymap('n', '<leader>aa', ':tabedit ' .. get_calendar_path() .. '<CR>', { noremap = true, silent = true })
