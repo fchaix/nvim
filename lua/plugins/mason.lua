@@ -8,9 +8,6 @@ return {
       },
       ensure_installed = {
         "csharpier",
-        "css-lsp",
-        "html-lsp",
-        "json-lsp",
         "prettier",
         "pyright",
         "roslyn",
@@ -26,11 +23,8 @@ return {
     opts = {
       automatic_installation = true,
       ensure_installed = {
-        "css-lsp",
-        "html-lsp",
-        "json-lsp",
-        "lua-language-server",
         "pyright",
+        "ruff", -- python linter
         -- "sqls", -- configuré dans son plugin à côté
     },
   },
