@@ -7,14 +7,14 @@ return {
         "github:Crashdummyy/mason-registry",
       },
       ensure_installed = {
-        "csharpier",
-        "prettier",
-        "pyright",
-        "roslyn",
-        "ruff", -- python linter
-        "sqls",
-        "stylua",
-        "xmlformatter",
+        -- "csharpier",
+        -- "prettier",
+        -- "pyright",
+        -- "roslyn",
+        -- "ruff", -- python linter
+        -- "sqls",
+        -- "stylua",
+        -- "xmlformatter",
       },
     },
   },
@@ -23,8 +23,8 @@ return {
     opts = {
       automatic_installation = true,
       ensure_installed = {
-        "pyright",
-        "ruff", -- python linter
+        -- "pyright",
+        -- "ruff", -- python linter
         -- "sqls", -- configuré dans son plugin à côté
     },
   },

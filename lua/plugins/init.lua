@@ -27,15 +27,15 @@ require("lazy").setup({
   ------------------------------------------------------------
   -- 🎨 Thèmes / Apparence
   ------------------------------------------------------------
-  require('plugins.mellifluous'),
-  require('plugins.kanagawa-paper'),
-  require('plugins.vesper'),
-  require('plugins.lackluster'),
+  -- require('plugins.mellifluous'),
+  -- require('plugins.kanagawa-paper'),
+  -- require('plugins.vesper'),
+  -- require('plugins.lackluster'),
   -- require('plugins.eink'),
   -- require('plugins.lualine'),  -- Barre de statut
   require('plugins.colorizer'), -- Colorisation des codes couleurs
   -- require('plugins.compline'),    -- tentative d'adaptation du colorsheme de Joshua Blais
-  require('plugins.gruvbox'),
+  -- require('plugins.gruvbox'),
   -- { 'shaunsingh/solarized.nvim' },
   require('plugins.solarized'),
   -- Interface d’accueil :
@@ -47,10 +47,10 @@ require("lazy").setup({
   -- 🧠 LSP / Auto-complétion / Snippets
   ------------------------------------------------------------
   require('plugins.lsp'),
-  require('plugins.roslyn'),      -- LSP C#
+  -- require('plugins.roslyn'),      -- LSP C#
   require('plugins.tiny-inline-diagnostics'), -- Diagnostics inline légers
-  require('plugins.dap'),         -- Debug Adapter Protocol
-  require('plugins.csharp'),      -- Améliorations C#
+  -- require('plugins.dap'),         -- Debug Adapter Protocol
+  -- require('plugins.csharp'),      -- Améliorations C#
   require('plugins.cmp'),         -- Completions
   require('plugins.luasnip'),     -- Snippets
   require('plugins.mason'),       -- Gestion des outils LSP/DAP/Linters
@@ -72,7 +72,7 @@ require("lazy").setup({
   require('plugins.quelleclé'),    -- Which-key amélioré
   require('plugins.projects'),
   -- Intégration navigateur :
-  require('plugins.firenvim'),
+  -- require('plugins.firenvim'),
 
 
   ------------------------------------------------------------
@@ -91,14 +91,14 @@ require("lazy").setup({
   ------------------------------------------------------------
   -- 🗄️ Bases de données
   ------------------------------------------------------------
-  require('plugins.dadbod'),
+  -- require('plugins.dadbod'),
   -- require('plugins.sqls'),
 
   ------------------------------------------------------------
   -- Tests (API, etc)
   ------------------------------------------------------------
   -- require('plugins.rest'),
-  require('plugins.http-client'),
+  -- require('plugins.http-client'),
 
   ------------------------------------------------------------
   -- 🚫 Plugins désactivés mais conservés
