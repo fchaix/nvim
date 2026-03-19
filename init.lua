@@ -1,5 +1,0 @@
-require('settings')
-require('plugins')
--- require('lsp.python')
--- require('lsp.lspconfig')
-require('lsp.diagnostics')

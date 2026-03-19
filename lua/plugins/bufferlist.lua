@@ -1,1 +1,0 @@
-return { "kilavila/nvim-bufferlist" }
