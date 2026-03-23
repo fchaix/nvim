@@ -11,8 +11,9 @@ return {
         "prettier",
         "pyright",
         "roslyn",
-        "ruff", -- python linter
+        "ruff",
         "sqls",
+        "sql-formatter",
         "stylua",
         "xmlformatter",
       },
@@ -24,9 +25,8 @@ return {
       automatic_installation = true,
       ensure_installed = {
         "pyright",
-        "ruff", -- python linter
-        -- "sqls", -- configuré dans son plugin à côté
+        "ruff",
+      },
     },
   },
-}
 }
