@@ -54,6 +54,7 @@ require("lazy").setup({
   require('plugins.cmp'),         -- Completions
   require('plugins.luasnip'),     -- Snippets
   require('plugins.mason'),       -- Gestion des outils LSP/DAP/Linters
+  require('plugins.conform'),      -- Formatage à la volée
 
   ------------------------------------------------------------
   -- 🔧 Édition / Navigation / Productivité
