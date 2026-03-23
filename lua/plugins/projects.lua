@@ -11,6 +11,7 @@ return {
       "C:/Users/fhc/source/repos/tools",
       "C:/Users/fhc/source/repos/timetrack",
       "C:/Users/fhc/source/repos/bddlims",
+      "C:/Users/fhc/source/repos/Reporting_services",
       "C:/Users/fhc/AppData/Local/nvim",
       "C:/Users/fhc/kanata",
       "//wsl.localhost/Ubuntu/home/fhc/eeznuts",
