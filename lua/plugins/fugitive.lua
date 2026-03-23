@@ -4,7 +4,8 @@ return {
     event = "VeryLazy",
     config = function()
 
-      vim.keymap.set("n", "<leader>gg", vim.cmd.Git, { desc = "Ouvrir Fugitive" })
+      vim.keymap.set("n", "<leader>gg", ":vertical Git<CR>", { desc = "Ouvrir Fugitive" })
+      -- vim.keymap.set("n", "<leader>gg", vim.cmd.Git, { desc = "Ouvrir Fugitive" })
       vim.keymap.set("n", "<leader>gb", ":Git blame<CR>", { desc = "Git blame" })
       vim.keymap.set("n", "<leader>gd", ":Gdiffsplit<CR>", { desc = "Git diff" })
       vim.keymap.set("n", "<leader>gl", ":Git log<CR>", { desc = "Git log" })
