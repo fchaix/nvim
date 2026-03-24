@@ -1,0 +1,40 @@
+#+TITLE: Configuration Neovim v0.12 - Test isolé
+#+AUTHOR: $(whoami)
+#+DATE: $(date +%Y-%m-%d)
+
+* Objectif
+Ce fichier documente ma configuration de test pour Neovim v0.12.
+Il utilise le literate programming pour expliquer chaque choix.
+
+* Options de base
+Configuration minimale pour démarrer.
+
+#+BEGIN_SRC lua :tangle $ISOLATED_NVIM_HOME/config/nvim/init.lua
+-- Ce fichier est généré automatiquement depuis config.org
+-- Ne pas modifier directement
+
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.mouse = "a"
+
+print("🚀 Neovim v0.12-dev chargé depuis configuration littéraire")
+print("📁 Config: " .. vim.fn.stdpath("config"))
+#+END_SRC
+
+* Plugins (à venir)
+#+BEGIN_SRC lua :tangle $ISOLATED_NVIM_HOME/config/nvim/lua/plugins.lua
+-- Configuration des plugins à venir
+#+END_SRC
+
+* Keymaps
+#+BEGIN_SRC lua :tangle $ISOLATED_NVIM_HOME/config/nvim/lua/keymaps.lua
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+-- test
+#+END_SRC
