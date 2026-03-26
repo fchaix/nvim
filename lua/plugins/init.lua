@@ -25,6 +25,28 @@ require("lazy").setup({
   },
 
   ------------------------------------------------------------
+  -- 🔍 Analyse du code / Navigation syntaxique
+  ------------------------------------------------------------
+  -- require('plugins.treesitter'),
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    event = { "BufReadPost", "BufNewFile" },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      "glacambre/firenvim",
+    },
+    config = function() 
+      local configs = require("nvim-treesitter.configs")
+      configs.setup({
+        -- tout votre contenu de config ici
+      })
+    end
+  },
+  require('plugins.trouble'),      -- Liste d’erreurs / warnings / diagnostics
+  require('plugins.ctags'),
+
+  ------------------------------------------------------------
   -- 🎨 Thèmes / Apparence
   ------------------------------------------------------------
   require('plugins.mellifluous'),
@@ -75,13 +97,6 @@ require("lazy").setup({
   -- Intégration navigateur :
   require('plugins.firenvim'),
 
-
-  ------------------------------------------------------------
-  -- 🔍 Analyse du code / Navigation syntaxique
-  ------------------------------------------------------------
-  require('plugins.treesitter'),
-  require('plugins.trouble'),      -- Liste d’erreurs / warnings / diagnostics
-  require('plugins.ctags'),
 
   ------------------------------------------------------------
   -- 🧩 Git
