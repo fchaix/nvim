@@ -41,6 +41,18 @@ vim.opt.expandtab = true -- use spaces instead of tabs
 vim.opt.smartindent = true -- smart auto-indent
 vim.opt.autoindent = true -- copy indent from current line
 
+-- afficher les caractères invisibles
+vim.opt.list = true
+vim.opt.listchars = {
+    tab = '▸ ',
+    trail = '•',
+    extends = '>',
+    precedes = '<',
+    nbsp = '␣',
+    eol = '↲',
+    space = '⸱',
+}
+
 vim.opt.ignorecase = true -- case insensitive search
 vim.opt.smartcase = true -- case sensitive if uppercase in string
 vim.opt.hlsearch = true -- highlight search matches
