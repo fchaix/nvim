@@ -1,5 +1,4 @@
 vim.opt.termguicolors = true
-vim.cmd.colorscheme("habamax")
 
 local function set_transparent() -- set UI component to transparent
 	local groups = {
@@ -439,7 +438,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
--- Switch between tabs in zerty keyboard layout
+-- Switch between tabs in azerty keyboard layout
 local function goto_or_create_tab(n)
     -- Vérifie si l'onglet n existe
     if n <= vim.fn.tabpagenr('$') then
@@ -476,13 +475,12 @@ vim.pack.add({
 	"https://www.github.com/echasnovski/mini.nvim",
 	"https://www.github.com/ibhagwan/fzf-lua",
 	"https://www.github.com/nvim-tree/nvim-tree.lua",
-	"https://www.github.com/nvzone/floaterm",
-	"https://www.github.com/nvzone/volt",
 	{
 		src = "https://github.com/nvim-treesitter/nvim-treesitter",
 		branch = "main",
 		build = ":TSUpdate",
 	},
+	"https://www.github.com/maxmx03/solarized.nvim",
 	-- Language Server Protocols
 	"https://www.github.com/neovim/nvim-lspconfig",
 	"https://github.com/mason-org/mason.nvim",
@@ -493,7 +491,7 @@ vim.pack.add({
 	},
 	"https://github.com/L3MON4D3/LuaSnip",
 })
-
+vim.cmd.colorscheme("solarized")
 local function packadd(name)
 	vim.cmd("packadd " .. name)
 end

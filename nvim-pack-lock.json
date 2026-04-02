@@ -45,6 +45,10 @@
       "rev": "6620ae1c44dfa8623b22d0cbf873a9e8d073b849",
       "src": "git@github.com:nvim-treesitter/nvim-treesitter"
     },
+    "solarized.nvim": {
+      "rev": "c0dfe1cbfabd93b546baf5f1408f5df7e02e2050",
+      "src": "https://www.github.com/maxmx03/solarized.nvim"
+    },
     "volt": {
       "rev": "620de1321f275ec9d80028c68d1b88b409c0c8b1",
       "src": "https://www.github.com/nvzone/volt"
