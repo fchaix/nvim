@@ -438,6 +438,36 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.spelllang = "en,fr"
 	end,
 })
+
+-- Switch between tabs in zerty keyboard layout
+local function goto_or_create_tab(n)
+    -- Vérifie si l'onglet n existe
+    if n <= vim.fn.tabpagenr('$') then
+        vim.cmd(n .. 'tabnext')
+    else
+        vim.cmd('tabnew')
+    end
+end
+
+local azerty_tab_mappings = {
+    ['&'] = 1,
+    ['é'] = 2,
+    ['"'] = 3,
+    ["'"] = 4,
+    ['('] = 5,
+    ['-'] = 6,
+    ['è'] = 7,
+    ['_'] = 8,
+    ['ç'] = 9,
+    ['à'] = 0,
+}
+
+for key, tab_n in pairs(azerty_tab_mappings) do
+    vim.keymap.set('n', '<Leader>' .. key, function()
+        goto_or_create_tab(tab_n)
+    end, { noremap = true, silent = true, desc = 'Aller à l\'onglet ' .. tab_n })
+end
+
 -- ============================================================================
 -- PLUGINS (vim.pack)
 -- ============================================================================
@@ -446,6 +476,8 @@ vim.pack.add({
 	"https://www.github.com/echasnovski/mini.nvim",
 	"https://www.github.com/ibhagwan/fzf-lua",
 	"https://www.github.com/nvim-tree/nvim-tree.lua",
+	"https://www.github.com/nvzone/floaterm",
+	"https://www.github.com/nvzone/volt",
 	{
 		src = "https://github.com/nvim-treesitter/nvim-treesitter",
 		branch = "main",
