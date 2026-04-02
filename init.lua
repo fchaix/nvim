@@ -474,7 +474,6 @@ vim.pack.add({
 	"https://www.github.com/lewis6991/gitsigns.nvim",
 	"https://www.github.com/echasnovski/mini.nvim",
 	"https://www.github.com/ibhagwan/fzf-lua",
-	"https://www.github.com/nvim-tree/nvim-tree.lua",
 	{
 		src = "https://github.com/nvim-treesitter/nvim-treesitter",
 		branch = "main",
@@ -490,8 +489,9 @@ vim.pack.add({
 		version = vim.version.range("1.*"),
 	},
 	"https://github.com/L3MON4D3/LuaSnip",
+	"https://github.com/stevearc/oil.nvim",
 })
-vim.cmd.colorscheme("solarized")
+
 local function packadd(name)
 	vim.cmd("packadd " .. name)
 end
@@ -499,17 +499,19 @@ packadd("nvim-treesitter")
 packadd("gitsigns.nvim")
 packadd("mini.nvim")
 packadd("fzf-lua")
-packadd("nvim-tree.lua")
 -- LSP
 packadd("nvim-lspconfig")
 packadd("mason.nvim")
 packadd("efmls-configs-nvim")
 packadd("blink.cmp")
 packadd("LuaSnip")
+packadd("oil.nvim")
 
 -- ============================================================================
 -- PLUGIN CONFIGS
 -- ============================================================================
+
+vim.cmd.colorscheme("solarized")
 
 local setup_treesitter = function()
 	local treesitter = require("nvim-treesitter")
@@ -517,21 +519,14 @@ local setup_treesitter = function()
 	local ensure_installed = {
 		"vim",
 		"vimdoc",
-		"rust",
-		"c",
-		"cpp",
-		"go",
 		"html",
 		"css",
-		"javascript",
 		"json",
 		"lua",
 		"markdown",
 		"python",
-		"typescript",
-		"vue",
-		"svelte",
 		"bash",
+    "c_sharp",
 	}
 
 	local config = require("nvim-treesitter.config")
@@ -562,27 +557,22 @@ end
 
 setup_treesitter()
 
-require("nvim-tree").setup({
-	view = {
-		width = 35,
-	},
-	filters = {
-		dotfiles = false,
-	},
-	renderer = {
-		group_empty = true,
-	},
+require("oil").setup({
+    float = {
+      padding = 2, -- optionnel : ajoute du padding autour de la fenêtre
+      max_width = 80,
+      max_height = 50,
+      border = "solid", -- ou "single", "double", "solid", etc.
+      win_options = {
+        winblend = 10,
+      },
+    },
+    keys = {
+      { "<leader>o", function() require("oil").open_float() end, desc = "Open oil" },
+    },
 })
-vim.keymap.set("n", "<leader>e", function()
-	require("nvim-tree.api").tree.toggle()
-end, { desc = "Toggle NvimTree" })
 
-vim.api.nvim_set_hl(0, "NvimTreeNormalNC", { bg = "none" })
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-vim.api.nvim_set_hl(0, "NvimTreeSignColumn", { bg = "none" })
-vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { fg = "#2a2a2a", bg = "none" })
-vim.api.nvim_set_hl(0, "NvimTreeEndOfBuffer", { bg = "none" })
 
 require("fzf-lua").setup({})
 
