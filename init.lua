@@ -558,19 +558,55 @@ end
 setup_treesitter()
 
 require("oil").setup({
-    float = {
-      padding = 2, -- optionnel : ajoute du padding autour de la fenêtre
-      max_width = 80,
-      max_height = 50,
-      border = "solid", -- ou "single", "double", "solid", etc.
-      win_options = {
-        winblend = 10,
-      },
+  -- Configuration par défaut pour oil.nvim
+  default_file_explorer = true,
+  delete_to_trash = true,
+  skip_confirm_for_simple_edits = true,
+
+  -- Configuration de la fenêtre flottante
+  float = {
+    padding = 2,
+    max_width = 80,
+    max_height = 50,
+    border = "rounded",  -- ou "solid", "single", "double"
+    win_options = {
+      winblend = 10,
     },
-    keys = {
-      { "<leader>o", function() require("oil").open_float() end, desc = "Open oil" },
-    },
+  },
+
+  -- Keymaps spécifiques à oil (dans la vue oil)
+  keymaps = {
+    ["<CR>"] = "actions.select",
+    ["<C-v>"] = "actions.select_vsplit",
+    ["<C-x>"] = "actions.select_split",
+    ["<C-t>"] = "actions.select_tab",
+    ["<C-p>"] = "actions.preview",
+    ["<C-c>"] = "actions.close",
+    ["<C-l>"] = "actions.refresh",
+    ["-"] = "actions.parent",
+    ["_"] = "actions.open_cwd",
+    ["`"] = "actions.cd",
+    ["~"] = "actions.tcd",
+    ["gs"] = "actions.change_sort",
+    ["gx"] = "actions.open_external",
+    ["g."] = "actions.toggle_hidden",
+    ["g\\"] = "actions.toggle_trash",
+  },
+
+  -- View options
+  view_options = {
+    show_hidden = false,
+    is_hidden_file = function(name, bufnr)
+      return vim.startswith(name, ".")
+    end,
+    natural_order = true,
+    case_insensitive = false,
+  },
 })
+
+vim.keymap.set("n", "<leader>o", function()
+  require("oil").open_float()
+end, { desc = "Open oil.nvim (file explorer)", noremap = true, silent = true })
 
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 
