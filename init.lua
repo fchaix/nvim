@@ -334,6 +334,26 @@ vim.keymap.set("n", "<leader>td", function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end, { desc = "Toggle diagnostics" })
 
+-- Fugitive keymaps
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git status" })
+vim.keymap.set("n", "<leader>gc", ":Git commit<CR>", { desc = "Git commit" })
+vim.keymap.set("n", "<leader>gp", ":Git push<CR>", { desc = "Git push" })
+vim.keymap.set("n", "<leader>gP", ":Git pull<CR>", { desc = "Git pull" })
+vim.keymap.set("n", "<leader>gd", ":Git diff<CR>", { desc = "Git diff" })
+vim.keymap.set("n", "<leader>gb", ":Git blame<CR>", { desc = "Git blame" })
+vim.keymap.set("n", "<leader>gL", ":Git log<CR>", { desc = "Git log" })
+vim.keymap.set("n", "<leader>gS", ":Git status<CR>", { desc = "Git status (alternatif)" })
+
+-- Optionnel : pour ouvrir d'autres commandes fugitive en split vertical
+vim.keymap.set("n", "<leader>gg", function()
+  vim.cmd("vert Git")
+end, { desc = "Git status (vertical)" })
+
+-- Pour ouvrir git log en split vertical
+vim.keymap.set("n", "<leader>gll", function()
+  vim.cmd("vert Git log")
+end, { desc = "Git log (vertical)" })
+
 -- ============================================================================
 -- AUTOCMDS
 -- ============================================================================
@@ -490,6 +510,7 @@ vim.pack.add({
   },
   "https://github.com/L3MON4D3/LuaSnip",
   "https://github.com/stevearc/oil.nvim",
+  "https://github.com/tpope/vim-fugitive",
 })
 
 local function packadd(name)
@@ -506,6 +527,7 @@ packadd("efmls-configs-nvim")
 packadd("blink.cmp")
 packadd("LuaSnip")
 packadd("oil.nvim")
+packadd("vim-fugitive")
 
 -- ============================================================================
 -- PLUGIN CONFIGS
