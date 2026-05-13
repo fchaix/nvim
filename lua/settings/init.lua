@@ -126,6 +126,11 @@ vim.keymap.set('n', '<leader>tt', function()
   require('settings/floating_terminal').toggle()
 end, { noremap = true, silent = true, desc = "Toggle Floating Terminal" })
 
+-- Terminal shortcuts
+
+-- En mode terminal, appuyer sur <Esc> pour revenir en mode normal
+vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
+
 -- Folding shit (disabled, using UFO)
 vim.opt.foldmethod = 'indent' -- Use indentation for folding
 vim.opt.foldlevel = 99 -- Start with all folds open
