@@ -2,7 +2,7 @@ return {
   "coffebar/neovim-project",
   opts = {
     projects = {
-      "C:/Users/fhc/lims/Applications/Itga.Lims.ImportEnrobes",
+      "C:/Users/fhc/source/repos/lims/Applications/Itga.Lims.ImportEnrobes",
       "C:/Users/fhc/source/repos/pdb-backoffice",
       "C:/Users/fhc/source/repos/pdb-backoffice_POC_GenRapports",
       "C:/Users/fhc/source/repos/rapports.webapi",
@@ -12,6 +12,7 @@ return {
       "C:/Users/fhc/source/repos/timetrack",
       "C:/Users/fhc/source/repos/bddlims",
       "C:/Users/fhc/source/repos/Reporting_services",
+      "C:/Users/fhc/source/repos/service-enrichissement-de-document",
       "C:/Users/fhc/AppData/Local/nvim",
       "C:/Users/fhc/kanata",
       "//wsl.localhost/Ubuntu/home/fhc/eeznuts",
