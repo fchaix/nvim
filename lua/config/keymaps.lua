@@ -1,5 +1,10 @@
 local map = vim.keymap.set
 
+local function in_git_repo()
+  return vim.fn.system({ "git", "rev-parse", "--is-inside-work-tree" }):match("true") ~= nil
+      and vim.v.shell_error == 0
+end
+
 local function goto_or_create_tab(n)
   if n == 10 then
     if vim.fn.tabpagenr("$") >= 10 then
@@ -64,7 +69,12 @@ end, { desc = "Explorer (oil)" })
 map("n", "<leader>tt", "<cmd>ToggleTerm direction=float<CR>", { desc = "Toggle terminal" })
 
 map("n", "<leader>ff", function()
-  require("fzf-lua").files()
+  local fzf = require("fzf-lua")
+  if in_git_repo() then
+    fzf.git_files()
+  else
+    fzf.files()
+  end
 end, { desc = "Find files" })
 map("n", "<leader>fg", function()
   require("fzf-lua").live_grep()

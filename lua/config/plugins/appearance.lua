@@ -5,7 +5,17 @@ local M = {}
 function M.setup()
   pcall(vim.cmd.colorscheme, "solarized")
 
-  helper.safe_require("fzf-lua")
+  helper.safe_require("fzf-lua", function(fzf)
+    fzf.setup({
+      files = {
+        hidden = false,
+        cwd_prompt = false,
+      },
+      grep = {
+        hidden = false,
+      },
+    })
+  end)
 
   helper.safe_require("oil", function(oil)
     oil.setup({
