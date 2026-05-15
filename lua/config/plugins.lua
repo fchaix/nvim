@@ -22,6 +22,9 @@ vim.pack.add({
   "https://github.com/lewis6991/gitsigns.nvim",
   "https://github.com/echasnovski/mini.nvim",
   "https://github.com/ibhagwan/fzf-lua",
+  "https://github.com/coffebar/neovim-project",
+  "https://github.com/nvim-lua/plenary.nvim",
+  "https://github.com/Shatur/neovim-session-manager",
   "https://github.com/stevearc/oil.nvim",
   "https://github.com/neovim/nvim-lspconfig",
   {
@@ -40,7 +43,42 @@ vim.pack.add({
 
 pcall(vim.cmd.colorscheme, "solarized")
 
+pcall(function()
+  vim.opt.sessionoptions:append("globals")
+
+  require("neovim-project").setup({
+    projects = {
+      "C:/Users/fhc/source/repos/lims/Applications/Itga.Lims.ImportEnrobes",
+      "C:/Users/fhc/source/repos/pdb-backoffice",
+      "C:/Users/fhc/source/repos/pdb-backoffice_POC_GenRapports",
+      "C:/Users/fhc/source/repos/rapports.webapi",
+      "C:/Users/fhc/source/visuvalid",
+      "C:/Users/fhc/source/repos/image.webapi",
+      "C:/Users/fhc/source/repos/tools",
+      "C:/Users/fhc/source/repos/timetrack",
+      "C:/Users/fhc/source/repos/bddlims",
+      "C:/Users/fhc/source/repos/Reporting_services",
+      "C:/Users/fhc/source/repos/service-enrichissement-de-document",
+      "C:/Users/fhc/AppData/Local/nvim",
+      "C:/Users/fhc/kanata",
+      "//wsl.localhost/Ubuntu/home/fhc/eeznuts",
+      "//wsl.localhost/Ubuntu/home/fhc/comp/offpunk",
+      "~/.config/nixos-config",
+      "~/.config/nvim",
+    },
+    patterns = { ".git", "package.json", "*.sln", "Makefile" },
+    datapath = vim.fn.stdpath("data"),
+    silent_chdir = false,
+    picker = {
+      type = "fzf-lua",
+    },
+  })
+end)
+
 pcall(require, "fzf-lua")
+
+vim.keymap.set("n", "<leader>pp", "<cmd>NeovimProjectHistory<CR>", { desc = "Open project history" })
+vim.keymap.set("n", "<leader>ps", "<cmd>NeovimProjectDiscover<CR>", { desc = "Discover projects" })
 
 pcall(function()
   require("oil").setup({
