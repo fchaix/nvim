@@ -4,20 +4,20 @@ This repository contains a Neovim configuration targeting Neovim `0.12` and buil
 
 ## Structure
 
-- [init.lua](/mnt/c/Users/fhc/AppData/Local/nvim/init.lua): entrypoint
-- [lua/config/options.lua](/mnt/c/Users/fhc/AppData/Local/nvim/lua/config/options.lua): editor options
-- [lua/config/autocmds.lua](/mnt/c/Users/fhc/AppData/Local/nvim/lua/config/autocmds.lua): autocommands and format-on-save control
-- [lua/config/keymaps.lua](/mnt/c/Users/fhc/AppData/Local/nvim/lua/config/keymaps.lua): global keymaps
-- [lua/config/lsp.lua](/mnt/c/Users/fhc/AppData/Local/nvim/lua/config/lsp.lua): LSP, diagnostics, completion
-- [lua/config/neovide.lua](/mnt/c/Users/fhc/AppData/Local/nvim/lua/config/neovide.lua): Neovide-only settings
-- [lua/config/plugins.lua](/mnt/c/Users/fhc/AppData/Local/nvim/lua/config/plugins.lua): plugin list and plugin module orchestration
+- [init.lua](init.lua): entrypoint
+- [lua/config/options.lua](lua/config/options.lua): editor options
+- [lua/config/autocmds.lua](lua/config/autocmds.lua): autocommands and format-on-save control
+- [lua/config/keymaps.lua](lua/config/keymaps.lua): global keymaps
+- [lua/config/lsp.lua](lua/config/lsp.lua): LSP, diagnostics, completion
+- [lua/config/neovide.lua](lua/config/neovide.lua): Neovide-only settings
+- [lua/config/plugins.lua](lua/config/plugins.lua): plugin list and plugin module orchestration
 - `lua/config/plugins/`: plugin-specific setup modules
-- [lua/config/local.lua](/mnt/c/Users/fhc/AppData/Local/nvim/lua/config/local.lua): machine-specific paths and personal project list
-- [nvim-pack-lock.json](/mnt/c/Users/fhc/AppData/Local/nvim/nvim-pack-lock.json): pinned plugin revisions
+- [lua/config/local.lua](lua/config/local.lua): machine-specific paths and personal project list
+- [nvim-pack-lock.json](nvim-pack-lock.json): pinned plugin revisions
 
 ## Plugins
 
-Plugin declarations stay in [lua/config/plugins.lua](/mnt/c/Users/fhc/AppData/Local/nvim/lua/config/plugins.lua).
+Plugin declarations stay in [lua/config/plugins.lua](lua/config/plugins.lua).
 Plugin configuration is split by concern under `lua/config/plugins/`.
 
 Current modules:
@@ -32,7 +32,7 @@ Current modules:
 
 ## Local configuration
 
-[lua/config/local.lua](/mnt/c/Users/fhc/AppData/Local/nvim/lua/config/local.lua) contains values tied to this machine:
+[lua/config/local.lua](lua/config/local.lua) contains values tied to this machine:
 
 - project roots
 - PowerShell profile path
@@ -62,7 +62,7 @@ nvim --headless "+checkhealth" +qa
 
 ## Format on save
 
-Format on save is enabled by default, but only for a whitelist of filetypes defined in [lua/config/autocmds.lua](/mnt/c/Users/fhc/AppData/Local/nvim/lua/config/autocmds.lua).
+Format on save is enabled by default, but only for a whitelist of filetypes defined in [lua/config/autocmds.lua](lua/config/autocmds.lua).
 
 - Toggle globally:
 
