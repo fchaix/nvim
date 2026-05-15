@@ -17,6 +17,10 @@
       "rev": "0a80125bace82d82847d40bc2c38a22d62c6dc2d",
       "src": "https://www.github.com/lewis6991/gitsigns.nvim"
     },
+    "mason.nvim": {
+      "rev": "8e921c2b68571e978db5d4d3fef9c9a7f8755473",
+      "src": "https://github.com/williamboman/mason.nvim"
+    },
     "mini.nvim": {
       "rev": "439cdcd6992bc9012efd7d8ed7a7b7a0f1fac32a",
       "src": "https://www.github.com/echasnovski/mini.nvim"
@@ -44,6 +48,10 @@
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "roslyn.nvim": {
+      "rev": "90d43d35f0ebb5ecf1df734194cb568a162de4cb",
+      "src": "https://github.com/seblyng/roslyn.nvim"
     },
     "solarized.nvim": {
       "rev": "c0dfe1cbfabd93b546baf5f1408f5df7e02e2050",

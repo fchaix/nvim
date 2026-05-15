@@ -23,8 +23,10 @@ vim.pack.add({
   "https://github.com/echasnovski/mini.nvim",
   "https://github.com/ibhagwan/fzf-lua",
   "https://github.com/coffebar/neovim-project",
+  "https://github.com/williamboman/mason.nvim",
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/Shatur/neovim-session-manager",
+  "https://github.com/seblyng/roslyn.nvim",
   "https://github.com/stevearc/oil.nvim",
   "https://github.com/neovim/nvim-lspconfig",
   {
@@ -42,6 +44,18 @@ vim.pack.add({
 })
 
 pcall(vim.cmd.colorscheme, "solarized")
+
+pcall(function()
+  require("mason").setup({
+    registries = {
+      "github:mason-org/mason-registry",
+      "github:Crashdummyy/mason-registry",
+    },
+    ensure_installed = {
+      "roslyn",
+    },
+  })
+end)
 
 pcall(function()
   vim.opt.sessionoptions:append("globals")
@@ -76,6 +90,13 @@ pcall(function()
 end)
 
 pcall(require, "fzf-lua")
+
+pcall(function()
+  require("roslyn").setup({
+    filewatching = "roslyn",
+    broad_search = true,
+  })
+end)
 
 vim.keymap.set("n", "<leader>pp", "<cmd>NeovimProjectHistory<CR>", { desc = "Open project history" })
 vim.keymap.set("n", "<leader>ps", "<cmd>NeovimProjectDiscover<CR>", { desc = "Discover projects" })
