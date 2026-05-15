@@ -52,6 +52,8 @@ map("n", "<leader>o", function()
   require("oil").open_float()
 end, { desc = "Explorer (oil)" })
 
+map("n", "<leader>tt", "<cmd>ToggleTerm direction=float<CR>", { desc = "Toggle terminal" })
+
 map("n", "<leader>ff", function()
   require("fzf-lua").files()
 end, { desc = "Find files" })

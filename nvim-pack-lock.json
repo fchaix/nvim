@@ -25,6 +25,10 @@
       "rev": "439cdcd6992bc9012efd7d8ed7a7b7a0f1fac32a",
       "src": "https://www.github.com/echasnovski/mini.nvim"
     },
+    "toggleterm.nvim": {
+      "rev": "50ea089fc548917cc3cc16b46a8211833b9e3c7c",
+      "src": "https://github.com/akinsho/toggleterm.nvim"
+    },
     "neovim-project": {
       "rev": "f4e9b3392dc46b6e615b629a40ea4fa47cc2a203",
       "src": "https://github.com/coffebar/neovim-project"

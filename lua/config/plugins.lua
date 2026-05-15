@@ -31,6 +31,7 @@ vim.pack.add({
   "https://github.com/kristijanhusak/vim-dadbod-ui",
   "https://github.com/kristijanhusak/vim-dadbod-completion",
   "https://github.com/stevearc/oil.nvim",
+  "https://github.com/akinsho/toggleterm.nvim",
   "https://github.com/neovim/nvim-lspconfig",
   {
     src = "https://github.com/saghen/blink.cmp",
@@ -98,6 +99,36 @@ pcall(function()
   require("roslyn").setup({
     filewatching = "roslyn",
     broad_search = true,
+  })
+end)
+
+pcall(function()
+  local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
+  local shell_cmd = is_windows and [[powershell.exe -NoLogo -NoExit -Command ". 'C:\Users\fhc\psProfile.ps1'"]] or "zsh"
+
+  require("toggleterm").setup({
+    size = 80,
+    autochdir = true,
+    direction = "float",
+    hide_numbers = false,
+    float_opts = {
+      border = "curved",
+      winblend = 15,
+      highlights = {
+        border = "Normal",
+        background = "Normal",
+      },
+    },
+    winbar = {
+      enabled = false,
+      name_formatter = function(term)
+        return term.name
+      end,
+    },
+    shade_terminals = true,
+    shading_factor = -50,
+    shading_ratio = -3,
+    shell = shell_cmd,
   })
 end)
 
