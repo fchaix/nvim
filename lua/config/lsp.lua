@@ -102,11 +102,30 @@ vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(event)
     local client = vim.lsp.get_client_by_id(event.data.client_id)
     local opts = { buffer = event.buf, silent = true }
+    local ok_fzf, fzf = pcall(require, "fzf-lua")
 
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "gd", function()
+      if ok_fzf then
+        fzf.lsp_definitions()
+      else
+        vim.lsp.buf.definition()
+      end
+    end, opts)
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+    vim.keymap.set("n", "gr", function()
+      if ok_fzf then
+        fzf.lsp_references()
+      else
+        vim.lsp.buf.references()
+      end
+    end, opts)
+    vim.keymap.set("n", "gi", function()
+      if ok_fzf then
+        fzf.lsp_implementations()
+      else
+        vim.lsp.buf.implementation()
+      end
+    end, opts)
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
