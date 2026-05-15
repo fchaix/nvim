@@ -27,6 +27,9 @@ vim.pack.add({
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/Shatur/neovim-session-manager",
   "https://github.com/seblyng/roslyn.nvim",
+  "https://github.com/tpope/vim-dadbod",
+  "https://github.com/kristijanhusak/vim-dadbod-ui",
+  "https://github.com/kristijanhusak/vim-dadbod-completion",
   "https://github.com/stevearc/oil.nvim",
   "https://github.com/neovim/nvim-lspconfig",
   {
@@ -95,6 +98,51 @@ pcall(function()
   require("roslyn").setup({
     filewatching = "roslyn",
     broad_search = true,
+  })
+end)
+
+pcall(function()
+  local legacy_dbui_dir = vim.fs.joinpath(vim.fn.expand("~"), ".config", "nvim", "db_ui")
+  local data_dbui_dir = vim.fs.joinpath(vim.fn.stdpath("data"), "db_ui")
+  local dbui_dir = vim.fn.filereadable(vim.fs.joinpath(legacy_dbui_dir, "connections.json")) == 1
+      and legacy_dbui_dir
+      or data_dbui_dir
+
+  vim.g.db_ui_save_location = dbui_dir
+  vim.fn.mkdir(dbui_dir, "p")
+
+  vim.cmd([[
+    function! SQLServerTransform(url, ...)
+      if a:url =~? '^sqlserver://'
+        let l:url = a:url
+        let l:url = substitute(l:url, 'charset=[^&]*', 'charset=CP1252', '')
+        if l:url !~? 'charset='
+          if l:url =~? '?'
+            let l:url = l:url . '&charset=CP1252'
+          else
+            let l:url = l:url . '?charset=CP1252'
+          endif
+        endif
+        return l:url
+      endif
+      return a:url
+    endfunction
+
+    let g:dadbod_url_transform = 'SQLServerTransform'
+  ]])
+
+  vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+    pattern = "*.sql",
+    callback = function(args)
+      local bufname = vim.api.nvim_buf_get_name(args.buf)
+      if not bufname:match("%.dbout$") then
+        vim.defer_fn(function()
+          if vim.api.nvim_buf_is_valid(args.buf) and vim.bo[args.buf].modifiable then
+            vim.bo[args.buf].fileencoding = "cp1252"
+          end
+        end, 10)
+      end
+    end,
   })
 end)
 
