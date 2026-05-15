@@ -44,9 +44,10 @@ vim.opt.mouse = "a"
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.list = true
 vim.opt.listchars = {
-  tab = "> ",
-  trail = ".",
+  tab = "▸ ",
+  trail = "•",
   extends = ">",
   precedes = "<",
-  nbsp = "+",
+  nbsp = "␣",
+  eol = "↲",
 }

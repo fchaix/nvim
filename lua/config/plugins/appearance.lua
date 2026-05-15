@@ -4,6 +4,9 @@ local M = {}
 
 function M.setup()
   pcall(vim.cmd.colorscheme, "solarized")
+  vim.api.nvim_set_hl(0, "Whitespace", { link = "Comment" })
+  vim.api.nvim_set_hl(0, "NonText", { link = "Comment" })
+  vim.api.nvim_set_hl(0, "SpecialKey", { link = "Comment" })
 
   helper.safe_require("fzf-lua", function(fzf)
     fzf.setup({

@@ -23,6 +23,9 @@ local function goto_or_create_tab(n)
 end
 
 map("n", "<leader>nh", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
+map("n", "<leader>ui", function()
+  vim.opt.list = not vim.opt.list:get()
+end, { desc = "Toggle invisible chars" })
 
 map("n", "n", "nzzzv", { desc = "Next search result" })
 map("n", "N", "Nzzzv", { desc = "Prev search result" })
