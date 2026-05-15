@@ -1,4 +1,26 @@
 local augroup = vim.api.nvim_create_augroup("UserConfig", { clear = true })
+local format_on_save_filetypes = {
+  bash = true,
+  c = true,
+  cpp = true,
+  go = true,
+  javascript = true,
+  javascriptreact = true,
+  json = true,
+  jsonc = true,
+  lua = true,
+  sh = true,
+  typescript = true,
+  typescriptreact = true,
+  zsh = true,
+}
+
+vim.g.format_on_save = true
+
+vim.api.nvim_create_user_command("FormatOnSaveToggle", function()
+  vim.g.format_on_save = not vim.g.format_on_save
+  vim.notify("format_on_save=" .. tostring(vim.g.format_on_save))
+end, { desc = "Toggle format on save" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = augroup,
@@ -37,6 +59,10 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup,
   callback = function(args)
+    if vim.bo[args.buf].buftype ~= "" then
+      return
+    end
+
     pcall(vim.treesitter.start, args.buf)
   end,
 })
@@ -48,11 +74,21 @@ vim.api.nvim_create_autocmd("BufWritePre", {
       return
     end
 
+    if not vim.g.format_on_save or vim.b[args.buf].disable_format_on_save then
+      return
+    end
+
+    local filetype = vim.bo[args.buf].filetype
+    if not format_on_save_filetypes[filetype] then
+      return
+    end
+
     pcall(vim.lsp.buf.format, {
       bufnr = args.buf,
       timeout_ms = 1500,
       filter = function(client)
         return client:supports_method("textDocument/formatting")
+            and client.name ~= "roslyn"
       end,
     })
   end,

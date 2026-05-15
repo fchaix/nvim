@@ -1,6 +1,15 @@
 local map = vim.keymap.set
 
 local function goto_or_create_tab(n)
+  if n == 10 then
+    if vim.fn.tabpagenr("$") >= 10 then
+      vim.cmd("tabnext 10")
+    else
+      vim.cmd("tabnew")
+    end
+    return
+  end
+
   if n <= vim.fn.tabpagenr("$") then
     vim.cmd(n .. "tabnext")
   else
@@ -39,7 +48,7 @@ local azerty_tab_mappings = {
   ["è"] = 7,
   ["_"] = 8,
   ["ç"] = 9,
-  ["à"] = 0,
+  ["à"] = 10,
 }
 
 for key, tab_n in pairs(azerty_tab_mappings) do
@@ -71,5 +80,4 @@ map("n", "<leader>gg", "<cmd>Git<CR>", { desc = "Git status" })
 map("n", "<leader>gb", "<cmd>Git blame<CR>", { desc = "Git blame" })
 map("n", "<leader>gl", "<cmd>Git log<CR>", { desc = "Git log" })
 
--- En mode terminal, appuyer sur <Esc> pour revenir en mode normal
-vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
+map("t", "<Esc>", "<C-\\><C-n>", { desc = "Terminal normal mode" })
