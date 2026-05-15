@@ -68,3 +68,6 @@ end, { desc = "Help tags" })
 map("n", "<leader>gg", "<cmd>Git<CR>", { desc = "Git status" })
 map("n", "<leader>gb", "<cmd>Git blame<CR>", { desc = "Git blame" })
 map("n", "<leader>gl", "<cmd>Git log<CR>", { desc = "Git log" })
+
+-- En mode terminal, appuyer sur <Esc> pour revenir en mode normal
+vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
