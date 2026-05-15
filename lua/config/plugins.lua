@@ -45,6 +45,7 @@ vim.pack.add({
   },
   "https://github.com/maxmx03/solarized.nvim",
   "https://github.com/tpope/vim-fugitive",
+  "https://github.com/olimorris/codecompanion.nvim",
 })
 
 require("config.plugins.appearance").setup()
@@ -53,3 +54,4 @@ require("config.plugins.csharp").setup()
 require("config.plugins.terminal").setup()
 require("config.plugins.dbui").setup()
 require("config.plugins.git").setup()
+require("config.plugins.codecompanion").setup()
