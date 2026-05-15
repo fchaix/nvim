@@ -37,6 +37,16 @@ function M.setup()
         show_hidden = false,
         natural_order = true,
       },
+      float = {
+        -- wight = 60,
+        -- height = 20,
+        max_width = 80,
+        max_height = 50,
+        border = "rounded",   -- "single", "double", "shadow", etc.
+        win_options = {
+          winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
+        },
+      },
     })
   end)
 
