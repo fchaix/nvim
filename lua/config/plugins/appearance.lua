@@ -10,9 +10,18 @@ function M.setup()
       files = {
         hidden = false,
         cwd_prompt = false,
+        formatter = "path.filename_first",
+      },
+      git = {
+        files = {
+          formatter = "path.filename_first",
+        },
       },
       grep = {
         hidden = false,
+      },
+      lsp = {
+        formatter = "path.filename_first",
       },
     })
   end)
