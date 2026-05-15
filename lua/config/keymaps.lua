@@ -48,7 +48,7 @@ for key, tab_n in pairs(azerty_tab_mappings) do
   end, { desc = "Go to tab " .. tab_n })
 end
 
-map("n", "<leader>e", function()
+map("n", "<leader>o", function()
   require("oil").open_float()
 end, { desc = "Explorer (oil)" })
 
