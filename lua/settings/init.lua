@@ -6,6 +6,13 @@ require('settings.neovide')
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Associer les scripts StarLIMS SSL au filetype "ssl"
+vim.filetype.add({
+  extension = {
+    ssl = "ssl",
+  },
+})
+
 
 ----------------------------
 -------- Visuel -------- 

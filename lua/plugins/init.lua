@@ -37,9 +37,25 @@ require("lazy").setup({
       "glacambre/firenvim",
     },
     config = function() 
+      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
       local configs = require("nvim-treesitter.configs")
+
+      parser_config.starlims_ssl = {
+        install_info = {
+          url = "git@github.com:fchaix/tree-sitter-starlims-ssl.git",
+          files = { "src/parser.c" },
+          branch = "main",
+          generate_requires_npm = false,
+          requires_generate_from_grammar = false,
+        },
+        filetype = "ssl",
+      }
+
       configs.setup({
-        -- tout votre contenu de config ici
+        ensure_installed = { "starlims_ssl" },
+        highlight = {
+          enable = true,
+        },
       })
     end
   },
