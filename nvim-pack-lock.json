@@ -25,6 +25,10 @@
       "rev": "0a80125bace82d82847d40bc2c38a22d62c6dc2d",
       "src": "https://www.github.com/lewis6991/gitsigns.nvim"
     },
+    "lua-mimetypes": {
+      "rev": "fd2c84d1148e36affb6e9bc39fb4393236959f5a",
+      "src": "https://github.com/lunarmodules/lua-mimetypes"
+    },
     "mason.nvim": {
       "rev": "8e921c2b68571e978db5d4d3fef9c9a7f8755473",
       "src": "https://github.com/williamboman/mason.nvim"
@@ -92,6 +96,10 @@
     "vim-fugitive": {
       "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
       "src": "https://github.com/tpope/vim-fugitive"
+    },
+    "xml2lua": {
+      "rev": "b0d2b0b156b4e66078da2dc4b31d978daa69b3ef",
+      "src": "https://github.com/manoelcampos/xml2lua"
     }
   }
 }
