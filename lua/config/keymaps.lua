@@ -102,3 +102,7 @@ map("n", "<leader>gf", "<cmd>Git fetch<CR>", { desc = "Git fetch" })
 map("n", "<leader>gS", "<cmd>Git stash<CR>", { desc = "Git stash" })
 
 map("t", "<Esc>", "<C-\\><C-n>", { desc = "Terminal normal mode" })
+
+
+vim.keymap.set('n', '<leader>ww', ':%s/\\r//g<CR>', { desc = 'Supprimer les retours chariot \\r' })
+vim.keymap.set('v', '<leader>ww', ':s/\\r//g<CR>', { desc = 'Supprimer \\r dans la sélection' })
