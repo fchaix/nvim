@@ -22,4 +22,11 @@ return {
   },
   powershell_profile = [[C:\Users\fhc\psProfile.ps1]],
   dbui_legacy_dir = vim.fs.joinpath(home, ".config", "nvim", "db_ui"),
+
+  vim.api.nvim_create_user_command('FixEncoding', function()
+    local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+    local fixed = vim.fn.system('iconv -f latin1 -t utf-8', table.concat(lines, '\n'))
+    vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.split(fixed, '\n'))
+  end, {})
+
 }
