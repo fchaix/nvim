@@ -17,8 +17,10 @@ function M.setup()
 
   helper.safe_require("roslyn", function(roslyn)
     roslyn.setup({
-      filewatching = "roslyn",
-      broad_search = true,
+      -- WSL/Windows file watching can quickly hit inotify limits on large C#
+      -- workspaces. Keep Roslyn from owning the watchers by default.
+      filewatching = "off",
+      broad_search = false,
     })
   end)
 end
