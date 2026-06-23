@@ -82,6 +82,15 @@ Roslyn is intentionally excluded from automatic format-on-save.
 
 - `<leader>o`: open `oil.nvim` in a floating window
 - `<leader>tt`: toggle a floating terminal
+- `<leader>ss`: LSP document symbols
+- `<leader>sS`: LSP workspace symbols
+- `<leader>sw`: live workspace symbols
+- `<leader>sd` / `<leader>sr` / `<leader>si` / `<leader>st`: definitions / references / implementations / type definitions
+- `<leader>sf`: LSP finder (definitions, refs, impls, calls)
+- `<leader>sc`: LSP code actions
+- `<leader>sD` / `<leader>sW`: document / workspace diagnostics
+- `<leader>sI` / `<leader>sO`: incoming / outgoing calls
+- `<leader>su` / `<leader>sU`: subtypes / supertypes
 - `<leader>pp`: project history
 - `<leader>ps`: project discovery
 - `<leader>&` to `<leader>à`: jump to AZERTY tab positions 1 to 10
