@@ -12,6 +12,7 @@ This repository contains a Neovim configuration targeting Neovim `0.12` and buil
 - [lua/config/neovide.lua](lua/config/neovide.lua): Neovide-only settings
 - [lua/config/plugins.lua](lua/config/plugins.lua): plugin list and plugin module orchestration
 - `lua/config/plugins/`: plugin-specific setup modules
+- [lua/config/fix-encoding.lua](lua/config/fix-encoding.lua): small helpers for CRLF cleanup
 - [lua/config/local.lua](lua/config/local.lua): machine-specific paths and personal project list
 - [nvim-pack-lock.json](nvim-pack-lock.json): pinned plugin revisions
 
@@ -28,7 +29,11 @@ Current modules:
 - `terminal.lua`: `toggleterm.nvim`
 - `dbui.lua`: `vim-dadbod`, `vim-dadbod-ui`, SQL Server compatibility
 - `git.lua`: `gitsigns.nvim`
+- `fugitive.lua`: `vim-fugitive` helpers and git buffer mappings
+- `rest.lua`: `rest.nvim` request runner and HTTP parser bootstrap
+- `dap.lua`: `nvim-dap`, `dap-ui`, `dap-virtual-text` for .NET debugging
 - `helpers.lua`: safe plugin setup helpers with visible notifications on failure
+- `opencode.lua`: opencode mappings (currently disabled in `plugins.lua`)
 
 ## Local configuration
 
@@ -93,6 +98,9 @@ Roslyn is intentionally excluded from automatic format-on-save.
 - `<leader>su` / `<leader>sU`: subtypes / supertypes
 - `<leader>pp`: project history
 - `<leader>ps`: project discovery
+- `<F5>` / `<F10>` / `<F11>` / `<F12>`: DAP continue / step over / step into / step out
+- `<leader>db` / `<leader>dB` / `<leader>dlp` / `<leader>dr` / `<leader>dU`: DAP breakpoints / REPL / UI
+- `<leader>ww`: strip `\r` from the buffer or selection
 - `<leader>&` to `<leader>à`: jump to AZERTY tab positions 1 to 10
 
 ## Validation
@@ -100,11 +108,11 @@ Roslyn is intentionally excluded from automatic format-on-save.
 Useful checks while editing the config:
 
 ```bash
-nvim -u NONE -i NONE --headless "+lua vim.opt.runtimepath:prepend('/mnt/c/Users/fhc/AppData/Local/nvim')" "+lua require('config.autocmds')" "+lua require('config.keymaps')" +qa
+nvim -u NONE -i NONE --headless "+lua vim.opt.runtimepath:prepend(vim.fn.getcwd())" "+lua require('config.autocmds')" "+lua require('config.keymaps')" +qa
 ```
 
 ```bash
-nvim -u NONE -i NONE --headless "+lua vim.opt.runtimepath:prepend('/mnt/c/Users/fhc/AppData/Local/nvim')" "+lua require('config.local')" "+lua require('config.plugins.helpers')" +qa
+nvim -u NONE -i NONE --headless "+lua vim.opt.runtimepath:prepend(vim.fn.getcwd())" "+lua require('config.local')" "+lua require('config.plugins.helpers')" +qa
 ```
 
 ## Notes

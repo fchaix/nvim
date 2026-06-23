@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neovim keymaps cheatsheet</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #111111;
+      --muted: #555555;
+      --line: #d7d7d7;
+      --head: #f2f2f2;
+      --accent: #0f5b99;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 6mm;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 8px;
+      font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--fg);
+      background: var(--bg);
+      line-height: 1.1;
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      font-size: 20px;
+    }
+
+    .meta {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .note {
+      margin: 6px 0 10px;
+      padding: 6px 8px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      background: #fafcff;
+      font-size: 10px;
+    }
+
+    h2 {
+      margin: 10px 0 6px;
+      font-size: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      margin-bottom: 8px;
+      page-break-inside: avoid;
+    }
+
+    thead th {
+      background: var(--head);
+      border: 1px solid var(--line);
+      padding: 4px 6px;
+      text-align: left;
+      font-size: 10px;
+    }
+
+    tbody td {
+      border: 1px solid var(--line);
+      padding: 3px 6px;
+      vertical-align: top;
+      font-size: 9px;
+    }
+
+    .mode { width: 7%; white-space: nowrap; }
+    .key { width: 18%; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space: nowrap; }
+    .action { width: 44%; }
+    .scope { width: 31%; color: var(--muted); }
+
+    .tag {
+      display: inline-block;
+      padding: 1px 5px;
+      border-radius: 999px;
+      background: #eef4ff;
+      color: #244d84;
+      font-size: 9px;
+      border: 1px solid #d6e2f5;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+
+    .small { font-size: 9px; color: var(--muted); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    @media print {
+      body { padding: 0; }
+      .note { break-inside: avoid; }
+      table, tr, td, th { break-inside: avoid; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Neovim keymaps cheatsheet</h1>
+  <p class="meta">Snapshot courant · Leader = <strong>Space</strong> · A4 paysage</p>
+
+  <div class="note">
+    <strong>Lecture rapide :</strong> mappings chargés au démarrage, puis contextuels/conditionnels.
+  </div>
+
+  <h2>Actifs maintenant</h2>
+  <table>
+    <thead>
+      <tr>
+        <th class="mode">Mode</th>
+        <th class="key">Raccourci</th>
+        <th class="action">Action</th>
+        <th class="scope">Portée / source</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="mode">n</td><td class="key">n</td><td class="action">Résultat de recherche suivant</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">N</td><td class="action">Résultat de recherche précédent</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;C-d&gt;</td><td class="action">Page moitié vers le bas, recentrer</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;C-u&gt;</td><td class="action">Page moitié vers le haut, recentrer</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;nh</td><td class="action">Effacer le surlignage de recherche</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;ui</td><td class="action">Basculer l'affichage des caractères invisibles</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">x</td><td class="key">&lt;leader&gt;p</td><td class="action">Coller sans écraser le yank</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n/v</td><td class="key">&lt;leader&gt;x</td><td class="action">Supprimer sans yanker</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;bn</td><td class="action">Buffer suivant</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;bp</td><td class="action">Buffer précédent</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;C-h&gt;</td><td class="action">Focus split gauche</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;C-j&gt;</td><td class="action">Focus split bas</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;C-k&gt;</td><td class="action">Focus split haut</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;C-l&gt;</td><td class="action">Focus split droite</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;sv</td><td class="action">Split vertical</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;sh</td><td class="action">Split horizontal</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;&amp;</td><td class="action">Aller au tab 1</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;é</td><td class="action">Aller au tab 2</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;&quot;</td><td class="action">Aller au tab 3</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;&#39;</td><td class="action">Aller au tab 4</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;(</td><td class="action">Aller au tab 5</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;-</td><td class="action">Aller au tab 6</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;è</td><td class="action">Aller au tab 7</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;_</td><td class="action">Aller au tab 8</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;ç</td><td class="action">Aller au tab 9</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;à</td><td class="action">Aller au tab 10</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;o</td><td class="action">Ouvrir <code>oil.nvim</code> en fenêtre flottante</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;tt</td><td class="action">Basculer le terminal flottant</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;ff</td><td class="action">Chercher des fichiers</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;fg</td><td class="action">Recherche globale dans le contenu</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;fb</td><td class="action">Lister les buffers</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;fo</td><td class="action">Fichiers récents</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;fh</td><td class="action">Aide / help tags</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;ss</td><td class="action">Symboles du buffer courant</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;sS</td><td class="action">Symboles du workspace</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;sw</td><td class="action">Symboles live du workspace</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;sd</td><td class="action">Définitions</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;sr</td><td class="action">Références</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;si</td><td class="action">Implémentations</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;st</td><td class="action">Types</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;sf</td><td class="action">LSP finder</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;sc</td><td class="action">Code actions</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;sD</td><td class="action">Diagnostics du buffer courant</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;sW</td><td class="action">Diagnostics du workspace</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;sI</td><td class="action">Appels entrants</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;sO</td><td class="action">Appels sortants</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;sU</td><td class="action">Super-types</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;su</td><td class="action">Sous-types</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;gg</td><td class="action">Git status</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;gb</td><td class="action">Git blame</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;gl</td><td class="action">Git log</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;ga</td><td class="action">Git add fichier courant</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;gc</td><td class="action">Git commit</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;gp</td><td class="action">Git push</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;gP</td><td class="action">Git pull</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;gd</td><td class="action">Diff vertical</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;gD</td><td class="action">Diff horizontal</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;gf</td><td class="action">Git fetch</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;gS</td><td class="action">Git stash</td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;pp</td><td class="action">Historique des projets</td><td class="scope">lua/config/plugins/projects.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;ps</td><td class="action">Découvrir les projets</td><td class="scope">lua/config/plugins/projects.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;rr</td><td class="action">Lancer la requête REST</td><td class="scope">lua/config/plugins/rest.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;q</td><td class="action">Lister les diagnostics dans la loclist</td><td class="scope">lua/config/lsp.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">]h</td><td class="action">Hunk suivant</td><td class="scope">lua/config/plugins/git.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">[h</td><td class="action">Hunk précédent</td><td class="scope">lua/config/plugins/git.lua</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;ww</td><td class="action">Supprimer les retours chariot <code>\r</code></td><td class="scope">lua/config/keymaps.lua</td></tr>
+      <tr><td class="mode">v</td><td class="key">&lt;leader&gt;ww</td><td class="action">Supprimer les retours chariot <code>\r</code> dans la sélection</td><td class="scope">lua/config/keymaps.lua</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Buffer-local / contexte</h2>
+  <table>
+    <thead>
+      <tr>
+        <th class="mode">Mode</th>
+        <th class="key">Raccourci</th>
+        <th class="action">Action</th>
+        <th class="scope">Contexte</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="mode">n</td><td class="key">gd</td><td class="action">Définition (via fzf-lua si dispo, sinon LSP)</td><td class="scope">Après <code>LspAttach</code></td></tr>
+      <tr><td class="mode">n</td><td class="key">gD</td><td class="action">Déclaration</td><td class="scope">Après <code>LspAttach</code></td></tr>
+      <tr><td class="mode">n</td><td class="key">gr</td><td class="action">Références (via fzf-lua si dispo, sinon LSP)</td><td class="scope">Après <code>LspAttach</code></td></tr>
+      <tr><td class="mode">n</td><td class="key">gi</td><td class="action">Implémentations (via fzf-lua si dispo, sinon LSP)</td><td class="scope">Après <code>LspAttach</code></td></tr>
+      <tr><td class="mode">n</td><td class="key">K</td><td class="action">Hover</td><td class="scope">Après <code>LspAttach</code></td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;ca</td><td class="action">Code action</td><td class="scope">Après <code>LspAttach</code></td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;rn</td><td class="action">Rename symbol</td><td class="scope">Après <code>LspAttach</code></td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;dl</td><td class="action">Diagnostic flottant</td><td class="scope">Après <code>LspAttach</code></td></tr>
+      <tr><td class="mode">n</td><td class="key">[d</td><td class="action">Diagnostic précédent</td><td class="scope">Après <code>LspAttach</code></td></tr>
+      <tr><td class="mode">n</td><td class="key">]d</td><td class="action">Diagnostic suivant</td><td class="scope">Après <code>LspAttach</code></td></tr>
+      <tr><td class="mode">n</td><td class="key">q</td><td class="action">Fermer le buffer fugitive</td><td class="scope">FileType = <code>fugitive</code></td></tr>
+      <tr><td class="mode">i</td><td class="key">&lt;C-CR&gt;</td><td class="action">Enregistrer et quitter</td><td class="scope">FileType = <code>gitcommit</code></td></tr>
+    </tbody>
+  </table>
+
+  <h2>Conditionnels / non actifs au démarrage</h2>
+  <table>
+    <thead>
+      <tr>
+        <th class="mode">Mode</th>
+        <th class="key">Raccourci</th>
+        <th class="action">Action</th>
+        <th class="scope">Statut</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="mode">n</td><td class="key">&lt;C-=&gt;</td><td class="action">Zoom Neovide +</td><td class="scope">Neovide uniquement</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;C--&gt;</td><td class="action">Zoom Neovide -</td><td class="scope">Neovide uniquement</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;C-0&gt;</td><td class="action">Reset zoom Neovide</td><td class="scope">Neovide uniquement</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;F11&gt;</td><td class="action">Plein écran Neovide</td><td class="scope">Neovide uniquement</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;C-s&gt;</td><td class="action">Sauver le fichier</td><td class="scope">Neovide uniquement</td></tr>
+      <tr><td class="mode">v</td><td class="key">&lt;C-S-c&gt;</td><td class="action">Copier dans le presse-papiers système</td><td class="scope">Neovide uniquement</td></tr>
+      <tr><td class="mode">v</td><td class="key">&lt;C-c&gt;</td><td class="action">Copier dans le presse-papiers système</td><td class="scope">Neovide uniquement</td></tr>
+      <tr><td class="mode">n/v</td><td class="key">&lt;C-S-v&gt;</td><td class="action">Coller depuis le presse-papiers système</td><td class="scope">Neovide uniquement</td></tr>
+      <tr><td class="mode">c</td><td class="key">&lt;C-S-v&gt;</td><td class="action">Coller depuis le presse-papiers système</td><td class="scope">Neovide uniquement</td></tr>
+      <tr><td class="mode">c</td><td class="key">&lt;C-v&gt;</td><td class="action">Coller depuis le presse-papiers système</td><td class="scope">Neovide uniquement</td></tr>
+      <tr><td class="mode">i</td><td class="key">&lt;C-S-v&gt;</td><td class="action">Coller depuis le presse-papiers système</td><td class="scope">Neovide uniquement</td></tr>
+      <tr><td class="mode">i</td><td class="key">&lt;C-v&gt;</td><td class="action">Coller depuis le presse-papiers système</td><td class="scope">Neovide uniquement</td></tr>
+      <tr><td class="mode">t</td><td class="key">&lt;C-S-v&gt;</td><td class="action">Coller depuis le presse-papiers système</td><td class="scope">Neovide uniquement</td></tr>
+      <tr><td class="mode">n/i/v/c/t</td><td class="key">&lt;D-v&gt;</td><td class="action">Coller depuis le presse-papiers système</td><td class="scope">Neovide uniquement</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;F5&gt;</td><td class="action">DAP continue / start</td><td class="scope">Déclaré, mais inactif au bootstrap actuel</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;F10&gt;</td><td class="action">DAP step over</td><td class="scope">Déclaré, mais inactif au bootstrap actuel</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;F11&gt;</td><td class="action">DAP step into</td><td class="scope">Déclaré, mais inactif au bootstrap actuel</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;F12&gt;</td><td class="action">DAP step out</td><td class="scope">Déclaré, mais inactif au bootstrap actuel</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;db</td><td class="action">DAP toggle breakpoint</td><td class="scope">Déclaré, mais inactif au bootstrap actuel</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;dB</td><td class="action">DAP breakpoint conditionnel</td><td class="scope">Déclaré, mais inactif au bootstrap actuel</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;dlp</td><td class="action">DAP log point</td><td class="scope">Déclaré, mais inactif au bootstrap actuel</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;dr</td><td class="action">DAP REPL</td><td class="scope">Déclaré, mais inactif au bootstrap actuel</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;leader&gt;dU</td><td class="action">DAP UI</td><td class="scope">Déclaré, mais inactif au bootstrap actuel</td></tr>
+      <tr><td class="mode">n/v</td><td class="key">&lt;leader&gt;dh</td><td class="action">DAP run to cursor</td><td class="scope">Déclaré, mais inactif au bootstrap actuel</td></tr>
+      <tr><td class="mode">i</td><td class="key">&lt;C-Space&gt;</td><td class="action">Blink completion show/hide</td><td class="scope">Conditionnel selon <code>blink.cmp</code></td></tr>
+      <tr><td class="mode">i</td><td class="key">&lt;CR&gt;</td><td class="action">Accepter la suggestion</td><td class="scope">Conditionnel selon <code>blink.cmp</code></td></tr>
+      <tr><td class="mode">i</td><td class="key">&lt;C-j&gt;</td><td class="action">Sélection suivante</td><td class="scope">Conditionnel selon <code>blink.cmp</code></td></tr>
+      <tr><td class="mode">i</td><td class="key">&lt;C-k&gt;</td><td class="action">Sélection précédente</td><td class="scope">Conditionnel selon <code>blink.cmp</code></td></tr>
+      <tr><td class="mode">i</td><td class="key">&lt;Tab&gt;</td><td class="action">Snippet suivant</td><td class="scope">Conditionnel selon <code>blink.cmp</code></td></tr>
+      <tr><td class="mode">i</td><td class="key">&lt;S-Tab&gt;</td><td class="action">Snippet précédent</td><td class="scope">Conditionnel selon <code>blink.cmp</code></td></tr>
+      <tr><td class="mode">n/x</td><td class="key">&lt;C-a&gt;</td><td class="action">Ask opencode</td><td class="scope">Désactivé (module commenté)</td></tr>
+      <tr><td class="mode">n/x</td><td class="key">&lt;C-x&gt;</td><td class="action">Select opencode</td><td class="scope">Désactivé (module commenté)</td></tr>
+      <tr><td class="mode">n/t</td><td class="key">&lt;C-.&gt;</td><td class="action">Toggle opencode</td><td class="scope">Désactivé (module commenté)</td></tr>
+      <tr><td class="mode">n/x</td><td class="key">go</td><td class="action">Ajouter la plage à opencode</td><td class="scope">Désactivé (module commenté)</td></tr>
+      <tr><td class="mode">n</td><td class="key">goo</td><td class="action">Ajouter la ligne à opencode</td><td class="scope">Désactivé (module commenté)</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;S-C-u&gt;</td><td class="action">Scroll opencode up</td><td class="scope">Désactivé (module commenté)</td></tr>
+      <tr><td class="mode">n</td><td class="key">&lt;S-C-d&gt;</td><td class="action">Scroll opencode down</td><td class="scope">Désactivé (module commenté)</td></tr>
+      <tr><td class="mode">n</td><td class="key">+</td><td class="action">Increment under cursor</td><td class="scope">Désactivé (override dans opencode)</td></tr>
+      <tr><td class="mode">n</td><td class="key">-</td><td class="action">Decrement under cursor</td><td class="scope">Désactivé (override dans opencode)</td></tr>
+    </tbody>
+  </table>
+
+  <p class="small">Astuce maintenance : si tu veux que la section DAP soit réellement active au démarrage, il faut la charger après <code>require("config.plugins")</code> ou la déplacer dans un module plugin. Sinon, elle reste uniquement documentaire ici.</p>
+</body>
+</html>

@@ -65,6 +65,11 @@ vim.pack.add({
   "https://github.com/lunarmodules/lua-mimetypes",
   "https://github.com/rest-nvim/rest.nvim",
   -- "https://github.com/nickjvandyke/opencode.nvim",
+
+  -- Debugging
+  "https://github.com/mfussenegger/nvim-dap",
+  "https://github.com/rcarriga/nvim-dap-ui",
+  "https://github.com/theHamsta/nvim-dap-virtual-text",
 })
 
 require("config.plugins.appearance").setup()
@@ -75,4 +80,5 @@ require("config.plugins.dbui").setup()
 require("config.plugins.git").setup()
 require("config.plugins.fugitive").setup()
 require("config.plugins.rest").setup()
+require("config.plugins.dap").setup()
 -- require("config.plugins.opencode").setup()
