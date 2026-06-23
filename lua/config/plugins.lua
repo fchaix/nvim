@@ -61,6 +61,24 @@ vim.pack.add({
   "https://github.com/rest-nvim/rest.nvim",
   -- "https://github.com/nickjvandyke/opencode.nvim",
 
+  -- AI Coding (avante.nvim)
+  {
+    src = "https://github.com/MunifTanjim/nui.nvim",
+  },
+  "https://github.com/MeanderingProgrammer/render-markdown.nvim",
+  {
+    src = "https://github.com/HakonHarnes/img-clip.nvim",
+  },
+  {
+    src = "https://github.com/saghen/blink.compat",
+  },
+  {
+    src = "https://github.com/yetone/avante.nvim",
+    build = vim.fn.has("win32") == 1
+      and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+      or "make",
+  },
+
   -- Debugging
   "https://github.com/mfussenegger/nvim-dap",
   "https://github.com/rcarriga/nvim-dap-ui",
@@ -75,5 +93,6 @@ require("config.plugins.dbui").setup()
 require("config.plugins.git").setup()
 require("config.plugins.fugitive").setup()
 require("config.plugins.rest").setup()
-require("config.plugins.dap").setup()
+require("config.plugins.dap")
+require("config.plugins.avante").setup()
 -- require("config.plugins.opencode").setup()

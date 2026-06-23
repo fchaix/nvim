@@ -4,10 +4,18 @@
       "rev": "0abc8f390b278c3b4aabc4c004ac8a088b65cf24",
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
+    "avante.nvim": {
+      "rev": "ae1e54093a8e51450208195c6b7c6d2af3083829",
+      "src": "https://github.com/yetone/avante.nvim"
+    },
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
+    },
+    "blink.compat": {
+      "rev": "1454f14a8d855a578ceeba77c62538fa1459a67c",
+      "src": "https://github.com/saghen/blink.compat"
     },
     "codecompanion.nvim": {
       "rev": "b1cbe52ecd71e7b0ed43ac1dc6eb3aab4099db00",
@@ -24,6 +32,10 @@
     "gitsigns.nvim": {
       "rev": "0a80125bace82d82847d40bc2c38a22d62c6dc2d",
       "src": "https://www.github.com/lewis6991/gitsigns.nvim"
+    },
+    "img-clip.nvim": {
+      "rev": "b6ddfb97b5600d99afe3452d707444afda658aca",
+      "src": "https://github.com/HakonHarnes/img-clip.nvim"
     },
     "lua-mimetypes": {
       "rev": "fd2c84d1148e36affb6e9bc39fb4393236959f5a",
@@ -44,6 +56,10 @@
     "neovim-session-manager": {
       "rev": "89d253a6c68af60b49570044591d5b8701866601",
       "src": "https://github.com/Shatur/neovim-session-manager"
+    },
+    "nui.nvim": {
+      "rev": "de740991c12411b663994b2860f1a4fd0937c130",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
     },
     "nvim-dap": {
       "rev": "531771530d4f82ad2d21e436e3cc052d68d7aebb",
@@ -80,6 +96,10 @@
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "render-markdown.nvim": {
+      "rev": "f422cb5c6855f150e2ddcfaf44e7157b98b34f6a",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "rest.nvim": {
       "rev": "714d5512aaec5565d55652480c16c26f8d95645d",

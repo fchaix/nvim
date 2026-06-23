@@ -26,6 +26,13 @@ local ok_blink, blink = pcall(require, "blink.cmp")
 if ok_blink then
   capabilities = blink.get_lsp_capabilities(capabilities)
 
+  -- Sources avante pour blink.cmp (complétion des @mentions, /commandes, fichiers)
+  -- Ces sources ne sont actives que dans le buffer Avante (filetype "Avante").
+  local has_blink_compat, compat = pcall(require, "blink.compat")
+  if has_blink_compat then
+    compat.setup()
+  end
+
   blink.setup({
     keymap = {
       preset = "none",
@@ -38,7 +45,29 @@ if ok_blink then
     },
     appearance = { nerd_font_variant = "mono" },
     completion = { menu = { auto_show = true } },
-    sources = { default = { "lsp", "path", "buffer", "snippets" } },
+    sources = {
+      default = { "lsp", "path", "buffer", "snippets", "avante_commands", "avante_mentions", "avante_files" },
+      providers = {
+        avante_commands = {
+          name = "avante_commands",
+          module = "blink.compat.source",
+          score_offset = 90,
+          opts = {},
+        },
+        avante_files = {
+          name = "avante_files",
+          module = "blink.compat.source",
+          score_offset = 100,
+          opts = {},
+        },
+        avante_mentions = {
+          name = "avante_mentions",
+          module = "blink.compat.source",
+          score_offset = 1000,
+          opts = {},
+        },
+      },
+    },
     snippets = {
       expand = function(snippet)
         require("luasnip").lsp_expand(snippet)
