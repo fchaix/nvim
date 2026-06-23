@@ -6,15 +6,6 @@ local function in_git_repo()
 end
 
 local function goto_or_create_tab(n)
-  if n == 10 then
-    if vim.fn.tabpagenr("$") >= 10 then
-      vim.cmd("tabnext 10")
-    else
-      vim.cmd("tabnew")
-    end
-    return
-  end
-
   if n <= vim.fn.tabpagenr("$") then
     vim.cmd(n .. "tabnext")
   else
@@ -181,5 +172,5 @@ end
 map("t", "<Esc>", "<C-\\><C-n>", { desc = "Terminal normal mode" })
 
 
-vim.keymap.set('n', '<leader>ww', ':%s/\\r//g<CR>', { desc = 'Supprimer les retours chariot \\r' })
-vim.keymap.set('v', '<leader>ww', ':s/\\r//g<CR>', { desc = 'Supprimer \\r dans la sélection' })
+map('n', '<leader>ww', ':%s/\\r//g<CR>', { desc = 'Supprimer les retours chariot \\r' })
+map('v', '<leader>ww', ':s/\\r//g<CR>', { desc = 'Supprimer \\r dans la sélection' })

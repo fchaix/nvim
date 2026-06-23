@@ -1,37 +1,24 @@
 -- lua/utils/fix-encoding.lua
-local M = {}
+local mojibake = {
+  ['├á'] = 'à', ['├⌐'] = 'é', ['├¿'] = 'è', ['├®'] = 'é',
+  ['├¬'] = 'ê', ['├┤'] = 'ô', ['├╗'] = 'û', ['├╝'] = 'ü',
+  ['├»'] = 'ï', ['├ª'] = 'æ', ['├╢'] = 'ö', ['├╡'] = 'õ',
+  ['ÔÇö'] = '—', ['ÔÇÿ'] = '‘', ['ÔÇÖ'] = '’',
+  ['ÔÇ£'] = '“', ['ÔÇ¥'] = '”', ['├é'] = 'Â',
+}
 
-function M.fix_encoding()
+vim.api.nvim_create_user_command('FixEncoding', function()
   local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
-  local fixed_lines = {}
+  local fixed = {}
 
   for _, line in ipairs(lines) do
-    local fixed = line
-    :gsub('├á', 'à')
-    :gsub('├⌐', 'é')
-    :gsub('├¿', 'è')
-    :gsub('├®', 'é')
-    :gsub('├¬', 'ê')
-    :gsub('├┤', 'ô')
-    :gsub('├╗', 'û')
-    :gsub('├╝', 'ü')
-    :gsub('├»', 'ï')
-    :gsub('├ª', 'æ')
-    :gsub('├╢', 'ö')
-    :gsub('├╡', 'õ')
-    :gsub('ÔÇö', '—')
-    :gsub('ÔÇÿ', '‘')
-    :gsub('ÔÇÖ', '’')
-    :gsub('ÔÇ£', '“')
-    :gsub('ÔÇ¥', '”')
-    :gsub('├é', 'Â')
-    table.insert(fixed_lines, fixed)
+    local result = line
+    for bad, good in pairs(mojibake) do
+      result = result:gsub(bad, good)
+    end
+    table.insert(fixed, result)
   end
 
-  vim.api.nvim_buf_set_lines(0, 0, -1, false, fixed_lines)
+  vim.api.nvim_buf_set_lines(0, 0, -1, false, fixed)
   vim.notify("Encoding fixed!", vim.log.levels.INFO)
-end
-
-vim.api.nvim_create_user_command('FixEncoding', M.fix_encoding, {})
-
-return M
+end, {})

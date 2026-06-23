@@ -2,7 +2,7 @@ local helper = require("config.plugins.helpers")
 
 local M = {}
 
-local netcoredbg_path = vim.fn.stdpath("data") .. "/netcoredbg/netcoredbg"
+local netcoredbg_path = vim.fs.joinpath(vim.fn.stdpath("data"), "netcoredbg", "netcoredbg")
 
 function M.setup()
   -- ── nvim-dap ──

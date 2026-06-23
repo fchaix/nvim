@@ -4,16 +4,11 @@ if not vim.pack then
 end
 
 local function configure_pack_git_eol()
-  if vim.g._pack_git_eol_configured then
-    return
-  end
-
   local eol_policy = vim.fn.has("win32") == 1 and "true" or "input"
   local count = tonumber(vim.env.GIT_CONFIG_COUNT or "0") or 0
   vim.env["GIT_CONFIG_KEY_" .. count] = "core.autocrlf"
   vim.env["GIT_CONFIG_VALUE_" .. count] = eol_policy
   vim.env.GIT_CONFIG_COUNT = tostring(count + 1)
-  vim.g._pack_git_eol_configured = true
 end
 
 configure_pack_git_eol()

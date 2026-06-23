@@ -7,9 +7,6 @@ function M.setup()
     -- Format du message de commit : sur une seule ligne dans la preview
     vim.g.fugitive_summary_format = "(%aD) %s"
 
-    -- Ouvrir le commit sous le curseur dans un onglet vertical
-    vim.g.fugitive_open_commit = "vert topleft"
-
     -- Toujours utiliser des splits horizontaux pour :Git
     vim.g.fugitive_dynamic_width = 0
 

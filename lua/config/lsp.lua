@@ -89,12 +89,6 @@ vim.lsp.config("roslyn", {
   },
 })
 
-vim.lsp.config("pyright", {})
-vim.lsp.config("bashls", {})
-vim.lsp.config("ts_ls", {})
-vim.lsp.config("gopls", {})
-vim.lsp.config("clangd", {})
-
 local augroup = vim.api.nvim_create_augroup("UserLsp", { clear = true })
 
 vim.api.nvim_create_autocmd("LspAttach", {
