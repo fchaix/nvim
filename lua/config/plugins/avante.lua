@@ -59,7 +59,7 @@ function M.setup()
           },
         },
         --- Deepseek V4 Pro — plus puissant (raisonnement complexe), via $DEEPSEEK_API_KEY
-        deepseek-pro = {
+        ["deepseek-pro"] = {
           __inherited_from = "openai",
           api_key_name = "DEEPSEEK_API_KEY",
           endpoint = "https://api.deepseek.com",
