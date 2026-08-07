@@ -33,11 +33,26 @@ function M.setup()
       let g:dadbod_url_transform = 'SQLServerTransform'
     ]])
 
+    local function is_dbui_buffer(bufnr)
+      local bufname = vim.api.nvim_buf_get_name(bufnr)
+      if bufname == "" or bufname:match("%.dbout$") then
+        return false
+      end
+
+      local normalized_name = vim.fs.normalize(bufname)
+      local normalized_dbui_dir = vim.fs.normalize(dbui_dir)
+      if normalized_name:sub(1, #normalized_dbui_dir) == normalized_dbui_dir then
+        return true
+      end
+
+      local bufvars = vim.b[bufnr]
+      return bufvars.db ~= nil or bufvars.dbui_table_name ~= nil or bufvars.dbui_schema_name ~= nil
+    end
+
     vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
       pattern = "*.sql",
       callback = function(args)
-        local bufname = vim.api.nvim_buf_get_name(args.buf)
-        if bufname:match("%.dbout$") then
+        if not is_dbui_buffer(args.buf) then
           return
         end
 
