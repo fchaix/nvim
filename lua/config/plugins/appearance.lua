@@ -3,7 +3,26 @@ local helper = require("config.plugins.helpers")
 local M = {}
 
 function M.setup()
-  pcall(vim.cmd.colorscheme, "solarized")
+  -- Compline Dark (Joshua Blais) — same palette as NixOS Stylix base16Scheme
+  -- https://joshblais.com/blog/compline-a-colorscheme-for-deep-contemplation-and-work/
+  require("base16-colorscheme").setup({
+    base00 = "#1a1d21", -- bg
+    base01 = "#22262b", -- bg-alt
+    base02 = "#282c34", -- selection
+    base03 = "#3d424a", -- comments
+    base04 = "#515761", -- dark fg / status bars
+    base05 = "#f0efeb", -- fg
+    base06 = "#8b919a", -- light fg
+    base07 = "#e0dcd4", -- light bg
+    base08 = "#cdacac", -- red
+    base09 = "#ccc4b4", -- orange
+    base0A = "#d4ccb4", -- yellow
+    base0B = "#b8c4b8", -- green
+    base0C = "#b4c0c8", -- cyan
+    base0D = "#b4bcc4", -- blue
+    base0E = "#b4c4bc", -- teal
+    base0F = "#98a4ac", -- dark-cyan
+  })
   vim.api.nvim_set_hl(0, "Whitespace", { link = "Comment" })
   vim.api.nvim_set_hl(0, "NonText", { link = "Comment" })
   vim.api.nvim_set_hl(0, "SpecialKey", { link = "Comment" })

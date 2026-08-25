@@ -8,6 +8,10 @@
       "rev": "ae1e54093a8e51450208195c6b7c6d2af3083829",
       "src": "https://github.com/yetone/avante.nvim"
     },
+    "base16-nvim": {
+      "rev": "09944b3120451d2881dc8cfb13c85c11949f477d",
+      "src": "https://github.com/RRethy/base16-nvim"
+    },
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/saghen/blink.cmp",
@@ -108,10 +112,6 @@
     "roslyn.nvim": {
       "rev": "90d43d35f0ebb5ecf1df734194cb568a162de4cb",
       "src": "https://github.com/seblyng/roslyn.nvim"
-    },
-    "solarized.nvim": {
-      "rev": "c0dfe1cbfabd93b546baf5f1408f5df7e02e2050",
-      "src": "https://www.github.com/maxmx03/solarized.nvim"
     },
     "toggleterm.nvim": {
       "rev": "50ea089fc548917cc3cc16b46a8211833b9e3c7c",

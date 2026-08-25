@@ -51,7 +51,7 @@ vim.pack.add({
     branch = "main",
     build = ":TSUpdate",
   },
-  "https://github.com/maxmx03/solarized.nvim",
+  "https://github.com/RRethy/base16-nvim",
   "https://github.com/tpope/vim-fugitive",
   -- rest.nvim Lua runtime deps: fidget (progress), nvim-nio (async), xml2lua (XML bodies), lua-mimetypes (MIME types)
   "https://github.com/j-hui/fidget.nvim",
