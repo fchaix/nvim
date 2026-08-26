@@ -174,3 +174,5 @@ map("t", "<Esc>", "<C-\\><C-n>", { desc = "Terminal normal mode" })
 
 map('n', '<leader>ww', ':%s/\\r//g<CR>', { desc = 'Supprimer les retours chariot \\r' })
 map('v', '<leader>ww', ':s/\\r//g<CR>', { desc = 'Supprimer \\r dans la sélection' })
+map('n', '<leader>we', '<cmd>FixEncoding<CR>', { desc = 'Réparer le texte mal encodé' })
+map('v', '<leader>we', ":<C-u>'<,'>FixEncoding<CR>", { desc = 'Réparer le texte mal encodé (sélection)' })

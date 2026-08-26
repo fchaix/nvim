@@ -101,6 +101,7 @@ Roslyn is intentionally excluded from automatic format-on-save.
 - `<F5>` / `<F10>` / `<F11>` / `<F12>`: DAP continue / step over / step into / step out
 - `<leader>db` / `<leader>dB` / `<leader>dlp` / `<leader>dr` / `<leader>dU`: DAP breakpoints / REPL / UI
 - `<leader>ww`: strip `\r` from the buffer or selection
+- `<leader>we`: fix common mojibake in the buffer or visual selection
 - `<leader>&` to `<leader>à`: jump to AZERTY tab positions 1 to 10
 
 ## Validation
