@@ -1,3 +1,4 @@
+vim.opt.background = "light"
 vim.opt.termguicolors = true
 
 vim.opt.number = true

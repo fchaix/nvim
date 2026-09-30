@@ -2,27 +2,55 @@ local helper = require("config.plugins.helpers")
 
 local M = {}
 
+local palettes = {
+  dark = {
+    base00 = "#1a1d21", base01 = "#22262b", base02 = "#282c34", base03 = "#3d424a",
+    base04 = "#515761", base05 = "#f0efeb", base06 = "#8b919a", base07 = "#e0dcd4",
+    base08 = "#cdacac", base09 = "#ccc4b4", base0A = "#d4ccb4", base0B = "#b8c4b8",
+    base0C = "#b4c0c8", base0D = "#b4bcc4", base0E = "#b4c4bc", base0F = "#98a4ac",
+  },
+  light = {
+    base00 = "#f0efeb", base01 = "#e0dcd4", base02 = "#e5e3e0", base03 = "#b8b5b0",
+    base04 = "#9a9791", base05 = "#1a1d21", base06 = "#5f5c58", base07 = "#2d2a27",
+    base08 = "#8b6666", base09 = "#7a6d5a", base0A = "#8b7e52", base0B = "#5a6b5a",
+    base0C = "#64757d", base0D = "#5a6b7a", base0E = "#4d6b6b", base0F = "#546470",
+  },
+}
+
+local function apply_colorscheme()
+  local colors = palettes[vim.o.background]
+  require("base16-colorscheme").setup(colors)
+  -- base16-nvim colors the gutter explicitly; reapply these after every switch
+  -- so line numbers and signs always follow the active palette.
+  vim.api.nvim_set_hl(0, "LineNr", { fg = colors.base04, bg = colors.base00 })
+  vim.api.nvim_set_hl(0, "LineNrAbove", { link = "LineNr" })
+  vim.api.nvim_set_hl(0, "LineNrBelow", { link = "LineNr" })
+  vim.api.nvim_set_hl(0, "SignColumn", { fg = colors.base04, bg = colors.base00 })
+  vim.api.nvim_set_hl(0, "CursorLineNr", { fg = colors.base04, bg = colors.base01 })
+end
+
 function M.setup()
-  -- Compline Dark (Joshua Blais) — same palette as NixOS Stylix base16Scheme
+  -- Compline (dark) and Lauds (light), Joshua Blais.
   -- https://joshblais.com/blog/compline-a-colorscheme-for-deep-contemplation-and-work/
-  require("base16-colorscheme").setup({
-    base00 = "#1a1d21", -- bg
-    base01 = "#22262b", -- bg-alt
-    base02 = "#282c34", -- selection
-    base03 = "#3d424a", -- comments
-    base04 = "#515761", -- dark fg / status bars
-    base05 = "#f0efeb", -- fg
-    base06 = "#8b919a", -- light fg
-    base07 = "#e0dcd4", -- light bg
-    base08 = "#cdacac", -- red
-    base09 = "#ccc4b4", -- orange
-    base0A = "#d4ccb4", -- yellow
-    base0B = "#b8c4b8", -- green
-    base0C = "#b4c0c8", -- cyan
-    base0D = "#b4bcc4", -- blue
-    base0E = "#b4c4bc", -- teal
-    base0F = "#98a4ac", -- dark-cyan
+  vim.api.nvim_create_autocmd("OptionSet", {
+    pattern = "background",
+    callback = apply_colorscheme,
   })
+  apply_colorscheme()
+  local themes = { compline = "dark", lauds = "light" }
+  vim.api.nvim_create_user_command("Theme", function(opts)
+    local background = themes[opts.args]
+    if not background then
+      error("Theme must be 'compline' or 'lauds'")
+    end
+    vim.o.background = background
+    apply_colorscheme()
+  end, { nargs = 1, complete = function() return { "compline", "lauds" } end })
+  vim.api.nvim_create_user_command("ThemeToggle", function()
+    vim.o.background = vim.o.background == "dark" and "light" or "dark"
+    apply_colorscheme()
+  end, { desc = "Toggle between Compline and Lauds" })
+
   vim.api.nvim_set_hl(0, "Whitespace", { link = "Comment" })
   vim.api.nvim_set_hl(0, "NonText", { link = "Comment" })
   vim.api.nvim_set_hl(0, "SpecialKey", { link = "Comment" })
