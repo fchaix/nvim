@@ -176,3 +176,21 @@ map('n', '<leader>ww', ':%s/\\r//g<CR>', { desc = 'Supprimer les retours chariot
 map('v', '<leader>ww', ':s/\\r//g<CR>', { desc = 'Supprimer \\r dans la sélection' })
 map('n', '<leader>we', '<cmd>FixEncoding<CR>', { desc = 'Réparer le texte mal encodé' })
 map('v', '<leader>we', ":<C-u>'<,'>FixEncoding<CR>", { desc = 'Réparer le texte mal encodé (sélection)' })
+
+local function quote_lines(first, last)
+  local lines = vim.api.nvim_buf_get_lines(0, first - 1, last, false)
+  for i, line in ipairs(lines) do
+    lines[i] = "> " .. line
+  end
+  vim.api.nvim_buf_set_lines(0, first - 1, last, false, lines)
+end
+
+map('n', '<leader>qq', function()
+  quote_lines(vim.fn.line('.'), vim.fn.line('$'))
+end, { desc = 'Citer jusqu\'à la fin du document' })
+
+map('x', '<leader>qq', function()
+  local first = vim.fn.line('v')
+  local last = vim.fn.line('.')
+  quote_lines(math.min(first, last), math.max(first, last))
+end, { desc = 'Citer la sélection' })
