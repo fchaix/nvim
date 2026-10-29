@@ -44,6 +44,7 @@ if ok_blink then
       ["<S-Tab>"] = { "snippet_backward", "fallback" },
     },
     appearance = { nerd_font_variant = "mono" },
+    fuzzy = vim.fn.has("win32") == 1 and { implementation = "lua" } or nil,
     completion = { menu = { auto_show = true } },
     sources = {
       default = { "lsp", "path", "buffer", "snippets", "avante_commands", "avante_mentions", "avante_files" },
