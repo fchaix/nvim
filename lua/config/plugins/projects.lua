@@ -11,6 +11,7 @@ function M.setup()
       projects = local_config.projects,
       patterns = { ".git", "package.json", "*.sln", "Makefile" },
       datapath = vim.fn.stdpath("data"),
+      last_session_on_startup = false,
       silent_chdir = false,
       picker = {
         type = "fzf-lua",
