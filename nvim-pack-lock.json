@@ -31,11 +31,11 @@
     },
     "fzf-lua": {
       "rev": "3b01dc83a893749f5ae4639f1aa0af523821840a",
-      "src": "https://www.github.com/ibhagwan/fzf-lua"
+      "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
       "rev": "0a80125bace82d82847d40bc2c38a22d62c6dc2d",
-      "src": "https://www.github.com/lewis6991/gitsigns.nvim"
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "img-clip.nvim": {
       "rev": "b6ddfb97b5600d99afe3452d707444afda658aca",
@@ -51,7 +51,7 @@
     },
     "mini.nvim": {
       "rev": "439cdcd6992bc9012efd7d8ed7a7b7a0f1fac32a",
-      "src": "https://www.github.com/echasnovski/mini.nvim"
+      "src": "https://github.com/echasnovski/mini.nvim"
     },
     "neovim-project": {
       "rev": "f4e9b3392dc46b6e615b629a40ea4fa47cc2a203",
@@ -79,7 +79,7 @@
     },
     "nvim-lspconfig": {
       "rev": "841c6d4139aedb8a3f2baf30cef5327371385b93",
-      "src": "https://www.github.com/neovim/nvim-lspconfig"
+      "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
       "rev": "21f5324bfac14e22ba26553caf69ec76ae8a7662",
@@ -112,6 +112,10 @@
     "roslyn.nvim": {
       "rev": "90d43d35f0ebb5ecf1df734194cb568a162de4cb",
       "src": "https://github.com/seblyng/roslyn.nvim"
+    },
+    "solarized.nvim": {
+      "rev": "a8085e29883ddcfb39bd46197eb32ef00df05368",
+      "src": "https://github.com/maxmx03/solarized.nvim"
     },
     "toggleterm.nvim": {
       "rev": "50ea089fc548917cc3cc16b46a8211833b9e3c7c",
