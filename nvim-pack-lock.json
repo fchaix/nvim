@@ -49,6 +49,14 @@
       "rev": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d",
       "src": "https://github.com/williamboman/mason.nvim"
     },
+    "mega.cmdparse": {
+      "rev": "47ea5b1b23059fbb79a8e262002f32e7cd8aed90",
+      "src": "https://github.com/ColinKennedy/mega.cmdparse"
+    },
+    "mega.logging": {
+      "rev": "194ad8c300186e73c3eb1ebeb3ede42eb219be3b",
+      "src": "https://github.com/ColinKennedy/mega.logging"
+    },
     "mini.nvim": {
       "rev": "a03ad899bda446b5a81cfa99d8aeeb92241522f3",
       "src": "https://github.com/echasnovski/mini.nvim"

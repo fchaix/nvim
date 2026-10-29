@@ -66,6 +66,8 @@ vim.pack.add({
     src = "https://github.com/MunifTanjim/nui.nvim",
   },
   "https://github.com/MeanderingProgrammer/render-markdown.nvim",
+  "https://github.com/ColinKennedy/mega.logging",
+  "https://github.com/ColinKennedy/mega.cmdparse",
   {
     src = "https://github.com/HakonHarnes/img-clip.nvim",
   },
